@@ -7,7 +7,7 @@ export function Footer() {
   const isPortfolio = router.state.location.pathname === "/portfolio";
   return (
     <footer className="relative mt-32 border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 md:grid-cols-5 items-center">
+      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold">
             Cod<span className="text-gradient">rithm</span>
@@ -38,7 +38,7 @@ export function Footer() {
             <li><a href="#" className="hover:text-foreground">LinkedIn</a></li>
           </ul>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-center sm:justify-end">
           {isPortfolio ? <PortfolioSocialCard /> : <ContactCard />}
         </div>
       </div>

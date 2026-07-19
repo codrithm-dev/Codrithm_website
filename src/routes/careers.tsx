@@ -40,8 +40,8 @@ function Careers() {
       <Section>
         <Eyebrow>Growth path</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Your trajectory, engineered.</h2>
-        <div className="mt-12 glass-strong rounded-3xl p-8 overflow-x-auto">
-          <div className="relative flex items-center gap-4 min-w-[720px]">
+        <div className="mt-12 glass-strong rounded-3xl p-6 sm:p-8 overflow-x-auto -mx-6 sm:mx-0">
+          <div className="relative flex items-center gap-3 sm:gap-4 min-w-[600px] sm:min-w-[720px] px-4 sm:px-0">
             <div className="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-px" style={{ background: "linear-gradient(90deg, #87FFBC, #0066FF)" }} />
             {LADDER.map((step, i) => (
               <motion.div

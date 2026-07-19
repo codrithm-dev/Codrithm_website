@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
 
 const LogoScene = lazy(() => import("../components/LogoScene").then(m => ({ default: m.LogoScene })));
+const SplashCursorController = lazy(() => import("../components/SplashCursorController").then(m => ({ default: m.SplashCursorController })));
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -52,6 +53,9 @@ const TEAM = [
 function Home() {
   return (
     <>
+      <Suspense fallback={null}>
+        <SplashCursorController />
+      </Suspense>
       {/* HERO */}
       <section className="relative overflow-hidden" data-hero-3d>
         <div className="mx-auto max-w-7xl px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[80vh]">

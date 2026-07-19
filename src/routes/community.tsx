@@ -63,7 +63,7 @@ function Community() {
             <button key={c} onClick={() => setCat(c)} className={cat === c ? "btn-neon btn-neon-hover !py-2 !px-4 text-sm" : "btn-ghost-neon !py-2 !px-4 text-sm"}>{c}</button>
           ))}
         </div>
-        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p, i) => (
             <Reveal key={p.t} delay={(i % 3) * 0.05}>
               <TiltCard className="h-full">

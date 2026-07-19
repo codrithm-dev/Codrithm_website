@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { BackgroundFX } from "../components/BackgroundFX";
-import { SplashCursorController } from "../components/SplashCursorController";
 
 function NotFoundComponent() {
   return (
@@ -75,6 +74,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/codrithm-logo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preload", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap", as: "style" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" },
     ],
   }),
@@ -98,7 +98,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <BackgroundFX />
-      <SplashCursorController />
       <Navbar />
       <main className="pt-24">
         <Outlet />

@@ -120,12 +120,6 @@ function Contact() {
           </div>
         </div>
       </Section>
-
-      <style>{`
-        .input { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 14px; font-size: 14px; outline: none; transition: all .2s; color: inherit; }
-        .input:focus { border-color: #87FFBC; box-shadow: 0 0 0 3px rgba(135,255,188,0.15); }
-        .input::placeholder { color: rgb(255 255 255 / 40%); }
-      `}</style>
     </>
   );
 }
