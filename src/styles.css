@@ -185,7 +185,12 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 @utility animate-float { animation: float-y 6s ease-in-out infinite; }
+@utility animate-marquee { animation: 40s linear infinite marquee-scroll; }
 
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {

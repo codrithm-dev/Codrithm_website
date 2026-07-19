@@ -145,30 +145,33 @@ function Home() {
         </div>
       </Section>
 
-      {/* FEATURED PROJECTS */}
+      {/* FEATURED PROJECTS - MARQUEE */}
       <Section>
         <Eyebrow>Featured Work</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Selected projects.</h2>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {PROJECTS.map((p, i) => (
-            <Reveal key={p.name} delay={i * 0.05}>
-              <TiltCard>
-                <div className="aspect-[16/10] rounded-2xl relative overflow-hidden bg-[color:var(--card)]">
-                  <img src={p.img} alt={p.name} loading="lazy" width={1280} height={1280} className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-transparent" />
-                  <div className="absolute inset-0 grid-lines opacity-30" />
-                  <div className="absolute top-4 left-4 glass rounded-full px-3 py-1 text-[10px] font-mono tracking-widest">{p.tag}</div>
+        <div className="mt-12 relative -mx-6 px-6" style={{ maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)" }}>
+          <div className="flex gap-7 w-max hover:[animation-play-state:paused] animate-marquee">
+            {[...PROJECTS, ...PROJECTS].map((p, i) => (
+              <button
+                key={`${p.name}-${i}`}
+                className="w-[340px] sm:w-[420px] h-[240px] sm:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
+                onClick={() => {}}
+              >
+                <img src={p.img} alt={p.name} loading="lazy" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover object-top" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, transparent 40%, oklch(0.14 0.02 265 / 0.88) 100%)" }} />
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[color:var(--background)]/60 border border-[color:var(--border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
                 </div>
-                <div className="mt-5 flex items-end justify-between">
-                  <div>
-                    <div className="font-display text-xl font-semibold">{p.name}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{p.meta}</div>
-                  </div>
-                  <Link to="/portfolio" className="text-sm text-[color:var(--neon-green)] hover:underline">Case study →</Link>
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">{p.tag}</div>
+                  <div className="text-lg font-black text-[color:var(--foreground)] leading-tight">{p.name}</div>
                 </div>
-              </TiltCard>
-            </Reveal>
-          ))}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="mt-10 text-center">
+          <Link to="/portfolio" className="btn-ghost-neon">See all projects →</Link>
         </div>
       </Section>
 
