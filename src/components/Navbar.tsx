@@ -1,18 +1,22 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MiniLogo } from "./LogoScene";
+import { ThemeToggle } from "./ThemeToggle";
 
 
 const NAV = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
-  { to: "/community", label: "Community" },
-  { to: "/careers", label: "Careers" },
+  { to: "/portfolio", label: "Projects" },
   { to: "/contact", label: "Contact" },
+  { to: "/about", label: "About" },
 ] as const;
+
+function scrollToTeam(e: React.MouseEvent) {
+  e.preventDefault();
+  const el = document.getElementById("team");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
 
 export function Navbar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -36,7 +40,7 @@ export function Navbar() {
       <div className={`mx-auto max-w-7xl px-4 sm:px-6`}>
         <nav className={`glass-strong flex items-center justify-between rounded-full pl-3 pr-2 ${scrolled ? "py-1.5" : "py-2"} transition-all`}>
           <Link to="/" className="flex items-center gap-2 group">
-            <MiniLogo />
+            <img src="/codrithm-logo.png" alt="Codrithm" className="w-9 h-9 object-contain" />
             <span className="font-display font-bold tracking-tight text-lg">
               Cod<span className="text-gradient">rithm</span>
             </span>
@@ -66,9 +70,19 @@ export function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <a
+                href="/#team"
+                onClick={scrollToTeam}
+                className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Team
+              </a>
+            </li>
           </ul>
           <div className="flex items-center gap-2">
-            <Link to="/contact" className="btn-neon btn-neon-hover hidden sm:inline-flex">Start a project</Link>
+            <Link to="/contact" className="btn-neon btn-neon-hover hidden sm:inline-flex">Work with us</Link>
+            <ThemeToggle />
             <button aria-label="Menu" onClick={() => setOpen(!open)} className="lg:hidden btn-ghost-neon !px-3 !py-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
@@ -87,6 +101,15 @@ export function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <a
+                href="/#team"
+                onClick={(e) => { scrollToTeam(e); setOpen(false); }}
+                className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
+              >
+                Team
+              </a>
+            </li>
           </motion.ul>
         )}
       </div>

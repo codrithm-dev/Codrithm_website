@@ -30,7 +30,7 @@ export function ThemeToggle() {
     <button
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       onClick={toggle}
-      className="btn-ghost-neon !px-3 !py-2 relative"
+      className="w-10 h-10 rounded-full flex items-center justify-center glass-strong text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
     >
       <motion.span
         key={theme}

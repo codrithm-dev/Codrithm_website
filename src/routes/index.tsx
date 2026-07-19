@@ -216,7 +216,7 @@ function Home() {
       </Section>
 
       {/* OUR TEAM */}
-      <Section>
+      <Section id="team">
         <Eyebrow>Our Team</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">The people behind the magic.</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
