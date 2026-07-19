@@ -53,7 +53,7 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative" data-hero-3d>
+      <section className="relative overflow-hidden" data-hero-3d>
         <div className="mx-auto max-w-7xl px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
           <div>
             <Eyebrow>AI · ML · Software Engineering</Eyebrow>
