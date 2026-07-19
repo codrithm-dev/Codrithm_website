@@ -40,7 +40,7 @@ export function Navbar() {
       <div className={`mx-auto max-w-7xl px-4 sm:px-6`}>
         <nav className={`glass-strong flex items-center justify-between rounded-full pl-3 pr-2 ${scrolled ? "py-1.5" : "py-2"} transition-all`}>
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="/codrithm-logo.png" alt="Codrithm" className="w-9 h-9 object-contain" />
+            <img src="/codrithm-logo.png" alt="Codrithm" className="w-9 h-9 rounded-full object-cover" />
             <span className="font-display font-bold tracking-tight text-lg">
               Cod<span className="text-gradient">rithm</span>
             </span>
