@@ -4,11 +4,9 @@ import { Suspense, useLayoutEffect, useRef, useState, useMemo } from "react";
 import * as THREE from "three";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 import { useIsMobile } from "@/hooks/use-mobile";
-import desktopAsset from "@/assets/codrithm-logo-desktop.glb.asset.json";
-import mobileAsset from "@/assets/codrithm-logo-mobile.glb.asset.json";
 
-const DESKTOP_URL = desktopAsset.url;
-const MOBILE_URL = mobileAsset.url;
+const DESKTOP_URL = "/codrithm-logo-desktop.glb";
+const MOBILE_URL = "/codrithm-logo-mobile.glb";
 
 // Configure Meshopt decoder for compressed GLBs
 const configureLoader = (loader: { setMeshoptDecoder: (d: unknown) => void }) => {
