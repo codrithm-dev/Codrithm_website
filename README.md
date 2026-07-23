@@ -92,6 +92,20 @@ Codrithm is a global studio of engineers, researchers and designers building pre
 4. **Open in browser**
    Navigate to `http://localhost:3000`
 
+### 🚀 Run Locally
+
+To run the website locally, use one of these commands:
+
+```bash
+# Using npm (recommended)
+npm run dev
+
+# Using Bun
+bun dev
+```
+
+This will start the Vite development server with hot reload enabled.
+
 ## 🏗️ Project Structure
 
 ```

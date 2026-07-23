@@ -88,7 +88,7 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
       <head><HeadContent /></head>
-      <body>{children}<Scripts /></body>
+      <body className="overflow-x-hidden">{children}<Scripts /></body>
     </html>
   );
 }
@@ -97,9 +97,12 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[color:var(--neon-green)] focus:text-[color:var(--primary-foreground)] focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--neon-green)]">
+        Skip to content
+      </a>
       <BackgroundFX />
       <Navbar />
-      <main className="pt-24">
+      <main id="main-content" className="pt-24">
         <Outlet />
       </main>
       <Footer />

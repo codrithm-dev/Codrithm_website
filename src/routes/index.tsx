@@ -56,8 +56,8 @@ function Home() {
       <Suspense fallback={null}>
         <SplashCursorController />
       </Suspense>
-      {/* HERO */}
-      <section className="relative overflow-hidden" data-hero-3d>
+      {/* HERO - id="home" */}
+      <section id="home" className="relative overflow-hidden" data-hero-3d>
         <div className="mx-auto max-w-7xl px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
           <div>
             <Eyebrow>AI · ML · Software Engineering</Eyebrow>
@@ -81,7 +81,7 @@ function Home() {
               className="mt-8 flex flex-wrap gap-3"
             >
               <Link to="/services" className="btn-neon btn-neon-hover">Explore Services →</Link>
-              <Link to="/community" className="btn-ghost-neon">Join Community</Link>
+              <Link to="/contact" className="btn-ghost-neon">Get in Touch</Link>
             </motion.div>
             <div className="mt-12 grid grid-cols-3 gap-3 max-w-md">
               <Stat value="120+" label="Projects" />
@@ -98,8 +98,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ABOUT PREVIEW */}
-      <Section>
+      {/* ABOUT - id="about" */}
+      <Section id="about">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <Eyebrow>About</Eyebrow>
@@ -123,8 +123,8 @@ function Home() {
         </div>
       </Section>
 
-      {/* SERVICES */}
-      <Section>
+      {/* SERVICES - id="services" */}
+      <Section id="services">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <Eyebrow>Services</Eyebrow>
@@ -145,11 +145,11 @@ function Home() {
         </div>
       </Section>
 
-      {/* FEATURED PROJECTS - MARQUEE */}
-      <Section>
+      {/* PROJECTS - id="projects" */}
+      <Section id="projects">
         <Eyebrow>Featured Work</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Selected projects.</h2>
-        <div className="mt-12 relative -mx-6 px-6" style={{ maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)" }}>
+        <div className="mt-12 relative overflow-hidden" style={{ maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)" }}>
           <div className="flex gap-7 w-max hover:[animation-play-state:paused] animate-marquee">
             {[...PROJECTS, ...PROJECTS].map((p, i) => (
               <button
@@ -175,54 +175,7 @@ function Home() {
         </div>
       </Section>
 
-      {/* COMMUNITY STATS */}
-      <Section>
-        <div className="glass-strong rounded-[2rem] p-10 sm:p-14 relative overflow-hidden">
-          <div className="absolute inset-0 grid-lines opacity-30" />
-          <div className="relative grid gap-8 lg:grid-cols-2 items-center">
-            <div>
-              <Eyebrow>Community</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold">A global network of builders.</h2>
-              <p className="mt-4 text-muted-foreground max-w-lg">
-                12,000+ engineers, researchers and founders shipping AI in public.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[["12K+","Members"],["320","Events"],["8.4M","Downloads"],["40+","OSS Repos"]].map(([v,l]) => (
-                <Stat key={l} value={v} label={l} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* TESTIMONIALS */}
-      <Section>
-        <Eyebrow>Testimonials</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Trusted by teams that ship.</h2>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {[
-            { q: "Codrithm delivered our LLM platform in half the time we planned. Rare team.", a: "Priya S.", r: "CTO, Nova Labs" },
-            { q: "The most thoughtful engineers we've partnered with. Design and depth.", a: "Marc D.", r: "VP Eng, Helios" },
-            { q: "They turned a prototype into a product our board demoed on stage.", a: "Aiko T.", r: "Founder, Rill" },
-          ].map((t, i) => (
-            <Reveal key={i} delay={i * 0.06}>
-              <TiltCard>
-                <p className="text-sm leading-relaxed">"{t.q}"</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full" style={{ background: "linear-gradient(135deg, #87FFBC, #0066FF)" }} />
-                  <div>
-                    <div className="text-sm font-semibold">{t.a}</div>
-                    <div className="text-xs text-muted-foreground">{t.r}</div>
-                  </div>
-                </div>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* OUR TEAM */}
+      {/* TEAM - id="team" */}
       <Section id="team">
         <Eyebrow>Our Team</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">The people behind the magic.</h2>
@@ -241,12 +194,13 @@ function Home() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <Section>
+      {/* CONTACT - id="contact" */}
+      <Section id="contact">
         <div className="relative rounded-[2rem] overflow-hidden glass-strong p-12 sm:p-20 text-center">
           <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 30% 20%, rgba(135,255,188,0.25), transparent 60%), radial-gradient(circle at 70% 80%, rgba(0,102,255,0.35), transparent 60%)" }} />
           <div className="relative">
-            <h2 className="font-display text-4xl sm:text-6xl font-bold">Ready to build something <span className="text-gradient">unforgettable?</span></h2>
+            <Eyebrow>Contact</Eyebrow>
+            <h2 className="mt-4 font-display text-4xl sm:text-6xl font-bold">Ready to build something <span className="text-gradient">unforgettable?</span></h2>
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Let's design an intelligent system that moves your business forward.</p>
             <div className="mt-8 flex flex-wrap gap-3 justify-center">
               <Link to="/contact" className="btn-neon btn-neon-hover">Start a project</Link>

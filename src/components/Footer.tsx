@@ -34,8 +34,8 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><Link to="/community" className="hover:text-foreground">Community</Link></li>
             <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
-            <li><a href="#" className="hover:text-foreground">Twitter</a></li>
-            <li><a href="#" className="hover:text-foreground">LinkedIn</a></li>
+            <li><a href="#" className="hover:text-foreground" aria-label="Twitter">Twitter</a></li>
+            <li><a href="#" className="hover:text-foreground" aria-label="LinkedIn">LinkedIn</a></li>
           </ul>
         </div>
         <div className="flex justify-center sm:justify-end">

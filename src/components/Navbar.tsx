@@ -6,11 +6,12 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/portfolio", label: "Projects" },
+  { to: "/#team", label: "Team", isAnchor: true },
   { to: "/contact", label: "Contact" },
-  { to: "/about", label: "About" },
-] as const;
+];
 
 function scrollToTeam(e: React.MouseEvent) {
   e.preventDefault();
@@ -47,7 +48,20 @@ export function Navbar() {
           </Link>
           <ul className="hidden lg:flex items-center gap-1">
             {NAV.map((n) => {
-              const active = pathname === n.to;
+              const active = n.isAnchor ? false : pathname === n.to;
+              if (n.isAnchor) {
+                return (
+                  <li key={n.to}>
+                    <a
+                      href={n.to}
+                      onClick={scrollToTeam}
+                      className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {n.label}
+                    </a>
+                  </li>
+                );
+              }
               return (
                 <li key={n.to}>
                   <Link
@@ -70,15 +84,6 @@ export function Navbar() {
                 </li>
               );
             })}
-            <li>
-              <a
-                href="/#team"
-                onClick={scrollToTeam}
-                className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Team
-              </a>
-            </li>
           </ul>
           <div className="flex items-center gap-2">
             <Link to="/contact" className="btn-neon btn-neon-hover hidden sm:inline-flex">Work with us</Link>
@@ -94,22 +99,28 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             className="lg:hidden mt-2 glass-strong rounded-3xl p-3 flex flex-col"
           >
-            {NAV.map((n) => (
-              <li key={n.to}>
-                <Link to={n.to} onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium">
-                  {n.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a
-                href="/#team"
-                onClick={(e) => { scrollToTeam(e); setOpen(false); }}
-                className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
-              >
-                Team
-              </a>
-            </li>
+            {NAV.map((n) => {
+              if (n.isAnchor) {
+                return (
+                  <li key={n.to}>
+                    <a
+                      href={n.to}
+                      onClick={(e) => { scrollToTeam(e); setOpen(false); }}
+                      className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
+                    >
+                      {n.label}
+                    </a>
+                  </li>
+                );
+              }
+              return (
+                <li key={n.to}>
+                  <Link to={n.to} onClick={() => setOpen(false)} className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium">
+                    {n.label}
+                  </Link>
+                </li>
+              );
+            })}
           </motion.ul>
         )}
       </div>

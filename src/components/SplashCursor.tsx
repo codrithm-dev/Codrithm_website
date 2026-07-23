@@ -747,7 +747,7 @@ function SplashCursor({
         transition: 'opacity 300ms ease',
       }}
     >
-      <canvas ref={canvasRef} id="fluid" style={{ width: '100vw', height: '100vh', display: 'block' }} />
+      <canvas ref={canvasRef} id="fluid" style={{ width: '100%', height: '100%', display: 'block' }} />
     </div>
   );
 }
