@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
+import { HeroIllustration } from "../components/HeroIllustration";
 
-const LogoScene = lazy(() => import("../components/LogoScene").then(m => ({ default: m.LogoScene })));
 const SplashCursorController = lazy(() => import("../components/SplashCursorController").then(m => ({ default: m.SplashCursorController })));
 
 export const Route = createFileRoute("/")({
@@ -89,10 +89,8 @@ function Home() {
               <Stat value="18" label="Countries" />
             </div>
           </div>
-          <div className="relative h-[520px] lg:h-[640px]">
-            <Suspense fallback={<div className="w-full h-full" />}>
-              <LogoScene />
-            </Suspense>
+          <div className="relative h-[400px] lg:h-[500px]">
+            <HeroIllustration />
           </div>
 
         </div>

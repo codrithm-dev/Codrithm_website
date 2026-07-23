@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Environment, Sparkles, useGLTF, ContactShadows, PerformanceMonitor, OrbitControls } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useRef, useState, useMemo } from "react";
+import { useGLTF, PerformanceMonitor, OrbitControls } from "@react-three/drei";
+import { Suspense, useLayoutEffect, useRef, useState, useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -16,12 +16,57 @@ const configureLoader = (loader: { setMeshoptDecoder: (d: unknown) => void }) =>
 useGLTF.preload(DESKTOP_URL, undefined, undefined, configureLoader);
 useGLTF.preload(MOBILE_URL, undefined, undefined, configureLoader);
 
-function Model({ scale = 1.6, url, interactive = false }: { scale?: number; url: string; interactive?: boolean }) {
+function Model({ scale = 1.3, url, interactive = false }: { scale?: number; url: string; interactive?: boolean }) {
   const group = useRef<THREE.Group>(null!);
   const gltf = useGLTF(url, undefined, undefined, configureLoader) as unknown as { scene: THREE.Group };
   const scene = useMemo(() => gltf.scene.clone(true), [gltf.scene]);
   const [hovered, setHovered] = useState(false);
   const targetScale = useRef(scale);
+
+  // Apply premium materials to all meshes
+  useEffect(() => {
+    if (!scene) return;
+    
+    scene.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        const geometry = child.geometry;
+        const oldMaterial = child.material as THREE.Material;
+        
+        // Create a new premium material based on brand colors
+        let newMaterial: THREE.Material;
+        
+        if (oldMaterial instanceof THREE.MeshStandardMaterial || oldMaterial instanceof THREE.MeshPhysicalMaterial) {
+          // Use MeshPhysicalMaterial for premium look
+          newMaterial = new THREE.MeshPhysicalMaterial({
+            color: oldMaterial.color,
+            metalness: 0.1,
+            roughness: 0.3,
+            clearcoat: 0.4,
+            clearcoatRoughness: 0.2,
+            envMapIntensity: 0.8,
+            side: THREE.DoubleSide,
+          });
+        } else {
+          // Default to a clean, smooth material
+          newMaterial = new THREE.MeshPhysicalMaterial({
+            color: new THREE.Color("#87FFBC"),
+            metalness: 0.1,
+            roughness: 0.3,
+            clearcoat: 0.4,
+            clearcoatRoughness: 0.2,
+            side: THREE.DoubleSide,
+          });
+        }
+        
+        child.material = newMaterial;
+        
+        // Ensure smooth normals
+        if (geometry) {
+          geometry.computeVertexNormals();
+        }
+      }
+    });
+  }, [scene]);
 
   useLayoutEffect(() => {
     const g = group.current;
@@ -32,10 +77,11 @@ function Model({ scale = 1.6, url, interactive = false }: { scale?: number; url:
 
   useFrame((state, delta) => {
     if (!group.current) return;
-    group.current.rotation.y += delta * (hovered ? 0.9 : 0.35);
-    // subtle scale pop on hover
-    targetScale.current = scale * (hovered ? 1.08 : 1);
-    const s = THREE.MathUtils.lerp(group.current.scale.x, targetScale.current, 0.12);
+    // Slower, more elegant rotation
+    group.current.rotation.y += delta * (hovered ? 0.4 : 0.15);
+    // Subtle scale pop on hover
+    targetScale.current = scale * (hovered ? 1.03 : 1);
+    const s = THREE.MathUtils.lerp(group.current.scale.x, targetScale.current, 0.08);
     group.current.scale.setScalar(s);
   });
 
@@ -51,72 +97,93 @@ function Model({ scale = 1.6, url, interactive = false }: { scale?: number; url:
   );
 }
 
-function Platform() {
-  const ring = useRef<THREE.Mesh>(null!);
-  useFrame((s) => { if (ring.current) ring.current.rotation.z = s.clock.elapsedTime * 0.3; });
-  return (
-    <group position={[0, -1.7, 0]}>
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[1.4, 1.6, 64]} />
-        <meshBasicMaterial color="#87FFBC" toneMapped={false} transparent opacity={0.7} />
-      </mesh>
-      <mesh ref={ring} rotation={[-Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[1.8, 1.85, 64]} />
-        <meshBasicMaterial color="#0066FF" toneMapped={false} transparent opacity={0.6} />
-      </mesh>
-    </group>
-  );
-}
-
 export function LogoScene({ compact = false }: { compact?: boolean }) {
   const isMobile = useIsMobile();
   const [dpr, setDpr] = useState<[number, number]>([1, 2]);
-  // Mobile / compact → smaller LOD + capped pixel ratio
   const url = isMobile || compact ? MOBILE_URL : DESKTOP_URL;
-  const heavy = !compact && !isMobile;
 
   return (
     <Canvas
-      camera={{ position: [0, 0.3, 5.5], fov: 45 }}
+      camera={{ position: [0, 0.5, 5.5], fov: 40 }}
       dpr={dpr}
-      gl={{ antialias: !isMobile, alpha: true, powerPreference: "high-performance" }}
+      gl={{ 
+        antialias: true, 
+        alpha: true, 
+        powerPreference: "high-performance",
+        toneMapping: THREE.ACESFilmicToneMapping,
+        toneMappingExposure: 1.2,
+      }}
       frameloop="always"
       style={{ width: "100%", height: "100%" }}
     >
-      {/* Adaptive DPR: if FPS dips, drop pixel ratio; if steady, allow up to 2x */}
       <PerformanceMonitor
         onDecline={() => setDpr([1, 1])}
-        onIncline={() => setDpr([1, isMobile ? 1.25 : 2])}
+        onIncline={() => setDpr([1, isMobile ? 1.5 : 2])}
         flipflops={3}
       />
       <Suspense fallback={null}>
-        <ambientLight intensity={0.6} />
-        <pointLight position={[3, 3, 3]} intensity={2.5} color="#87FFBC" />
-        <pointLight position={[-3, -1, 2]} intensity={2.5} color="#0066FF" />
-        {heavy && <pointLight position={[0, 4, -2]} intensity={1.2} color="#ffffff" />}
-        <Float speed={1.4} rotationIntensity={0.3} floatIntensity={0.6}>
-          <Model scale={compact ? 0.9 : 1.6} url={url} interactive={!compact} />
-        </Float>
-        {heavy && <Platform />}
-        {heavy && <ContactShadows position={[0, -1.75, 0]} opacity={0.4} scale={8} blur={2.5} far={4} color="#0066FF" />}
-        <Sparkles
-          count={compact ? 12 : isMobile ? 24 : 80}
-          scale={compact ? 4 : 8}
-          size={2}
-          speed={0.4}
-          color="#87FFBC"
+        {/* Soft ambient for overall fill - no harsh shadows */}
+        <ambientLight intensity={1.4} />
+
+        {/* Main key light - soft white from top-right */}
+        <directionalLight 
+          position={[4, 8, 4]} 
+          intensity={1.0} 
+          color="#ffffff"
+          castShadow={false}
         />
-        {!isMobile && (
-          <Sparkles count={compact ? 10 : 60} scale={compact ? 4 : 7} size={1.5} speed={0.3} color="#0066FF" />
-        )}
-        <Environment preset="night" />
+
+        {/* Fill light from left - softer than key */}
+        <directionalLight 
+          position={[-4, 4, 2]} 
+          intensity={0.6} 
+          color="#ffffff"
+          castShadow={false}
+        />
+
+        {/* Brand accent lights - very subtle colored rim lighting */}
+        <pointLight 
+          position={[3, 1, 2]} 
+          intensity={1.2} 
+          color="#87FFBC" 
+          distance={15} 
+          decay={2} 
+        />
+        <pointLight 
+          position={[-3, -1, 2]} 
+          intensity={1.2} 
+          color="#0066FF" 
+          distance={15} 
+          decay={2} 
+        />
+
+        {/* Subtle fill from below to eliminate harsh shadows */}
+        <pointLight 
+          position={[0, -3, 4]} 
+          intensity={0.8} 
+          color="#ffffff" 
+          distance={12} 
+          decay={2} 
+        />
+
+        {/* Backlight for edge definition */}
+        <pointLight 
+          position={[0, 2, -3]} 
+          intensity={0.4} 
+          color="#ffffff" 
+          distance={10} 
+          decay={2} 
+        />
+
+        <Model scale={compact ? 0.7 : 1.3} url={url} interactive={!compact} />
+
         {!compact && (
           <OrbitControls
             enablePan={false}
             enableZoom={false}
             enableDamping
             dampingFactor={0.08}
-            rotateSpeed={0.9}
+            rotateSpeed={0.4}
             minPolarAngle={Math.PI / 3}
             maxPolarAngle={(2 * Math.PI) / 3}
           />
