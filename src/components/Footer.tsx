@@ -1,10 +1,13 @@
-import { Link, useRouter } from "@tanstack/react-router";
 import { ContactCard } from "./ContactCard";
-import { PortfolioSocialCard } from "./PortfolioSocialCard";
+
+function scrollTo(href: string, e?: React.MouseEvent) {
+  e?.preventDefault();
+  const id = href.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
 
 export function Footer() {
-  const router = useRouter();
-  const isPortfolio = router.state.location.pathname === "/portfolio";
   return (
     <footer className="relative mt-32 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start">
@@ -23,23 +26,22 @@ export function Footer() {
         <div>
           <div className="text-sm font-semibold mb-4">Company</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-            <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
-            <li><Link to="/portfolio" className="hover:text-foreground">Portfolio</Link></li>
-            <li><Link to="/careers" className="hover:text-foreground">Careers</Link></li>
+            <li><a href="#about" onClick={(e) => scrollTo("#about", e)} className="hover:text-foreground">About</a></li>
+            <li><a href="#services" onClick={(e) => scrollTo("#services", e)} className="hover:text-foreground">Services</a></li>
+            <li><a href="#projects" onClick={(e) => scrollTo("#projects", e)} className="hover:text-foreground">Projects</a></li>
           </ul>
         </div>
         <div>
           <div className="text-sm font-semibold mb-4">Connect</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/community" className="hover:text-foreground">Community</Link></li>
-            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+            <li><a href="#community" onClick={(e) => scrollTo("#community", e)} className="hover:text-foreground">Community</a></li>
+            <li><a href="#contact" onClick={(e) => scrollTo("#contact", e)} className="hover:text-foreground">Contact</a></li>
             <li><a href="#" className="hover:text-foreground" aria-label="Twitter">Twitter</a></li>
             <li><a href="#" className="hover:text-foreground" aria-label="LinkedIn">LinkedIn</a></li>
           </ul>
         </div>
         <div className="flex justify-center sm:justify-end">
-          {isPortfolio ? <PortfolioSocialCard /> : <ContactCard />}
+          <ContactCard />
         </div>
       </div>
       <div className="border-t border-white/5">
