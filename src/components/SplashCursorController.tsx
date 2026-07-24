@@ -3,8 +3,7 @@ import SplashCursor from "./SplashCursor";
 
 /**
  * Mounts the fluid SplashCursor globally, but fades it out whenever a section
- * marked with [data-hero-3d] (the 3D logo sections) is in view — so the fluid
- * effect never fights the WebGL logo scenes.
+ * marked with [data-hero-3d] is in view.
  */
 export function SplashCursorController() {
   const wrapRef = useRef<HTMLDivElement>(null);

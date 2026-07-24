@@ -1,10 +1,5 @@
-import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Eyebrow } from "./ui";
-
-const LogoScene = lazy(() =>
-  import("./LogoScene").then((m) => ({ default: m.LogoScene }))
-);
 
 type Props = {
   eyebrow: string;
@@ -14,8 +9,8 @@ type Props = {
 
 export function PageHero({ eyebrow, title, subtitle }: Props) {
   return (
-    <section className="relative" data-hero-3d>
-      <div className="mx-auto max-w-7xl px-6 pt-6 pb-16 lg:pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[60vh]">
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-6 pt-6 pb-16 lg:pb-24 min-h-[60vh] flex items-center">
         <div>
           <Eyebrow>{eyebrow}</Eyebrow>
           <motion.h1
@@ -36,11 +31,6 @@ export function PageHero({ eyebrow, title, subtitle }: Props) {
               {subtitle}
             </motion.p>
           )}
-        </div>
-        <div className="relative h-[380px] sm:h-[460px] lg:h-[560px]">
-          <Suspense fallback={<div className="w-full h-full rounded-3xl glass" />}>
-            <LogoScene />
-          </Suspense>
         </div>
       </div>
     </section>
