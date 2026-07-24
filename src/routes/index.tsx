@@ -202,7 +202,7 @@ function TeamCard({ member }: { member: TeamMember }) {
       <div className="relative bg-[color:var(--card)] rounded-[28px] overflow-hidden transition-all duration-400 group-hover:shadow-[0_20px_60px_-15px_rgba(0,102,255,0.3)] group-hover:translate-y-[-10px]">
 
         {/* Portrait area - 70% */}
-        <div className="relative aspect-[4/5] overflow-hidden">
+        <div className="relative h-[260px] overflow-hidden">
           <img
             src={member.img}
             alt={member.name}
