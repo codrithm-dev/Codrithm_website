@@ -2,8 +2,6 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -65,35 +63,6 @@
   --glass-tint: white;
   --glass-tint-strong: 12%;
   --glass-tint-soft: 8%;
-}
-
-.light {
-  /* Light theme */
-  --background: oklch(0.985 0.005 250);
-  --foreground: oklch(0.18 0.03 265);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.03 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.03 265);
-  --primary: oklch(0.62 0.2 155);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.55 0.22 260);
-  --secondary-foreground: oklch(0.99 0 0);
-  --muted: oklch(0.95 0.01 260);
-  --muted-foreground: oklch(0.45 0.02 260);
-  --accent: oklch(0.55 0.22 260);
-  --accent-foreground: oklch(0.99 0 0);
-  --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.18 0.03 265 / 12%);
-  --input: oklch(0.18 0.03 265 / 14%);
-  --ring: oklch(0.55 0.22 260);
-  --neon-green: #10b981;
-  --neon-blue: #2563eb;
-  --glass: oklch(0.18 0.03 265 / 5%);
-  --glass-tint: black;
-  --glass-tint-strong: 6%;
-  --glass-tint-soft: 3%;
 }
 
 @layer base {
