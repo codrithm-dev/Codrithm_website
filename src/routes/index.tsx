@@ -60,7 +60,6 @@ const TEAM = [
     name: "Sara Vance",
     role: "Founder & CEO",
     img: teamLead,
-    wm: "Innovation",
     skills: ["Python", "React", "Strategy", "AI"],
     social: [
       { type: "li", url: "#" },
@@ -73,7 +72,6 @@ const TEAM = [
     name: "Noah Kincaid",
     role: "Head of AI Research",
     img: teamAi,
-    wm: "Intelligence",
     skills: ["TensorFlow", "PyTorch", "LLMs", "MLOps"],
     social: [
       { type: "li", url: "#" },
@@ -86,7 +84,6 @@ const TEAM = [
     name: "Amara Okafor",
     role: "Lead Product Designer",
     img: teamDesign,
-    wm: "Systems",
     skills: ["Figma", "React", "CSS", "Design"],
     social: [
       { type: "li", url: "#" },
@@ -99,7 +96,6 @@ const TEAM = [
     name: "Rohan Mehta",
     role: "Principal Engineer",
     img: teamDev,
-    wm: "Architecture",
     skills: ["Rust", "Go", "K8s", "AWS"],
     social: [
       { type: "li", url: "#" },
@@ -143,7 +139,6 @@ type TeamMember = {
   name: string;
   role: string;
   img: string;
-  wm: string;
   skills: string[];
   social: { type: string; url: string }[];
 };
@@ -221,10 +216,7 @@ function TeamCard({ member }: { member: TeamMember }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--card)] via-[color:var(--card)]/10 to-transparent opacity-80" />
           <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-blue)]/8 via-transparent to-[color:var(--neon-green)]/8" />
 
-          {/* Vertical watermark text */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[80px] font-black text-white/[0.07] select-none -rotate-90 origin-center tracking-tighter whitespace-nowrap blur-[0.5px]">
-            {member.wm}
-          </div>
+
 
           {/* Decorative particles */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
