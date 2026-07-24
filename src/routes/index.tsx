@@ -43,12 +43,7 @@ import teamLead from "../assets/team-lead.jpg";
 import teamAi from "../assets/team-ai.jpg";
 import teamDesign from "../assets/team-design.jpg";
 import teamDev from "../assets/team-dev.jpg";
-import blogMemory from "../assets/blog-memory.jpg";
-import blogMonorepo from "../assets/blog-monorepo.jpg";
-import blogSmallmodels from "../assets/blog-smallmodels.jpg";
-import blogInterface from "../assets/blog-interface.jpg";
-import blogHiring from "../assets/blog-hiring.jpg";
-import blogEvals from "../assets/blog-evals.jpg";
+
 
 type P = { id: string; name: string; tag: string; desc: string; stack: string[]; metrics: { k: string; v: string }[]; img: string };
 const PROJECTS: P[] = [
@@ -77,15 +72,7 @@ const MILESTONES = [
   { y: "2026", t: "Codrithm 3.0", d: "New era: agentic systems, generative interfaces, edge AI." },
 ];
 
-const BLOG_CATEGORIES = ["All", "AI", "Engineering", "Design", "Research", "Careers"];
-const BLOG_POSTS = [
-  { c: "AI", t: "Designing agent memory that doesn't forget you", d: "5 patterns for durable, personal agents.", a: "Ana R.", r: "6 min", img: blogMemory },
-  { c: "Engineering", t: "The end of the monorepo debate", d: "How we ship 1,240 deploys per week.", a: "Devon K.", r: "8 min", img: blogMonorepo },
-  { c: "Research", t: "Small models, big context", d: "Notes from a year of fine-tuning open-weight LLMs.", a: "Yuki N.", r: "12 min", img: blogSmallmodels },
-  { c: "Design", t: "Interface as material", d: "Why glassmorphism deserves a second look.", a: "Maya J.", r: "4 min", img: blogInterface },
-  { c: "Careers", t: "How we hire staff engineers", d: "Signal over noise, transparently.", a: "Idris O.", r: "7 min", img: blogHiring },
-  { c: "AI", t: "Evaluations you can actually trust", d: "A pragmatic guide to LLM evals.", a: "Priya S.", r: "10 min", img: blogEvals },
-];
+
 
 const EVENTS = [
   { d: "Apr 22", t: "AI Studio Live — Agentic UX", where: "Virtual" },
@@ -105,8 +92,7 @@ const PINS = [
 /* ── Component ────────────────────────────────────────────────────── */
 
 function Home() {
-  const [blogCat, setBlogCat] = useState("All");
-  const filteredPosts = BLOG_POSTS.filter(p => blogCat === "All" || p.c === blogCat);
+
   const [openProject, setOpenProject] = useState<P | null>(null);
   const [contactSent, setContactSent] = useState(false);
 
@@ -345,32 +331,7 @@ function Home() {
         </div>
       </Section>
 
-      <Section>
-        <div className="flex gap-2 flex-wrap">
-          {BLOG_CATEGORIES.map(c => (
-            <button key={c} onClick={() => setBlogCat(c)} className={blogCat === c ? "btn-neon btn-neon-hover !py-2 !px-4 text-sm" : "btn-ghost-neon !py-2 !px-4 text-sm"}>{c}</button>
-          ))}
-        </div>
-        <div className="mt-8 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {filteredPosts.map((p, i) => (
-            <Reveal key={p.t} delay={(i % 3) * 0.05}>
-              <TiltCard className="h-full">
-                <div className="aspect-[16/9] rounded-2xl relative overflow-hidden bg-[color:var(--card)]">
-                  <img src={p.img} alt={p.t} loading="lazy" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute inset-0 grid-lines opacity-25" />
-                  <div className="absolute top-3 left-3 glass rounded-full px-2.5 py-1 text-[10px] font-mono tracking-widest">{p.c}</div>
-                </div>
-                <h3 className="mt-5 font-display text-xl font-semibold leading-snug">{p.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
-                <div className="mt-5 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>{p.a}</span><span>{p.r} read</span>
-                </div>
-              </TiltCard>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
+
 
       <Section>
         <div className="grid lg:grid-cols-2 gap-8">
@@ -393,19 +354,7 @@ function Home() {
               ))}
             </ul>
           </div>
-          <div>
-            <Eyebrow>Learning resources</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold">Learn out loud.</h2>
-            <div className="mt-8 grid grid-cols-2 gap-3">
-              {["The AI Handbook","LLM Ops 101","Design for Agents","Rust for ML","Vector DBs deep dive","Prompt patterns"].map((t, i) => (
-                <TiltCard key={t}>
-                  <div className="text-3xl">{["📘","🧪","🎨","⚙️","🧭","✨"][i]}</div>
-                  <div className="mt-3 font-semibold text-sm">{t}</div>
-                  <div className="mt-1 text-xs text-muted-foreground">Free · Self-paced</div>
-                </TiltCard>
-              ))}
-            </div>
-          </div>
+
         </div>
       </Section>
 
