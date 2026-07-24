@@ -39,7 +39,7 @@ export function SplashCursorController() {
       io.disconnect();
       attach();
     });
-    mo.observe(document.body, { childList: true, subtree: true });
+    mo.observe(document.getElementById("main-content") || document.body, { childList: true, subtree: true });
 
     return () => {
       io.disconnect();

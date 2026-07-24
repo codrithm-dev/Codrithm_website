@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense, useState, useRef, useCallback } from "react";
+import { lazy, Suspense, useState, useRef, useCallback, memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
-import { HeroIllustration } from "../components/HeroIllustration";
+
+const HeroIllustration = lazy(() => import("../components/HeroIllustration").then(m => ({ default: m.HeroIllustration })));
 
 const SplashCursorController = lazy(() => import("../components/SplashCursorController").then(m => ({ default: m.SplashCursorController })));
 
@@ -143,7 +144,7 @@ type TeamMember = {
   social: { type: string; url: string }[];
 };
 
-function TeamCard({ member }: { member: TeamMember }) {
+const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -283,7 +284,7 @@ function TeamCard({ member }: { member: TeamMember }) {
       </div>
     </div>
   );
-}
+});
 
 function Home() {
 
@@ -330,7 +331,9 @@ function Home() {
             </div>
           </div>
           <div className="relative h-[400px] lg:h-[500px]">
-            <HeroIllustration />
+            <Suspense fallback={null}>
+              <HeroIllustration />
+            </Suspense>
           </div>
         </div>
       </section>

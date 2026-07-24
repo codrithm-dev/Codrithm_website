@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 
 // Central abstract shape paths (echoing Codrithm logo geometry)
@@ -52,7 +53,7 @@ const FLOW_PATHS = [
   "M 80 140 Q 150 80 250 90",
 ];
 
-export function HeroIllustration() {
+export const HeroIllustration = memo(function HeroIllustration() {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <svg
@@ -328,4 +329,4 @@ export function HeroIllustration() {
       </svg>
     </div>
   );
-}
+});
