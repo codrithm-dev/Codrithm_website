@@ -324,7 +324,7 @@ function Home() {
               <a href="#services" className="btn-neon btn-neon-hover">Explore Services →</a>
               <a href="#contact" className="btn-ghost-neon">Get in Touch</a>
             </motion.div>
-            <div className="mt-12 grid grid-cols-3 gap-3 max-w-md">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
               <Stat value="120+" label="Projects" />
               <Stat value="45+" label="Engineers" />
               <Stat value="18" label="Countries" />
@@ -451,7 +451,7 @@ function Home() {
             {[...PROJECTS, ...PROJECTS].map((p, i) => (
               <button
                 key={`${p.name}-${i}`}
-                className="w-[340px] sm:w-[420px] h-[240px] sm:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
+                className="w-[85vw] sm:w-[340px] lg:w-[420px] h-[200px] sm:h-[240px] lg:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
                 onClick={() => setOpenProject(p)}
               >
                 <img src={p.img} alt={p.name} loading="lazy" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover object-top" />
@@ -489,13 +489,13 @@ function Home() {
                 <img src={openProject.img} alt={openProject.name} width={1280} height={640} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute inset-0 grid-lines opacity-25" />
-                <button onClick={() => setOpenProject(null)} className="absolute top-4 right-4 glass rounded-full w-9 h-9 flex items-center justify-center">✕</button>
+                <button onClick={() => setOpenProject(null)} className="absolute top-4 right-4 glass rounded-full w-11 h-11 flex items-center justify-center text-lg">✕</button>
                 <div className="absolute bottom-4 left-6 glass rounded-full px-3 py-1 text-[10px] font-mono tracking-widest">{openProject.tag}</div>
               </div>
-              <div className="p-8">
-                <h2 className="font-display text-4xl font-bold">{openProject.name}</h2>
+              <div className="p-5 sm:p-8">
+                <h2 className="font-display text-2xl sm:text-4xl font-bold">{openProject.name}</h2>
                 <p className="mt-3 text-muted-foreground">{openProject.desc}</p>
-                <div className="mt-6 grid grid-cols-3 gap-3">
+                <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                   {openProject.metrics.map((m) => (
                     <div key={m.k} className="glass rounded-2xl p-4 text-center">
                       <div className="text-2xl font-display font-bold text-gradient">{m.v}</div>
@@ -575,7 +575,7 @@ function Home() {
           <Reveal>
             <form
               onSubmit={(e) => { e.preventDefault(); setContactSent(true); }}
-              className="glass-strong rounded-3xl p-8 space-y-4"
+              className="glass-strong rounded-3xl p-5 sm:p-8 space-y-4"
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Your name"><input required className="input" placeholder="Ada Lovelace" /></Field>
@@ -638,7 +638,7 @@ function Home() {
                 <input placeholder="you@company.com" className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground" />
                 <button type="button" className="btn-neon btn-neon-hover !py-2 !px-4 text-sm">Subscribe</button>
               </div>
-              <div className="mt-5 flex gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {["Twitter","LinkedIn","GitHub","YouTube"].map(s => (
                   <a key={s} href="#" className="glass rounded-full px-3 py-1 text-xs hover:text-[color:var(--neon-green)]">{s}</a>
                 ))}

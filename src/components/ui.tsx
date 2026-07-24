@@ -3,7 +3,7 @@ import { type ReactNode, useRef } from "react";
 
 export function Section({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
   return (
-    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-24 sm:py-32 ${className}`}>{children}</section>
+    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:py-32 ${className}`}>{children}</section>
   );
 }
 
