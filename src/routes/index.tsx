@@ -10,10 +10,10 @@ const SplashCursorController = lazy(() => import("../components/SplashCursorCont
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Codrithm — Intelligent Software, Beautifully Engineered" },
-      { name: "description", content: "AI, ML and full-stack engineering studio building premium, future-ready digital products." },
-      { property: "og:title", content: "Codrithm — Intelligent Software, Beautifully Engineered" },
-      { property: "og:description", content: "AI, ML and full-stack engineering studio building premium, future-ready digital products." },
+      { title: "Codrithm — Where Coders Make History" },
+      { name: "description", content: "A student tech community helping developers turn ideas into code, challenges into solutions, and learning into real-world projects." },
+      { property: "og:title", content: "Codrithm — Where Coders Make History" },
+      { property: "og:description", content: "A student tech community helping developers turn ideas into code, challenges into solutions, and learning into real-world projects." },
     ],
   }),
   component: Home,
@@ -22,16 +22,12 @@ export const Route = createFileRoute("/")({
 /* ── Data ─────────────────────────────────────────────────────────── */
 
 const SERVICES = [
-  { t: "AI Development", d: "Custom AI systems: from research prototypes to production platforms.", icon: "◈", tags: ["Agents", "RAG", "Fine-tuning"] },
-  { t: "Machine Learning", d: "Predictive models with real business KPIs, not toy demos.", icon: "◊", tags: ["Forecasting", "Ranking", "MLOps"] },
-  { t: "Computer Vision", d: "Realtime perception for images, video and 3D.", icon: "◉", tags: ["Detection", "Segmentation", "Edge"] },
-  { t: "LLM Solutions", d: "Enterprise-ready assistants, evaluators, agent systems.", icon: "✦", tags: ["OpenAI", "Anthropic", "Local"] },
-  { t: "Web Development", d: "Delightful, accessible marketing and product experiences.", icon: "◆", tags: ["Next.js", "TanStack", "Astro"] },
-  { t: "Full Stack Development", d: "Typed end-to-end apps with clean data models and clear UX.", icon: "▢", tags: ["TypeScript", "Postgres", "tRPC"] },
-  { t: "Cloud Solutions", d: "Multi-cloud architecture, cost-aware and observable.", icon: "☁", tags: ["AWS", "GCP", "Cloudflare"] },
-  { t: "DevOps", d: "Ship fast without breaking things: CI/CD, IaC, SRE.", icon: "▲", tags: ["K8s", "Terraform", "Grafana"] },
-  { t: "Mobile Apps", d: "Native-feeling iOS and Android apps.", icon: "●", tags: ["React Native", "Swift", "Kotlin"] },
-  { t: "Automation", d: "Workflows and agents that remove human toil.", icon: "⟳", tags: ["Zapier", "Temporal", "Custom"] },
+  { t: "Web Development", d: "Building modern, responsive websites and web applications for students and communities.", icon: "◆", tags: ["React", "Next.js", "TypeScript"] },
+  { t: "Mobile Apps", d: "Developing cross-platform mobile applications with modern frameworks.", icon: "●", tags: ["React Native", "Flutter", "Swift"] },
+  { t: "AI & Machine Learning", d: "Workshops and projects exploring AI, ML, and data science fundamentals.", icon: "◈", tags: ["Python", "TensorFlow", "LLMs"] },
+  { t: "Community Building", d: "Fostering a vibrant ecosystem of developers, creators, and professionals.", icon: "◊", tags: ["Mentorship", "Networking", "Events"] },
+  { t: "Version Control", d: "Teaching Git, GitHub, and collaborative development workflows.", icon: "▲", tags: ["Git", "GitHub", "Collaboration"] },
+  { t: "Tech Workshops", d: "Hands-on sessions covering the latest tools, frameworks, and best practices.", icon: "✦", tags: ["Workshops", "Seminars", "Hackathons"] },
 ];
 
 import projNeura from "../assets/proj-neura.jpg";
@@ -58,48 +54,84 @@ const PROJECTS: P[] = [
 
 const TEAM = [
   {
-    name: "Sara Vance",
-    role: "Founder & CEO",
+    name: "Atiq Umer",
+    role: "Co-Founder",
     img: teamLead,
-    skills: ["Python", "React", "Strategy", "AI"],
+    skills: ["Leadership", "Strategy", "Community", "Tech"],
     social: [
-      { type: "li", url: "#" },
+      { type: "li", url: "https://linkedin.com/in/atiqumer" },
       { type: "gh", url: "#" },
       { type: "web", url: "#" },
       { type: "mail", url: "#" },
     ],
   },
   {
-    name: "Noah Kincaid",
-    role: "Head of AI Research",
+    name: "Iqra Asghar",
+    role: "Growth Lead",
     img: teamAi,
-    skills: ["TensorFlow", "PyTorch", "LLMs", "MLOps"],
+    skills: ["Growth", "Marketing", "Community", "Outreach"],
     social: [
-      { type: "li", url: "#" },
+      { type: "li", url: "https://linkedin.com/in/iqraasghar" },
       { type: "gh", url: "#" },
       { type: "web", url: "#" },
       { type: "mail", url: "#" },
     ],
   },
   {
-    name: "Amara Okafor",
-    role: "Lead Product Designer",
+    name: "Rabia Ramzan",
+    role: "Team Member",
     img: teamDesign,
-    skills: ["Figma", "React", "CSS", "Design"],
+    skills: ["Development", "Community", "Collaboration"],
     social: [
-      { type: "li", url: "#" },
+      { type: "li", url: "https://linkedin.com/in/rabiaramzan" },
       { type: "gh", url: "#" },
       { type: "web", url: "#" },
       { type: "mail", url: "#" },
     ],
   },
   {
-    name: "Rohan Mehta",
-    role: "Principal Engineer",
+    name: "Muhammad Mateen",
+    role: "Team Member",
     img: teamDev,
-    skills: ["Rust", "Go", "K8s", "AWS"],
+    skills: ["Development", "Tech", "Community"],
     social: [
-      { type: "li", url: "#" },
+      { type: "li", url: "https://linkedin.com/in/muhammadmateen" },
+      { type: "gh", url: "#" },
+      { type: "web", url: "#" },
+      { type: "mail", url: "#" },
+    ],
+  },
+  {
+    name: "Muhammad Ebaad Khan",
+    role: "Content Lead",
+    img: teamLead,
+    skills: ["Content", "Storytelling", "Marketing", "Community"],
+    social: [
+      { type: "li", url: "https://linkedin.com/in/ebaadkhan" },
+      { type: "gh", url: "#" },
+      { type: "web", url: "#" },
+      { type: "mail", url: "#" },
+    ],
+  },
+  {
+    name: "Wajeeha Azeem",
+    role: "Operation Lead",
+    img: teamDesign,
+    skills: ["Operations", "Management", "Planning", "Community"],
+    social: [
+      { type: "li", url: "https://linkedin.com/in/wajeehaazeem" },
+      { type: "gh", url: "#" },
+      { type: "web", url: "#" },
+      { type: "mail", url: "#" },
+    ],
+  },
+  {
+    name: "Arshad Ali",
+    role: "Team Member",
+    img: teamDev,
+    skills: ["Development", "Tech", "Community"],
+    social: [
+      { type: "li", url: "https://linkedin.com/in/arshadali" },
       { type: "gh", url: "#" },
       { type: "web", url: "#" },
       { type: "mail", url: "#" },
@@ -108,21 +140,18 @@ const TEAM = [
 ];
 
 const MILESTONES = [
-  { y: "2019", t: "Codrithm founded", d: "Two engineers, one manifesto: humane software, intelligent by default." },
-  { y: "2020", t: "First AI platform shipped", d: "Deployed a computer vision pipeline for a Fortune 500 client." },
-  { y: "2021", t: "Global team", d: "Grew to 15 engineers across 8 countries." },
-  { y: "2022", t: "Open source year", d: "Released 40+ tools with 8M+ downloads." },
-  { y: "2023", t: "LLM studio", d: "Launched our internal RAG + agent platform." },
-  { y: "2024", t: "12k community", d: "Community reaches 12,000 builders." },
-  { y: "2026", t: "Codrithm 3.0", d: "New era: agentic systems, generative interfaces, edge AI." },
+  { y: "2026", t: "Codrithm founded", d: "A student community where coders make history — coding the logic, crafting the flow." },
+  { y: "2026", t: "First Git & GitHub Workshop", d: "Hosted 'Commit to Code: The Git & GitHub Blueprint' with expert speakers." },
+  { y: "2026", t: "MoU with NYLP", d: "Signed our first official MoU with the National Youth Leadership Programme." },
+  { y: "2026", t: "518+ Followers", d: "Community grows to 518+ followers on LinkedIn." },
 ];
 
 
 
 const EVENTS = [
-  { d: "Apr 22", t: "AI Studio Live — Agentic UX", where: "Virtual" },
-  { d: "May 09", t: "Codrithm Summit '26", where: "Lisbon" },
-  { d: "Jun 03", t: "Open Source Day", where: "Bengaluru" },
+  { d: "Apr 22", t: "Git & GitHub Blueprint Workshop", where: "Virtual" },
+  { d: "May 09", t: "Codrithm Summit '26", where: "Virtual" },
+  { d: "Jun 03", t: "Open Source Day", where: "Virtual" },
 ];
 
 const PINS = [
@@ -301,21 +330,21 @@ function Home() {
       <section id="home" className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
           <div>
-            <Eyebrow>AI · ML · Software Engineering</Eyebrow>
+            <Eyebrow>Student Tech Community</Eyebrow>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02]"
             >
-              We architect the <span className="text-gradient">intelligent</span> web.
+              Where Coders <span className="text-gradient">Make History</span>.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }}
               className="mt-6 text-lg text-muted-foreground max-w-xl"
             >
-              Codrithm is a studio of engineers, researchers and designers building
-              premium AI systems and full-stack products for ambitious teams.
+              Codrithm is a community designed to help students and aspiring developers
+              turn ideas into code, challenges into solutions, and learning into real-world projects.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }}
@@ -325,9 +354,9 @@ function Home() {
               <a href="#contact" className="btn-ghost-neon">Get in Touch</a>
             </motion.div>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
-              <Stat value="120+" label="Projects" />
-              <Stat value="45+" label="Engineers" />
-              <Stat value="18" label="Countries" />
+              <Stat value="518+" label="Followers" />
+              <Stat value="7" label="Team Members" />
+              <Stat value="2026" label="Founded" />
             </div>
           </div>
           <div className="relative h-[400px] lg:h-[500px]">
@@ -343,18 +372,19 @@ function Home() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <Eyebrow>About</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A studio built for the intelligent era.</h2>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A community built for the next generation of builders.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              We combine research-grade AI with world-class product engineering. Our teams
-              ship measurable outcomes — not slide decks.
+              At Codrithm, we believe that every student and aspiring developer has the power to innovate.
+              Our community is designed to help you turn ideas into code, challenges into solutions,
+              and learning into real-world projects.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { k: "Founded", v: "2019" },
-              { k: "Model uptime", v: "99.98%" },
-              { k: "Client NPS", v: "72" },
-              { k: "Open Source", v: "40+" },
+              { k: "Founded", v: "2026" },
+              { k: "Company Size", v: "2-10" },
+              { k: "Followers", v: "518+" },
+              { k: "Type", v: "Private" },
             ].map((s) => (
               <Reveal key={s.k} delay={0.05}><TiltCard><div className="text-4xl font-display font-bold text-gradient">{s.v}</div><div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{s.k}</div></TiltCard></Reveal>
             ))}
@@ -365,9 +395,9 @@ function Home() {
       <Section>
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { t: "Mission", d: "Make advanced AI feel simple, useful, and trustworthy for real teams." },
-            { t: "Vision", d: "A world where software understands intent, not just instructions." },
-            { t: "Values", d: "Craft. Curiosity. Candor. Ship things worth using." },
+            { t: "Mission", d: "Empower students and aspiring developers to turn ideas into code and learning into real-world impact." },
+            { t: "Vision", d: "A world where every student has the tools, mentorship, and network to make their mark in technology." },
+            { t: "Values", d: "Community. Innovation. Growth. Coding the logic, crafting the flow." },
           ].map((v, i) => (
             <Reveal key={v.t} delay={i * 0.06}>
               <TiltCard>
@@ -407,18 +437,18 @@ function Home() {
 
       <Section>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat value="45+" label="Team members" />
-          <Stat value="120+" label="Shipped projects" />
-          <Stat value="18" label="Countries" />
-          <Stat value="99.98%" label="Model uptime" />
+          <Stat value="7" label="Team members" />
+          <Stat value="518+" label="LinkedIn followers" />
+          <Stat value="2026" label="Founded" />
+          <Stat value="IT" label="Services & Consulting" />
         </div>
       </Section>
 
       {/* ═══════════════ SERVICES ═══════════════ */}
       <Section id="services">
         <Eyebrow>Services</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Capabilities that <span className="text-gradient">compound</span>.</h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A single team that spans AI research, engineering and design. Composable capabilities, honest scopes, real outcomes.</p>
+        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">What we <span className="text-gradient">offer</span>.</h2>
+        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A community-driven platform offering hands-on workshops, mentorship, and real-world project experience for students and aspiring developers.</p>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.t} delay={(i % 3) * 0.06}>
@@ -522,9 +552,9 @@ function Home() {
       {/* ═══════════════ COMMUNITY ═══════════════ */}
       <Section id="community">
         <Eyebrow>Community & Blog</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">The knowledge hub for <span className="text-gradient">intelligent builders</span>.</h2>
+        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">The knowledge hub for <span className="text-gradient">student builders</span>.</h2>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-          <Stat value="12K+" label="Members" /><Stat value="320" label="Events" /><Stat value="8.4M" label="Downloads" /><Stat value="480" label="Articles" />
+          <Stat value="518+" label="Followers" /><Stat value="7" label="Team" /><Stat value="1" label="MoU" /><Stat value="5+" label="Events" />
         </div>
       </Section>
 
@@ -559,7 +589,7 @@ function Home() {
       <Section id="team">
         <Eyebrow>Our Team</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Meet the Minds Behind <span className="text-gradient">Codrithm</span></h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A community of engineers, researchers, designers, and innovators building intelligent software together.</p>
+        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A dedicated team of student leaders and developers building a vibrant tech community together.</p>
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
@@ -639,8 +669,13 @@ function Home() {
                 <button type="button" className="btn-neon btn-neon-hover !py-2 !px-4 text-sm">Subscribe</button>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
-                {["Twitter","LinkedIn","GitHub","YouTube"].map(s => (
-                  <a key={s} href="#" className="glass rounded-full px-3 py-1 text-xs hover:text-[color:var(--neon-green)]">{s}</a>
+                {[
+                  { name: "LinkedIn", url: "https://linkedin.com/company/codrithmdev" },
+                  { name: "Twitter", url: "#" },
+                  { name: "GitHub", url: "#" },
+                  { name: "YouTube", url: "#" },
+                ].map(s => (
+                  <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="glass rounded-full px-3 py-1 text-xs hover:text-[color:var(--neon-green)]">{s.name}</a>
                 ))}
               </div>
             </TiltCard>

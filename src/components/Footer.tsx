@@ -16,7 +16,7 @@ export function Footer() {
             Cod<span className="text-gradient">rithm</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
-            Building the future of intelligent software. AI, ML and full-stack engineering crafted with taste.
+            Building the future of student developers. Workshops, mentorship, and real-world projects for the next generation of builders.
           </p>
           <form className="mt-6 glass rounded-full p-1.5 flex items-center max-w-md">
             <input placeholder="you@company.com" className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground" />
@@ -37,7 +37,7 @@ export function Footer() {
             <li><a href="#community" onClick={(e) => scrollTo("#community", e)} className="hover:text-foreground">Community</a></li>
             <li><a href="#contact" onClick={(e) => scrollTo("#contact", e)} className="hover:text-foreground">Contact</a></li>
             <li><a href="#" className="hover:text-foreground" aria-label="Twitter">Twitter</a></li>
-            <li><a href="#" className="hover:text-foreground" aria-label="LinkedIn">LinkedIn</a></li>
+            <li><a href="https://linkedin.com/company/codrithmdev" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="LinkedIn">LinkedIn</a></li>
           </ul>
         </div>
         <div className="flex justify-center sm:justify-end">
