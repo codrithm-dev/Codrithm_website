@@ -16,7 +16,7 @@ export function Footer() {
             Cod<span className="text-gradient">rithm</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
-            Building the future of student developers. Workshops, mentorship, and real-world projects for the next generation of builders.
+            A values-driven community rooted in Islamic principles — empowering junior developers to learn, build, and lead.
           </p>
           <form className="mt-6 glass rounded-full p-1.5 flex items-center max-w-md">
             <input placeholder="you@company.com" className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground" />

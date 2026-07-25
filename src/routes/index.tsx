@@ -11,9 +11,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Codrithm — Where Coders Make History" },
-      { name: "description", content: "A student tech community helping developers turn ideas into code, challenges into solutions, and learning into real-world projects." },
+      { name: "description", content: "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead." },
       { property: "og:title", content: "Codrithm — Where Coders Make History" },
-      { property: "og:description", content: "A student tech community helping developers turn ideas into code, challenges into solutions, and learning into real-world projects." },
+      { property: "og:description", content: "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead." },
     ],
   }),
   component: Home,
@@ -334,8 +334,8 @@ function Home() {
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15 }}
               className="mt-6 text-lg text-muted-foreground max-w-xl"
             >
-              Codrithm is a community designed to help students and aspiring developers
-              turn ideas into code, challenges into solutions, and learning into real-world projects.
+              A values-driven community rooted in Islamic principles, empowering junior developers
+              to step up, take the lead, and shape the future of technology.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }}
@@ -363,11 +363,12 @@ function Home() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <Eyebrow>About</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A community built for the next generation of builders.</h2>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Rooted in values. Built to lead.</h2>
             <p className="mt-5 text-muted-foreground text-lg">
-              At Codrithm, we believe that every student and aspiring developer has the power to innovate.
-              Our community is designed to help you turn ideas into code, challenges into solutions,
-              and learning into real-world projects.
+              Codrithm is more than a tech community — we are a movement guided by Islamic values.
+              We believe in honesty, integrity, service, and the power of knowledge. Our mission is
+              to push every junior forward, giving them the platform, mentorship, and confidence
+              to step up and lead.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-4">
@@ -386,9 +387,9 @@ function Home() {
       <Section>
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { t: "Mission", d: "Empower students and aspiring developers to turn ideas into code and learning into real-world impact." },
-            { t: "Vision", d: "A world where every student has the tools, mentorship, and network to make their mark in technology." },
-            { t: "Values", d: "Community. Innovation. Growth. Coding the logic, crafting the flow." },
+            { t: "Mission", d: "Empower every junior developer to grow, lead, and make a meaningful impact — rooted in Islamic values of knowledge, service, and integrity." },
+            { t: "Vision", d: "A generation of confident, values-driven tech leaders who lift others as they rise." },
+            { t: "Values", d: "Ilm (Knowledge). Ihsan (Excellence). Ikhlas (Sincerity). Tawadu (Humility). We push juniors to lead." },
           ].map((v, i) => (
             <Reveal key={v.t} delay={i * 0.06}>
               <TiltCard>
@@ -437,9 +438,9 @@ function Home() {
 
       {/* ═══════════════ SERVICES ═══════════════ */}
       <Section id="services">
-        <Eyebrow>Services</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">What we <span className="text-gradient">offer</span>.</h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A community-driven platform offering hands-on workshops, mentorship, and real-world project experience for students and aspiring developers.</p>
+        <Eyebrow>What We Offer</Eyebrow>
+        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Learn. Build. <span className="text-gradient">Lead.</span></h2>
+        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">Workshops, mentorship, and real-world project experience — designed to push juniors from learners to leaders.</p>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.t} delay={(i % 3) * 0.06}>
@@ -543,7 +544,7 @@ function Home() {
       {/* ═══════════════ COMMUNITY ═══════════════ */}
       <Section id="community">
         <Eyebrow>Community & Blog</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">The knowledge hub for <span className="text-gradient">student builders</span>.</h2>
+        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A community where <span className="text-gradient">juniors lead</span>.</h2>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
           <Stat value="518+" label="Followers" /><Stat value="7" label="Team" /><Stat value="1" label="MoU" /><Stat value="5+" label="Events" />
         </div>
@@ -580,7 +581,7 @@ function Home() {
       <Section id="team">
         <Eyebrow>Our Team</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Meet the Minds Behind <span className="text-gradient">Codrithm</span></h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">A dedicated team of student leaders and developers building a vibrant tech community together.</p>
+        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">Junior leaders who stepped up — now building a platform for the next wave of talent to rise.</p>
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
