@@ -36,8 +36,11 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><a href="#community" onClick={(e) => scrollTo("#community", e)} className="hover:text-foreground">Community</a></li>
             <li><a href="#contact" onClick={(e) => scrollTo("#contact", e)} className="hover:text-foreground">Contact</a></li>
-            <li><a href="#" className="hover:text-foreground" aria-label="Twitter">Twitter</a></li>
             <li><a href="https://linkedin.com/company/codrithmdev" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="LinkedIn">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@codrithm" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="YouTube">YouTube</a></li>
+            <li><a href="https://www.instagram.com/codrithm" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="Instagram">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61588306509274" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="Facebook">Facebook</a></li>
+            <li><a href="https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g" target="_blank" rel="noopener noreferrer" className="hover:text-foreground" aria-label="WhatsApp">WhatsApp</a></li>
           </ul>
         </div>
         <div className="flex justify-center sm:justify-end">

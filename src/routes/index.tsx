@@ -154,15 +154,6 @@ const EVENTS = [
   { d: "Jun 03", t: "Open Source Day", where: "Virtual" },
 ];
 
-const PINS = [
-  { name: "Lisbon", x: 47, y: 40 },
-  { name: "London", x: 48, y: 32 },
-  { name: "Bengaluru", x: 68, y: 55 },
-  { name: "New York", x: 27, y: 42 },
-  { name: "Tokyo", x: 82, y: 44 },
-  { name: "São Paulo", x: 33, y: 68 },
-];
-
 /* ── Component ────────────────────────────────────────────────────── */
 
 type TeamMember = {
@@ -615,45 +606,11 @@ function Home() {
               <Field label="What are you building?">
                 <textarea rows={5} className="input" placeholder="Tell us about your project, timeline, and success criteria." />
               </Field>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Field label="Budget">
-                  <select className="input">
-                    <option>{"<"} $25k</option><option>$25k – $75k</option><option>$75k – $200k</option><option>$200k+</option>
-                  </select>
-                </Field>
-                <Field label="Timeline">
-                  <select className="input">
-                    <option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>Exploring</option>
-                  </select>
-                </Field>
-              </div>
               <button className="btn-neon btn-neon-hover w-full justify-center">{contactSent ? "✓ Message received — we'll be in touch" : "Send message"}</button>
             </form>
           </Reveal>
 
           <div className="space-y-6">
-            <TiltCard>
-              <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">Global presence</div>
-              <div className="relative mt-4 aspect-[2/1] rounded-2xl overflow-hidden" style={{ background: "radial-gradient(ellipse at center, rgba(0,102,255,0.35), transparent 70%)" }}>
-                <div className="absolute inset-0 grid-lines opacity-40" />
-                <svg viewBox="0 0 100 50" className="absolute inset-0 w-full h-full opacity-30">
-                  {Array.from({ length: 20 }).map((_, i) => (
-                    <path key={i} d={`M0 ${2.5 + i * 2.5} Q 25 ${2.5 + i * 2.5 - 2}, 50 ${2.5 + i * 2.5} T 100 ${2.5 + i * 2.5}`} stroke="#87FFBC" fill="none" strokeWidth="0.1" />
-                  ))}
-                </svg>
-                {PINS.map((p) => (
-                  <div key={p.name} className="absolute" style={{ left: `${p.x}%`, top: `${p.y}%`, transform: "translate(-50%,-50%)" }}>
-                    <motion.div
-                      className="w-3 h-3 rounded-full bg-[color:var(--neon-green)] glow-green"
-                      animate={{ scale: [1, 1.4, 1] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono text-muted-foreground whitespace-nowrap">{p.name}</div>
-                  </div>
-                ))}
-              </div>
-            </TiltCard>
-
             <div className="grid sm:grid-cols-2 gap-4">
               <TiltCard>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
@@ -671,9 +628,10 @@ function Home() {
               <div className="mt-5 flex flex-wrap gap-2">
                 {[
                   { name: "LinkedIn", url: "https://linkedin.com/company/codrithmdev" },
-                  { name: "Twitter", url: "#" },
-                  { name: "GitHub", url: "#" },
-                  { name: "YouTube", url: "#" },
+                  { name: "YouTube", url: "https://www.youtube.com/@codrithm" },
+                  { name: "Instagram", url: "https://www.instagram.com/codrithm" },
+                  { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61588306509274" },
+                  { name: "WhatsApp", url: "https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g" },
                 ].map(s => (
                   <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="glass rounded-full px-3 py-1 text-xs hover:text-[color:var(--neon-green)]">{s.name}</a>
                 ))}
