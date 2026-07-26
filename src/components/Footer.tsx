@@ -10,7 +10,7 @@ function scrollTo(href: string, e?: React.MouseEvent) {
 export function Footer() {
   return (
     <footer className="relative mt-16 sm:mt-24 lg:mt-32 border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-6 py-10 sm:py-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-10 lg:py-16 grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold">
             Cod<span className="text-gradient">rithm</span>
@@ -19,12 +19,12 @@ export function Footer() {
             A values-driven community rooted in Islamic principles — empowering junior developers to
             learn, build, and lead.
           </p>
-          <form className="mt-6 glass rounded-full p-1.5 flex items-center max-w-md">
+          <form className="mt-6 glass rounded-full p-1.5 flex items-center gap-2 max-w-md">
             <input
               placeholder="you@company.com"
-              className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
+              className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
             />
-            <button type="button" className="btn-neon btn-neon-hover !py-2 !px-4 text-sm">
+            <button type="button" className="btn-neon btn-neon-hover !py-2 !px-3 sm:!px-4 text-sm flex-shrink-0">
               Subscribe
             </button>
           </form>
@@ -144,7 +144,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-5 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Codrithm Labs. All rights reserved.</p>
           <p>Engineered with intention · Made for humans and machines</p>
         </div>

@@ -13,7 +13,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:py-32 ${className}`}
+      className={`relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-24 lg:py-32 ${className}`}
     >
       {children}
     </section>
@@ -55,7 +55,7 @@ export function TiltCard({
         my.set(0);
       }}
       style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-      className={`glass rounded-3xl p-6 will-change-transform ${className}`}
+      className={`glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 will-change-transform ${className}`}
     >
       <div style={{ transform: "translateZ(30px)" }}>{children}</div>
     </motion.div>
@@ -89,8 +89,8 @@ export function Reveal({
 
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="glass rounded-2xl p-6 text-center">
-      <div className="text-3xl sm:text-4xl font-display font-bold text-gradient">{value}</div>
+    <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+      <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gradient">{value}</div>
       <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
     </div>
   );

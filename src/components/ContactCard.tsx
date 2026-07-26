@@ -1,7 +1,7 @@
 export function ContactCard() {
   return (
-    <div className="contact-card">
-      <div className="card">
+    <div className="contact-card hidden sm:flex">
+      <div className="card w-[160px] h-[160px] sm:w-[200px] sm:h-[200px]">
         <div className="background" />
         <div className="logo">
           <span className="logo-text">socials</span>

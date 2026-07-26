@@ -405,7 +405,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
       {/* Card inner */}
       <div className="relative bg-[color:var(--card)] rounded-[28px] overflow-hidden transition-all duration-400 group-hover:shadow-[0_20px_60px_-15px_rgba(0,102,255,0.3)] group-hover:translate-y-[-10px]">
         {/* Portrait area - 70% */}
-        <div className="relative h-[260px] overflow-hidden">
+        <div className="relative h-[220px] sm:h-[260px] overflow-hidden">
           <img
             src={member.img}
             alt={member.name}
@@ -531,7 +531,7 @@ function Home() {
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pt-6 pb-24 grid lg:grid-cols-2 gap-10 items-center min-h-[80vh]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center min-h-[70vh] sm:min-h-[80vh]">
           <div>
             <Eyebrow>Student Tech Community</Eyebrow>
             <motion.h1
@@ -564,13 +564,13 @@ function Home() {
                 Get in Touch
               </a>
             </motion.div>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
+            <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
               <Stat value="500+" label="Followers" />
               <Stat value="7" label="Team Members" />
               <Stat value="2026" label="Founded" />
             </div>
           </div>
-          <div className="relative h-[400px] lg:h-[500px]">
+          <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
             <Suspense fallback={null}>
               <HeroIllustration />
             </Suspense>
@@ -580,20 +580,20 @@ function Home() {
 
       {/* ═══════════════ ABOUT ═══════════════ */}
       <Section id="about">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <Reveal>
             <Eyebrow>About</Eyebrow>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
               Rooted in values. Built to lead.
             </h2>
-            <p className="mt-5 text-muted-foreground text-lg">
+            <p className="mt-4 sm:mt-5 text-muted-foreground text-base sm:text-lg">
               Codrithm is more than a tech community — we are a movement guided by Islamic values.
               We believe in honesty, integrity, service, and the power of knowledge. Our mission is
               to push every junior forward, giving them the platform, mentorship, and confidence to
               step up and lead.
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {[
               { k: "Founded", v: "2026" },
               { k: "Company Size", v: "2-10" },
@@ -602,8 +602,8 @@ function Home() {
             ].map((s) => (
               <Reveal key={s.k} delay={0.05}>
                 <TiltCard>
-                  <div className="text-4xl font-display font-bold text-gradient">{s.v}</div>
-                  <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
+                  <div className="text-3xl sm:text-4xl font-display font-bold text-gradient">{s.v}</div>
+                  <div className="mt-1 text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">
                     {s.k}
                   </div>
                 </TiltCard>
@@ -614,7 +614,7 @@ function Home() {
       </Section>
 
       <Section>
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {[
             {
               t: "Mission",
@@ -644,15 +644,15 @@ function Home() {
       {/* TIMELINE */}
       <Section>
         <Eyebrow>Timeline</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A brief history.</h2>
-        <div className="mt-14 relative">
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">A brief history.</h2>
+        <div className="mt-10 sm:mt-14 relative">
           <div
             className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
             style={{
               background: "linear-gradient(to bottom, transparent, #87FFBC, #0066FF, transparent)",
             }}
           />
-          <div className="mt-14 relative" role="list">
+          <div className="mt-10 sm:mt-14 relative" role="list">
             <div
               className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
               style={{
@@ -661,21 +661,21 @@ function Home() {
               }}
             />
             {MILESTONES.map((m, i) => (
-              <Reveal key={m.y} delay={i * 0.04} role="listitem" className="space-y-10">
+              <Reveal key={m.y} delay={i * 0.04} role="listitem" className="space-y-8 sm:space-y-10">
                 <div
-                  className={`relative grid md:grid-cols-2 gap-6 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
+                  className={`relative grid md:grid-cols-2 gap-4 sm:gap-6 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
                 >
                   <div className={`md:[direction:ltr]`}>
                     <TiltCard>
                       <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">
                         {m.y}
                       </div>
-                      <h3 className="mt-2 font-display text-2xl font-semibold">{m.t}</h3>
+                      <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold">{m.t}</h3>
                       <p className="mt-2 text-muted-foreground text-sm">{m.d}</p>
                     </TiltCard>
                   </div>
                   <div className="hidden md:block" />
-                  <span className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[color:var(--neon-green)] glow-green" />
+                  <span className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[color:var(--neon-green)] glow-green" />
                 </div>
               </Reveal>
             ))}
@@ -684,7 +684,7 @@ function Home() {
       </Section>
 
       <Section>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Stat value="7" label="Team members" />
           <Stat value="500+" label="LinkedIn followers" />
           <Stat value="2026" label="Founded" />
@@ -695,14 +695,14 @@ function Home() {
       {/* ═══════════════ SERVICES ═══════════════ */}
       <Section id="services">
         <Eyebrow>What We Offer</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           Learn. Build. <span className="text-gradient">Lead.</span>
         </h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">
+        <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg max-w-2xl">
           Workshops, mentorship, and real-world project experience — designed to push juniors from
           learners to leaders.
         </p>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
             <Reveal key={s.t} delay={(i % 3) * 0.06}>
               <motion.div
@@ -744,9 +744,9 @@ function Home() {
       {/* ═══════════════ PROJECTS / PORTFOLIO ═══════════════ */}
       <Section id="projects">
         <Eyebrow>Featured Work</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">Selected projects.</h2>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">Selected projects.</h2>
         <div
-          className="mt-12 relative overflow-hidden"
+          className="mt-8 sm:mt-12 relative overflow-hidden"
           style={{
             maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
           }}
@@ -755,7 +755,7 @@ function Home() {
             {[...PROJECTS, ...PROJECTS].map((p, i) => (
               <button
                 key={`${p.name}-${i}`}
-                className="w-[85vw] sm:w-[340px] lg:w-[420px] h-[200px] sm:h-[240px] lg:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
+                className="w-[80vw] sm:w-[340px] lg:w-[420px] h-[180px] sm:h-[240px] lg:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
                 onClick={() => setOpenProject(p)}
               >
                 <img
@@ -788,11 +788,11 @@ function Home() {
                     <path d="M7 7h10v10" />
                   </svg>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
+                  <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">
                     {p.tag}
                   </div>
-                  <div className="text-lg font-black text-[color:var(--foreground)] leading-tight">
+                  <div className="text-base sm:text-lg font-black text-[color:var(--foreground)] leading-tight">
                     {p.name}
                   </div>
                 </div>
@@ -809,7 +809,7 @@ function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] p-4 sm:p-8 flex items-center justify-center"
+            className="fixed inset-0 z-[60] p-3 sm:p-4 md:p-8 flex items-center justify-center"
             style={{ backdropFilter: "blur(20px)", background: "rgba(6,10,20,0.8)" }}
             onClick={() => setOpenProject(null)}
           >
@@ -820,9 +820,9 @@ function Home() {
               exit={{ scale: 0.9, y: 30 }}
               transition={{ type: "spring", stiffness: 260, damping: 26 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-strong rounded-3xl max-w-4xl w-full max-h-[85vh] overflow-auto"
+              className="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-auto"
             >
-              <div className="aspect-[16/8] rounded-t-3xl relative overflow-hidden bg-[color:var(--card)]">
+              <div className="aspect-video lg:aspect-[16/8] rounded-t-3xl relative overflow-hidden bg-[color:var(--card)]">
                 <img
                   src={openProject.img}
                   alt={openProject.name}
@@ -834,48 +834,48 @@ function Home() {
                 <div className="absolute inset-0 grid-lines opacity-25" />
                 <button
                   onClick={() => setOpenProject(null)}
-                  className="absolute top-4 right-4 glass rounded-full w-11 h-11 flex items-center justify-center text-lg"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 glass rounded-full w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-lg min-w-[44px] min-h-[44px]"
                 >
                   ✕
                 </button>
-                <div className="absolute bottom-4 left-6 glass rounded-full px-3 py-1 text-[10px] font-mono tracking-widest">
+                <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 glass rounded-full px-2.5 sm:px-3 py-1 text-[10px] font-mono tracking-widest">
                   {openProject.tag}
                 </div>
               </div>
-              <div className="p-5 sm:p-8">
-                <h2 className="font-display text-2xl sm:text-4xl font-bold">{openProject.name}</h2>
-                <p className="mt-3 text-muted-foreground">{openProject.desc}</p>
-                <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="p-4 sm:p-6 md:p-8">
+                <h2 className="font-display text-xl sm:text-2xl md:text-4xl font-bold">{openProject.name}</h2>
+                <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">{openProject.desc}</p>
+                <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                   {openProject.metrics.map((m) => (
-                    <div key={m.k} className="glass rounded-2xl p-4 text-center">
-                      <div className="text-2xl font-display font-bold text-gradient">{m.v}</div>
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+                    <div key={m.k} className="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
+                      <div className="text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">{m.v}</div>
+                      <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
                         {m.k}
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="mt-6">
+                <div className="mt-4 sm:mt-6">
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">
                     Stack
                   </div>
-                  <div className="mt-2 flex flex-wrap gap-2">
+                  <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
                     {openProject.stack.map((s) => (
-                      <span key={s} className="glass rounded-full px-3 py-1 text-xs">
+                      <span key={s} className="glass rounded-full px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs">
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="mt-8 flex gap-3">
+                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
                   <a
                     href="#contact"
                     onClick={() => setOpenProject(null)}
-                    className="btn-neon btn-neon-hover"
+                    className="btn-neon btn-neon-hover justify-center min-h-[48px]"
                   >
                     Start similar
                   </a>
-                  <button onClick={() => setOpenProject(null)} className="btn-ghost-neon">
+                  <button onClick={() => setOpenProject(null)} className="btn-ghost-neon justify-center min-h-[48px]">
                     Close
                   </button>
                 </div>
@@ -888,10 +888,10 @@ function Home() {
       {/* ═══════════════ COMMUNITY ═══════════════ */}
       <Section id="community">
         <Eyebrow>Community & Blog</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           A community where <span className="text-gradient">juniors lead</span>.
         </h2>
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+        <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
           <Stat value="500+" label="Followers" />
           <Stat value="7" label="Team" />
           <Stat value="1" label="MoU" />
@@ -900,26 +900,26 @@ function Home() {
       </Section>
 
       <Section>
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           <div>
             <Eyebrow>Upcoming events</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold">
+            <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold">
               Meet the community.
             </h2>
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-6 sm:mt-8 space-y-3">
               {EVENTS.map((e) => (
-                <li key={e.t} className="glass rounded-2xl p-5 flex items-center gap-5">
-                  <div className="w-16 h-16 rounded-xl flex flex-col items-center justify-center glass-strong">
-                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                <li key={e.t} className="glass rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-5">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center glass-strong flex-shrink-0">
+                    <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground">
                       {e.d.split(" ")[0]}
                     </div>
-                    <div className="font-display text-xl text-gradient">{e.d.split(" ")[1]}</div>
+                    <div className="font-display text-lg sm:text-xl text-gradient">{e.d.split(" ")[1]}</div>
                   </div>
-                  <div className="flex-1">
-                    <div className="font-semibold">{e.t}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-sm sm:text-base truncate">{e.t}</div>
                     <div className="text-xs text-muted-foreground mt-1">{e.where}</div>
                   </div>
-                  <button className="btn-ghost-neon !py-2 !px-4 text-sm">RSVP</button>
+                  <button className="btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[40px]">RSVP</button>
                 </li>
               ))}
             </ul>
@@ -930,14 +930,14 @@ function Home() {
       {/* ═══════════════ TEAM ═══════════════ */}
       <Section id="team">
         <Eyebrow>Our Team</Eyebrow>
-        <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           Meet the Minds Behind <span className="text-gradient">Codrithm</span>
         </h2>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl">
+        <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg max-w-2xl">
           Junior leaders who stepped up — now building a platform for the next wave of talent to
           rise.
         </p>
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TEAM.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
               <TeamCard member={m} />
@@ -948,16 +948,16 @@ function Home() {
 
       {/* ═══════════════ CONTACT ═══════════════ */}
       <Section id="contact">
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
           <Reveal>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 setContactSent(true);
               }}
-              className="glass-strong rounded-3xl p-5 sm:p-8 space-y-4"
+              className="glass-strong rounded-3xl p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4"
             >
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <Field label="Your name">
                   <input required className="input" placeholder="Ada Lovelace" />
                 </Field>
@@ -970,22 +970,22 @@ function Home() {
               </Field>
               <Field label="What are you building?">
                 <textarea
-                  rows={5}
+                  rows={4}
                   className="input"
                   placeholder="Tell us about your project, timeline, and success criteria."
                 />
               </Field>
-              <button className="btn-neon btn-neon-hover w-full justify-center">
+              <button className="btn-neon btn-neon-hover w-full justify-center min-h-[48px]">
                 {contactSent ? "✓ Message received — we'll be in touch" : "Send message"}
               </button>
             </form>
           </Reveal>
 
-          <div className="space-y-6">
-            <div className="grid sm:grid-cols-2 gap-4">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               <TiltCard>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
-                <div className="mt-2 font-display text-lg">hello@codrithm.com</div>
+                <div className="mt-2 font-display text-lg break-all sm:break-normal">hello@codrithm.com</div>
               </TiltCard>
             </div>
 
@@ -994,16 +994,16 @@ function Home() {
                 Newsletter
               </div>
               <p className="mt-2 text-sm">Get one thoughtful essay per month on AI and craft.</p>
-              <div className="mt-4 glass rounded-full p-1.5 flex items-center">
+              <div className="mt-4 glass rounded-full p-1.5 flex items-center gap-2">
                 <input
                   placeholder="you@company.com"
-                  className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
+                  className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
                 />
-                <button type="button" className="btn-neon btn-neon-hover !py-2 !px-4 text-sm">
+                <button type="button" className="btn-neon btn-neon-hover !py-2 !px-3 sm:!px-4 text-sm flex-shrink-0">
                   Subscribe
                 </button>
               </div>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
                 {[
                   { name: "LinkedIn", url: "https://linkedin.com/company/codrithmdev" },
                   { name: "YouTube", url: "https://www.youtube.com/@codrithm" },
@@ -1019,7 +1019,7 @@ function Home() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass rounded-full px-3 py-1 text-xs hover:text-[color:var(--neon-green)]"
+                    className="glass rounded-full px-3 py-1.5 text-xs hover:text-[color:var(--neon-green)] min-h-[32px] flex items-center"
                   >
                     {s.name}
                   </a>

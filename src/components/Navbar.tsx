@@ -122,7 +122,7 @@ export function Navbar() {
               aria-label="Menu"
               aria-expanded={open}
               onClick={() => setOpen(!open)}
-              className="lg:hidden btn-ghost-neon !px-3 !py-2.5"
+              className="lg:hidden btn-ghost-neon !px-3 !py-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
               <svg
                 width="18"
@@ -138,12 +138,12 @@ export function Navbar() {
           </div>
         </nav>
         {open && (
-          <div className="lg:hidden fixed inset-0 top-[72px] z-40" onClick={() => setOpen(false)}>
+          <div className="lg:hidden fixed inset-0 z-40" onClick={() => setOpen(false)}>
             <motion.ul
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute right-6 mt-2 glass-strong rounded-3xl p-3 flex flex-col min-w-[200px]"
+              className="absolute right-4 sm:right-6 top-[72px] glass-strong rounded-3xl p-3 flex flex-col min-w-[200px]"
             >
               {NAV.map((n) => (
                 <li key={n.href}>
@@ -153,7 +153,7 @@ export function Navbar() {
                       scrollTo(n.href, e);
                       setOpen(false);
                     }}
-                    className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
+                    className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium min-h-[44px] flex items-center"
                   >
                     {n.label}
                   </a>
