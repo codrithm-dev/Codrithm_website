@@ -393,7 +393,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
     >
       {/* Gradient border on hover */}
       <div
-        className="absolute -inset-[1px] rounded-[28px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        className="absolute -inset-[1px] rounded-[28px] opacity-0 max-sm:opacity-40 group-hover:opacity-100 transition-opacity duration-400"
         style={{
           background:
             "linear-gradient(135deg, var(--neon-green), var(--neon-blue), var(--neon-green))",
@@ -403,7 +403,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
       />
 
       {/* Card inner */}
-      <div className="relative bg-[color:var(--card)] rounded-[28px] overflow-hidden transition-all duration-400 group-hover:shadow-[0_20px_60px_-15px_rgba(0,102,255,0.3)] group-hover:translate-y-[-10px]">
+      <div className="relative bg-[color:var(--card)] rounded-[28px] overflow-hidden transition-all duration-400 max-sm:shadow-[0_10px_40px_-10px_rgba(0,102,255,0.2)] max-sm:translate-y-[-4px] group-hover:shadow-[0_20px_60px_-15px_rgba(0,102,255,0.3)] group-hover:translate-y-[-10px]">
         {/* Portrait area - 70% */}
         <div className="relative h-[220px] sm:h-[260px] overflow-hidden">
           <img
@@ -412,7 +412,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
             loading="lazy"
             width={512}
             height={680}
-            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.03] group-hover:brightness-110"
+            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 max-sm:brightness-105 group-hover:scale-[1.03] group-hover:brightness-110"
           />
 
           {/* Gradient overlay */}
@@ -488,7 +488,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
                 key={s.type}
                 href={s.url}
                 aria-label={s.type}
-                className="w-9 h-9 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/70 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-[color:var(--neon-green)] hover:text-black"
+                className="w-11 h-11 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/70 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300 hover:bg-[color:var(--neon-green)] hover:text-black max-sm:opacity-100 max-sm:translate-y-0"
                 style={{ transitionDelay: isHovered ? `${idx * 60}ms` : "0ms" }}
               >
                 {socialIcon(s.type)}
@@ -531,7 +531,7 @@ function Home() {
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center min-h-[70vh] sm:min-h-[80vh]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-6 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center min-h-[70vh] sm:min-h-[80vh]">
           <div>
             <Eyebrow>Student Tech Community</Eyebrow>
             <motion.h1
@@ -645,41 +645,33 @@ function Home() {
       <Section>
         <Eyebrow>Timeline</Eyebrow>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">A brief history.</h2>
-        <div className="mt-10 sm:mt-14 relative">
+        <div className="mt-10 sm:mt-14 relative" role="list">
           <div
             className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
             style={{
-              background: "linear-gradient(to bottom, transparent, #87FFBC, #0066FF, transparent)",
+              background:
+                "linear-gradient(to bottom, transparent, #87FFBC, #0066FF, transparent)",
             }}
           />
-          <div className="mt-10 sm:mt-14 relative" role="list">
-            <div
-              className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent, #87FFBC, #0066FF, transparent)",
-              }}
-            />
-            {MILESTONES.map((m, i) => (
-              <Reveal key={m.y} delay={i * 0.04} role="listitem" className="space-y-8 sm:space-y-10">
-                <div
-                  className={`relative grid md:grid-cols-2 gap-4 sm:gap-6 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
-                >
-                  <div className={`md:[direction:ltr]`}>
-                    <TiltCard>
-                      <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">
-                        {m.y}
-                      </div>
-                      <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold">{m.t}</h3>
-                      <p className="mt-2 text-muted-foreground text-sm">{m.d}</p>
-                    </TiltCard>
-                  </div>
-                  <div className="hidden md:block" />
-                  <span className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[color:var(--neon-green)] glow-green" />
+          {MILESTONES.map((m, i) => (
+            <Reveal key={m.y} delay={i * 0.04} role="listitem" className="space-y-8 sm:space-y-10">
+              <div
+                className={`relative grid md:grid-cols-2 gap-4 sm:gap-6 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
+              >
+                <div className={`md:[direction:ltr]`}>
+                  <TiltCard>
+                    <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">
+                      {m.y}
+                    </div>
+                    <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold">{m.t}</h3>
+                    <p className="mt-2 text-muted-foreground text-sm">{m.d}</p>
+                  </TiltCard>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                <div className="hidden md:block" />
+                <span className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[color:var(--neon-green)] glow-green" />
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
@@ -751,7 +743,7 @@ function Home() {
             maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
           }}
         >
-          <div className="flex gap-7 w-max hover:[animation-play-state:paused] animate-marquee">
+          <div className="flex gap-4 sm:gap-7 w-max hover:[animation-play-state:paused] animate-marquee">
             {[...PROJECTS, ...PROJECTS].map((p, i) => (
               <button
                 key={`${p.name}-${i}`}
@@ -900,30 +892,28 @@ function Home() {
       </Section>
 
       <Section>
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-          <div>
-            <Eyebrow>Upcoming events</Eyebrow>
-            <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold">
-              Meet the community.
-            </h2>
-            <ul className="mt-6 sm:mt-8 space-y-3">
-              {EVENTS.map((e) => (
-                <li key={e.t} className="glass rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-5">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center glass-strong flex-shrink-0">
-                    <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground">
-                      {e.d.split(" ")[0]}
-                    </div>
-                    <div className="font-display text-lg sm:text-xl text-gradient">{e.d.split(" ")[1]}</div>
+        <div>
+          <Eyebrow>Upcoming events</Eyebrow>
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold">
+            Meet the community.
+          </h2>
+          <ul className="mt-6 sm:mt-8 space-y-3">
+            {EVENTS.map((e) => (
+              <li key={e.t} className="glass rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center glass-strong flex-shrink-0">
+                  <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground">
+                    {e.d.split(" ")[0]}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-sm sm:text-base truncate">{e.t}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{e.where}</div>
-                  </div>
-                  <button className="btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[40px]">RSVP</button>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <div className="font-display text-lg sm:text-xl text-gradient">{e.d.split(" ")[1]}</div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-sm sm:text-base truncate">{e.t}</div>
+                  <div className="text-xs text-muted-foreground mt-1">{e.where}</div>
+                </div>
+                <button className="btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">RSVP</button>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
@@ -994,12 +984,12 @@ function Home() {
                 Newsletter
               </div>
               <p className="mt-2 text-sm">Get one thoughtful essay per month on AI and craft.</p>
-              <div className="mt-4 glass rounded-full p-1.5 flex items-center gap-2">
+              <div className="mt-4 glass rounded-full p-1.5 flex flex-wrap items-center gap-2">
                 <input
                   placeholder="you@company.com"
                   className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
                 />
-                <button type="button" className="btn-neon btn-neon-hover !py-2 !px-3 sm:!px-4 text-sm flex-shrink-0">
+                <button type="button" className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]">
                   Subscribe
                 </button>
               </div>
@@ -1019,7 +1009,7 @@ function Home() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass rounded-full px-3 py-1.5 text-xs hover:text-[color:var(--neon-green)] min-h-[32px] flex items-center"
+                    className="glass rounded-full px-3 py-1.5 text-xs hover:text-[color:var(--neon-green)] min-h-[44px] flex items-center"
                   >
                     {s.name}
                   </a>

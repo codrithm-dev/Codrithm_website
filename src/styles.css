@@ -259,8 +259,8 @@
 }
 .contact-card .card {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: min(200px, 70vw);
+  height: min(200px, 70vw);
   background: var(--color-card);
   border-radius: 30px;
   overflow: hidden;

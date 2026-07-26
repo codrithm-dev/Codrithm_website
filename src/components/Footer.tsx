@@ -19,12 +19,12 @@ export function Footer() {
             A values-driven community rooted in Islamic principles — empowering junior developers to
             learn, build, and lead.
           </p>
-          <form className="mt-6 glass rounded-full p-1.5 flex items-center gap-2 max-w-md">
+          <form className="mt-6 glass rounded-full p-1.5 flex flex-wrap items-center gap-2 max-w-md">
             <input
               placeholder="you@company.com"
               className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
             />
-            <button type="button" className="btn-neon btn-neon-hover !py-2 !px-3 sm:!px-4 text-sm flex-shrink-0">
+            <button type="button" className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]">
               Subscribe
             </button>
           </form>
