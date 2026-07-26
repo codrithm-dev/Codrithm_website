@@ -54,6 +54,18 @@ const PROJECTS: P[] = [
 
 const TEAM = [
   {
+    name: "Muhammad Umais Adeel",
+    role: "Founder",
+    img: teamLead,
+    skills: ["Leadership", "Strategy", "Community", "Tech"],
+    social: [
+      { type: "li", url: "https://linkedin.com/in/umais" },
+      { type: "gh", url: "#" },
+      { type: "web", url: "#" },
+      { type: "mail", url: "#" },
+    ],
+  },
+  {
     name: "Atiq Umer",
     role: "Co-Founder",
     img: teamLead,
@@ -143,7 +155,7 @@ const MILESTONES = [
   { y: "2026", t: "Codrithm founded", d: "A student community where coders make history — coding the logic, crafting the flow." },
   { y: "2026", t: "First Git & GitHub Workshop", d: "Hosted 'Commit to Code: The Git & GitHub Blueprint' with expert speakers." },
   { y: "2026", t: "MoU with NYLP", d: "Signed our first official MoU with the National Youth Leadership Programme." },
-  { y: "2026", t: "518+ Followers", d: "Community grows to 518+ followers on LinkedIn." },
+  { y: "2026", t: "500+ Followers", d: "Community grows to 500+ followers on LinkedIn." },
 ];
 
 
@@ -345,7 +357,7 @@ function Home() {
               <a href="#contact" className="btn-ghost-neon">Get in Touch</a>
             </motion.div>
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
-              <Stat value="518+" label="Followers" />
+              <Stat value="500+" label="Followers" />
               <Stat value="7" label="Team Members" />
               <Stat value="2026" label="Founded" />
             </div>
@@ -375,7 +387,7 @@ function Home() {
             {[
               { k: "Founded", v: "2026" },
               { k: "Company Size", v: "2-10" },
-              { k: "Followers", v: "518+" },
+              { k: "Followers", v: "500+" },
               { k: "Type", v: "Private" },
             ].map((s) => (
               <Reveal key={s.k} delay={0.05}><TiltCard><div className="text-4xl font-display font-bold text-gradient">{s.v}</div><div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{s.k}</div></TiltCard></Reveal>
@@ -430,7 +442,7 @@ function Home() {
       <Section>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Stat value="7" label="Team members" />
-          <Stat value="518+" label="LinkedIn followers" />
+          <Stat value="500+" label="LinkedIn followers" />
           <Stat value="2026" label="Founded" />
           <Stat value="IT" label="Services & Consulting" />
         </div>
@@ -546,7 +558,7 @@ function Home() {
         <Eyebrow>Community & Blog</Eyebrow>
         <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold">A community where <span className="text-gradient">juniors lead</span>.</h2>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-          <Stat value="518+" label="Followers" /><Stat value="7" label="Team" /><Stat value="1" label="MoU" /><Stat value="5+" label="Events" />
+          <Stat value="500+" label="Followers" /><Stat value="7" label="Team" /><Stat value="1" label="MoU" /><Stat value="5+" label="Events" />
         </div>
       </Section>
 
