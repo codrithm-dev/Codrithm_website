@@ -100,8 +100,9 @@ export function Navbar() {
                       className="absolute inset-0 rounded-full -z-10"
                       style={{
                         background:
-                          "linear-gradient(120deg, color-mix(in oklab, #87FFBC 25%, transparent), color-mix(in oklab, #0066FF 25%, transparent))",
-                        boxShadow: "0 0 20px color-mix(in oklab, #87FFBC 40%, transparent)",
+                          "linear-gradient(120deg, color-mix(in oklab, var(--neon-green) 15%, transparent), color-mix(in oklab, var(--neon-blue) 15%, transparent))",
+                        boxShadow: "0 0 16px color-mix(in oklab, var(--neon-green) 20%, transparent)",
+                        border: "1px solid color-mix(in oklab, var(--neon-green) 15%, transparent)",
                       }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -143,7 +144,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="absolute right-4 sm:right-6 top-[72px] glass-strong rounded-3xl p-3 flex flex-col min-w-[200px]"
+              className="absolute right-4 sm:right-6 top-[72px] rounded-2xl p-3 flex flex-col min-w-[200px] bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_8px_32px_rgba(0,0,0,0.25)] backdrop-blur-xl"
             >
               {NAV.map((n) => (
                 <li key={n.href}>

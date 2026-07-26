@@ -22,8 +22,8 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-medium tracking-wider uppercase text-muted-foreground">
-      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--neon-green)] glow-green" />
+    <div className="inline-flex items-center gap-2 rounded-lg bg-[color:var(--neon-green)]/8 border border-[color:var(--neon-green)]/15 px-3 py-1.5 text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--neon-green)]">
+      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--neon-green)] shadow-[0_0_6px_var(--neon-green)]" />
       {children}
     </div>
   );
@@ -39,8 +39,8 @@ export function TiltCard({
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 200, damping: 20 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 200, damping: 20 });
+  const rx = useSpring(useTransform(my, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 20 });
+  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 20 });
 
   return (
     <motion.div
@@ -55,9 +55,17 @@ export function TiltCard({
         my.set(0);
       }}
       style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
-      className={`glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 will-change-transform ${className}`}
+      className={`group/card relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 will-change-transform overflow-hidden
+        bg-[color:var(--card)] border border-[color:var(--border)]
+        shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]
+        transition-all duration-500
+        hover:border-[color:var(--neon-green)]/20
+        hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_8px_32px_rgba(0,102,255,0.12),0_0_0_1px_rgba(135,255,188,0.06)]
+        ${className}`}
     >
-      <div style={{ transform: "translateZ(30px)" }}>{children}</div>
+      {/* Subtle top accent line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+      <div style={{ transform: "translateZ(20px)" }}>{children}</div>
     </motion.div>
   );
 }
@@ -89,9 +97,10 @@ export function Reveal({
 
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
-      <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gradient">{value}</div>
-      <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{label}</div>
+    <div className="relative rounded-xl sm:rounded-2xl p-5 sm:p-6 text-center overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
+      <div className="relative text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gradient">{value}</div>
+      <div className="relative mt-1.5 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">{label}</div>
     </div>
   );
 }

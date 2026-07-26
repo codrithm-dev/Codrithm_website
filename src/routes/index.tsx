@@ -403,7 +403,7 @@ const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
       />
 
       {/* Card inner */}
-      <div className="relative bg-[color:var(--card)] rounded-[28px] overflow-hidden transition-all duration-400 max-sm:shadow-[0_10px_40px_-10px_rgba(0,102,255,0.2)] max-sm:translate-y-[-4px] group-hover:shadow-[0_20px_60px_-15px_rgba(0,102,255,0.3)] group-hover:translate-y-[-10px]">
+      <div className="relative bg-[color:var(--card)] rounded-[28px] border border-[color:var(--border)] overflow-hidden transition-all duration-500 max-sm:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] max-sm:translate-y-[-2px] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_12px_40px_rgba(0,102,255,0.12)] group-hover:translate-y-[-6px]">
         {/* Portrait area - 70% */}
         <div className="relative h-[220px] sm:h-[260px] overflow-hidden">
           <img
@@ -601,12 +601,13 @@ function Home() {
               { k: "Type", v: "Private" },
             ].map((s) => (
               <Reveal key={s.k} delay={0.05}>
-                <TiltCard>
-                  <div className="text-3xl sm:text-4xl font-display font-bold text-gradient">{s.v}</div>
-                  <div className="mt-1 text-[10px] sm:text-xs uppercase tracking-widest text-muted-foreground">
+                <div className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
+                  <div className="relative text-2xl sm:text-3xl font-display font-bold text-gradient">{s.v}</div>
+                  <div className="relative mt-1 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
                     {s.k}
                   </div>
-                </TiltCard>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -619,23 +620,33 @@ function Home() {
             {
               t: "Mission",
               d: "Empower every junior developer to grow, lead, and make a meaningful impact — rooted in Islamic values of knowledge, service, and integrity.",
+              icon: "◇",
             },
             {
               t: "Vision",
               d: "A generation of confident, values-driven tech leaders who lift others as they rise.",
+              icon: "○",
             },
             {
               t: "Values",
               d: "Ilm (Knowledge). Ihsan (Excellence). Ikhlas (Sincerity). Tawadu (Humility). We push juniors to lead.",
+              icon: "△",
             },
           ].map((v, i) => (
             <Reveal key={v.t} delay={i * 0.06}>
-              <TiltCard>
-                <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">
-                  {v.t}
+              <div className="group relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_8px_32px_rgba(0,102,255,0.12)]">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-[color:var(--neon-blue)]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl text-gradient">{v.icon}</span>
+                    <span className="text-xs uppercase tracking-[0.15em] text-[color:var(--neon-green)] font-semibold">
+                      {v.t}
+                    </span>
+                  </div>
+                  <p className="text-muted-foreground text-sm sm:text-[15px] leading-relaxed">{v.d}</p>
                 </div>
-                <p className="mt-4 text-lg">{v.d}</p>
-              </TiltCard>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -646,29 +657,49 @@ function Home() {
         <Eyebrow>Timeline</Eyebrow>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">A brief history.</h2>
         <div className="mt-10 sm:mt-14 relative" role="list">
+          {/* Vertical line */}
           <div
-            className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+            className="absolute left-[29px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px]"
             style={{
               background:
-                "linear-gradient(to bottom, transparent, #87FFBC, #0066FF, transparent)",
+                "linear-gradient(to bottom, transparent, var(--neon-green), var(--neon-blue), transparent)",
             }}
           />
           {MILESTONES.map((m, i) => (
-            <Reveal key={m.y} delay={i * 0.04} role="listitem" className="space-y-8 sm:space-y-10">
+            <Reveal key={m.y} delay={i * 0.04} role="listitem" className="mb-8 sm:mb-10 last:mb-0">
               <div
-                className={`relative grid md:grid-cols-2 gap-4 sm:gap-6 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
+                className={`relative grid md:grid-cols-2 gap-6 sm:gap-10 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
               >
-                <div className={`md:[direction:ltr]`}>
-                  <TiltCard>
-                    <div className="text-xs uppercase tracking-widest text-[color:var(--neon-green)]">
-                      {m.y}
-                    </div>
-                    <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold">{m.t}</h3>
-                    <p className="mt-2 text-muted-foreground text-sm">{m.d}</p>
-                  </TiltCard>
+                {/* Timeline dot */}
+                <div className="absolute left-[23px] md:left-1/2 md:-translate-x-1/2 z-10">
+                  <div className="w-[14px] h-[14px] rounded-full bg-[color:var(--neon-green)] shadow-[0_0_12px_var(--neon-green),0_0_24px_rgba(135,255,188,0.3)]" />
                 </div>
+
+                {/* Card */}
+                <div className={`md:[direction:ltr] ml-[52px] md:ml-0`}>
+                  <div className="group relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_8px_32px_rgba(0,102,255,0.12)]">
+                    {/* Top accent */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Subtle corner glow */}
+                    <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-[color:var(--neon-green)]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex items-center justify-center px-2.5 py-0.5 rounded-md bg-[color:var(--neon-green)]/10 text-[color:var(--neon-green)] text-xs font-mono font-semibold tracking-wider">
+                        {m.y}
+                      </span>
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-medium">
+                        Milestone {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-lg sm:text-xl font-bold text-[color:var(--foreground)] leading-snug">
+                      {m.t}
+                    </h3>
+                    <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">{m.d}</p>
+                  </div>
+                </div>
+
+                {/* Empty spacer for alternating layout */}
                 <div className="hidden md:block" />
-                <span className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-[color:var(--neon-green)] glow-green" />
               </div>
             </Reveal>
           ))}
@@ -698,35 +729,30 @@ function Home() {
           {SERVICES.map((s, i) => (
             <Reveal key={s.t} delay={(i % 3) * 0.06}>
               <motion.div
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <TiltCard className="h-full group">
+                <div className="group relative h-full rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_8px_32px_rgba(0,102,255,0.12)]">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute -bottom-16 -right-16 w-32 h-32 rounded-full bg-[color:var(--neon-blue)]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="relative">
-                    <div className="text-5xl text-gradient transition-transform group-hover:scale-110 group-hover:rotate-6">
-                      {s.icon}
+                    <div className="w-12 h-12 rounded-xl bg-[color:var(--neon-green)]/10 border border-[color:var(--neon-green)]/10 flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-[color:var(--neon-green)]/15 group-hover:border-[color:var(--neon-green)]/20 group-hover:shadow-[0_0_20px_rgba(135,255,188,0.1)]">
+                      <span className="text-2xl text-gradient">{s.icon}</span>
                     </div>
-                    <div
-                      className="absolute -inset-6 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                      style={{
-                        background:
-                          "radial-gradient(circle, rgba(135,255,188,0.25), transparent 70%)",
-                      }}
-                    />
+                    <h3 className="font-display text-lg font-bold text-[color:var(--foreground)]">{s.t}</h3>
+                    <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {s.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10px] uppercase tracking-[0.12em] font-medium rounded-md px-2.5 py-1 bg-[color:var(--muted)] text-muted-foreground border border-[color:var(--border)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="mt-6 font-display text-xl font-semibold">{s.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {s.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] uppercase tracking-widest glass rounded-full px-2.5 py-1 text-muted-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </TiltCard>
+                </div>
               </motion.div>
             </Reveal>
           ))}
@@ -812,7 +838,7 @@ function Home() {
               exit={{ scale: 0.9, y: 30 }}
               transition={{ type: "spring", stiffness: 260, damping: 26 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-strong rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-auto"
+              className="rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-auto bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_8px_32px_rgba(0,0,0,0.25)]"
             >
               <div className="aspect-video lg:aspect-[16/8] rounded-t-3xl relative overflow-hidden bg-[color:var(--card)]">
                 <img
@@ -826,11 +852,11 @@ function Home() {
                 <div className="absolute inset-0 grid-lines opacity-25" />
                 <button
                   onClick={() => setOpenProject(null)}
-                  className="absolute top-3 right-3 sm:top-4 sm:right-4 glass rounded-full w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-lg min-w-[44px] min-h-[44px]"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 rounded-full w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-lg min-w-[44px] min-h-[44px] bg-black/40 backdrop-blur-md border border-white/10 text-white/70 hover:text-white hover:bg-black/60 transition-colors"
                 >
                   ✕
                 </button>
-                <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 glass rounded-full px-2.5 sm:px-3 py-1 text-[10px] font-mono tracking-widest">
+                <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 rounded-lg px-2.5 sm:px-3 py-1 text-[10px] font-mono tracking-widest bg-black/40 backdrop-blur-md border border-white/10 text-white/80">
                   {openProject.tag}
                 </div>
               </div>
@@ -839,9 +865,10 @@ function Home() {
                 <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">{openProject.desc}</p>
                 <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                   {openProject.metrics.map((m) => (
-                    <div key={m.k} className="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center">
-                      <div className="text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">{m.v}</div>
-                      <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground mt-1">
+                    <div key={m.k} className="relative rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center overflow-hidden bg-[color:var(--muted)] border border-[color:var(--border)]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
+                      <div className="relative text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">{m.v}</div>
+                      <div className="relative text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium mt-1">
                         {m.k}
                       </div>
                     </div>
@@ -853,7 +880,7 @@ function Home() {
                   </div>
                   <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
                     {openProject.stack.map((s) => (
-                      <span key={s} className="glass rounded-full px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs">
+                      <span key={s} className="rounded-lg px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground">
                         {s}
                       </span>
                     ))}
@@ -899,18 +926,19 @@ function Home() {
           </h2>
           <ul className="mt-6 sm:mt-8 space-y-3">
             {EVENTS.map((e) => (
-              <li key={e.t} className="glass rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center glass-strong flex-shrink-0">
-                  <div className="text-[9px] sm:text-[10px] uppercase tracking-widest text-muted-foreground">
+              <li key={e.t} className="group relative rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5 bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_4px_16px_rgba(0,102,255,0.08)]">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center bg-[color:var(--muted)] border border-[color:var(--border)] flex-shrink-0">
+                  <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium">
                     {e.d.split(" ")[0]}
                   </div>
-                  <div className="font-display text-lg sm:text-xl text-gradient">{e.d.split(" ")[1]}</div>
+                  <div className="font-display text-lg sm:text-xl text-gradient font-bold">{e.d.split(" ")[1]}</div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-sm sm:text-base truncate">{e.t}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{e.where}</div>
+                <div className="relative flex-1 min-w-0">
+                  <div className="font-semibold text-sm sm:text-base text-[color:var(--foreground)] truncate">{e.t}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{e.where}</div>
                 </div>
-                <button className="btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">RSVP</button>
+                <button className="relative btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">RSVP</button>
               </li>
             ))}
           </ul>
@@ -945,8 +973,9 @@ function Home() {
                 e.preventDefault();
                 setContactSent(true);
               }}
-              className="glass-strong rounded-3xl p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4"
+              className="relative rounded-3xl p-5 sm:p-6 md:p-8 space-y-3 sm:space-y-4 bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] overflow-hidden"
             >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <Field label="Your name">
                   <input required className="input" placeholder="Ada Lovelace" />
@@ -973,18 +1002,20 @@ function Home() {
 
           <div className="space-y-4 sm:space-y-6">
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-              <TiltCard>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
-                <div className="mt-2 font-display text-lg break-all sm:break-normal">hello@codrithm.com</div>
-              </TiltCard>
+              <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
+                <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">Email</div>
+                <div className="mt-2.5 font-display text-lg break-all sm:break-normal text-[color:var(--foreground)]">hello@codrithm.com</div>
+              </div>
             </div>
 
-            <TiltCard>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground">
+            <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
+              <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
                 Newsletter
               </div>
-              <p className="mt-2 text-sm">Get one thoughtful essay per month on AI and craft.</p>
-              <div className="mt-4 glass rounded-full p-1.5 flex flex-wrap items-center gap-2">
+              <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">Get one thoughtful essay per month on AI and craft.</p>
+              <div className="mt-4 rounded-full p-1.5 flex flex-wrap items-center gap-2 bg-[color:var(--muted)] border border-[color:var(--border)]">
                 <input
                   placeholder="you@company.com"
                   className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
@@ -1009,13 +1040,13 @@ function Home() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass rounded-full px-3 py-1.5 text-xs hover:text-[color:var(--neon-green)] min-h-[44px] flex items-center"
+                    className="rounded-lg px-3 py-1.5 text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground hover:text-[color:var(--neon-green)] hover:border-[color:var(--neon-green)]/20 min-h-[44px] flex items-center transition-colors duration-200"
                   >
                     {s.name}
                   </a>
                 ))}
               </div>
-            </TiltCard>
+            </div>
           </div>
         </div>
       </Section>
