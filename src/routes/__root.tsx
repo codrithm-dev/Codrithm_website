@@ -24,7 +24,9 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has drifted into another dimension.
         </p>
         <div className="mt-6">
-          <Link to="/" className="btn-neon btn-neon-hover">Return home</Link>
+          <Link to="/" className="btn-neon btn-neon-hover">
+            Return home
+          </Link>
         </div>
       </div>
     </div>
@@ -43,8 +45,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Something went wrong on our end. You can try again or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="btn-neon btn-neon-hover">Try again</button>
-          <a href="/" className="btn-ghost-neon">Go home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="btn-neon btn-neon-hover"
+          >
+            Try again
+          </button>
+          <a href="/" className="btn-ghost-neon">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -57,17 +69,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Codrithm — Where Coders Make History" },
-      { name: "description", content: "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead." },
+      {
+        name: "description",
+        content:
+          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+      },
       { name: "author", content: "Codrithm" },
       { property: "og:title", content: "Codrithm — Where Coders Make History" },
-      { property: "og:description", content: "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead." },
+      {
+        property: "og:description",
+        content:
+          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://linkedin.com/company/codrithmdev" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@codrithm" },
       { name: "twitter:title", content: "Codrithm — Where Coders Make History" },
-      { name: "twitter:description", content: "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead." },
-
+      {
+        name: "twitter:description",
+        content:
+          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -75,8 +98,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/favicon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "preload", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap", as: "style" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" },
+      {
+        rel: "preload",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+        as: "style",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -88,8 +118,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <head><HeadContent /></head>
-      <body className="overflow-x-hidden">{children}<Scripts /></body>
+      <head>
+        <HeadContent />
+      </head>
+      <body className="overflow-x-hidden">
+        {children}
+        <Scripts />
+      </body>
     </html>
   );
 }
@@ -98,7 +133,10 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[color:var(--neon-green)] focus:text-[color:var(--primary-foreground)] focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--neon-green)]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[color:var(--neon-green)] focus:text-[color:var(--primary-foreground)] focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--neon-green)]"
+      >
         Skip to content
       </a>
       <BackgroundFX />

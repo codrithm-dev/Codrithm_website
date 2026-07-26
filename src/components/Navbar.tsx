@@ -40,7 +40,9 @@ export function Navbar() {
   }, [open]);
 
   useEffect(() => {
-    const sections = NAV.map(n => document.getElementById(n.href.replace("#", ""))).filter(Boolean) as HTMLElement[];
+    const sections = NAV.map((n) => document.getElementById(n.href.replace("#", ""))).filter(
+      Boolean,
+    ) as HTMLElement[];
     if (!sections.length) return;
 
     const observer = new IntersectionObserver(
@@ -51,10 +53,10 @@ export function Navbar() {
           }
         }
       },
-      { rootMargin: "-20% 0px -60% 0px" }
+      { rootMargin: "-20% 0px -60% 0px" },
     );
 
-    sections.forEach(s => observer.observe(s));
+    sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, []);
 
@@ -66,9 +68,19 @@ export function Navbar() {
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "py-2" : "py-4"}`}
     >
       <div className={`mx-auto max-w-7xl px-4 sm:px-6`}>
-        <nav className={`glass-strong flex items-center justify-between rounded-full pl-3 pr-2 ${scrolled ? "py-1.5" : "py-2"} transition-all`}>
-          <a href="#home" onClick={(e) => scrollTo("#home", e)} className="flex items-center gap-2 group">
-            <img src="/codrithm-logo.png" alt="Codrithm" className="w-9 h-9 rounded-full object-cover" />
+        <nav
+          className={`glass-strong flex items-center justify-between rounded-full pl-3 pr-2 ${scrolled ? "py-1.5" : "py-2"} transition-all`}
+        >
+          <a
+            href="#home"
+            onClick={(e) => scrollTo("#home", e)}
+            className="flex items-center gap-2 group"
+          >
+            <img
+              src="/codrithm-logo.png"
+              alt="Codrithm"
+              className="w-9 h-9 rounded-full object-cover"
+            />
             <span className="font-display font-bold tracking-tight text-lg">
               Cod<span className="text-gradient">rithm</span>
             </span>
@@ -87,7 +99,8 @@ export function Navbar() {
                       layoutId="nav-active"
                       className="absolute inset-0 rounded-full -z-10"
                       style={{
-                        background: "linear-gradient(120deg, color-mix(in oklab, #87FFBC 25%, transparent), color-mix(in oklab, #0066FF 25%, transparent))",
+                        background:
+                          "linear-gradient(120deg, color-mix(in oklab, #87FFBC 25%, transparent), color-mix(in oklab, #0066FF 25%, transparent))",
                         boxShadow: "0 0 20px color-mix(in oklab, #87FFBC 40%, transparent)",
                       }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
@@ -98,9 +111,29 @@ export function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <a href="#contact" onClick={(e) => scrollTo("#contact", e)} className="btn-neon btn-neon-hover hidden sm:inline-flex">Work with us</a>
-            <button aria-label="Menu" aria-expanded={open} onClick={() => setOpen(!open)} className="lg:hidden btn-ghost-neon !px-3 !py-2.5">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            <a
+              href="#contact"
+              onClick={(e) => scrollTo("#contact", e)}
+              className="btn-neon btn-neon-hover hidden sm:inline-flex"
+            >
+              Work with us
+            </a>
+            <button
+              aria-label="Menu"
+              aria-expanded={open}
+              onClick={() => setOpen(!open)}
+              className="lg:hidden btn-ghost-neon !px-3 !py-2.5"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M3 6h18M3 12h18M3 18h18" />
+              </svg>
             </button>
           </div>
         </nav>
@@ -112,18 +145,21 @@ export function Navbar() {
               onClick={(e) => e.stopPropagation()}
               className="absolute right-6 mt-2 glass-strong rounded-3xl p-3 flex flex-col min-w-[200px]"
             >
-            {NAV.map((n) => (
-              <li key={n.href}>
-                <a
-                  href={n.href}
-                  onClick={(e) => { scrollTo(n.href, e); setOpen(false); }}
-                  className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
-                >
-                  {n.label}
-                </a>
-              </li>
-            ))}
-          </motion.ul>
+              {NAV.map((n) => (
+                <li key={n.href}>
+                  <a
+                    href={n.href}
+                    onClick={(e) => {
+                      scrollTo(n.href, e);
+                      setOpen(false);
+                    }}
+                    className="block px-4 py-3 rounded-xl hover:bg-white/5 text-sm font-medium"
+                  >
+                    {n.label}
+                  </a>
+                </li>
+              ))}
+            </motion.ul>
           </div>
         )}
       </div>

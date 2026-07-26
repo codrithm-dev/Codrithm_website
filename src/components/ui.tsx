@@ -1,9 +1,22 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { type ReactNode, useRef } from "react";
 
-export function Section({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
+export function Section({
+  children,
+  className = "",
+  id,
+}: {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+}) {
   return (
-    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:py-32 ${className}`}>{children}</section>
+    <section
+      id={id}
+      className={`relative mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:py-32 ${className}`}
+    >
+      {children}
+    </section>
   );
 }
 
@@ -16,7 +29,13 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
-export function TiltCard({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function TiltCard({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -31,7 +50,10 @@ export function TiltCard({ children, className = "" }: { children: ReactNode; cl
         mx.set((e.clientX - r.left) / r.width - 0.5);
         my.set((e.clientY - r.top) / r.height - 0.5);
       }}
-      onMouseLeave={() => { mx.set(0); my.set(0); }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
       style={{ rotateX: rx, rotateY: ry, transformStyle: "preserve-3d" }}
       className={`glass rounded-3xl p-6 will-change-transform ${className}`}
     >
@@ -40,7 +62,17 @@ export function TiltCard({ children, className = "" }: { children: ReactNode; cl
   );
 }
 
-export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
+export function Reveal({
+  children,
+  delay = 0,
+  className = "",
+  role,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+  role?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -48,6 +80,7 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
+      role={role}
     >
       {children}
     </motion.div>
