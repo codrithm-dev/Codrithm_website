@@ -236,7 +236,7 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
             loading="lazy"
             width={512}
             height={680}
-            className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-all duration-500 max-sm:brightness-105 group-hover:scale-[1.03] group-hover:brightness-110"
+            className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500 max-sm:brightness-105 group-hover:brightness-110"
           />
 
           {/* Gradient overlay */}
