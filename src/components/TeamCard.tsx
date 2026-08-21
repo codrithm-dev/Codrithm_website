@@ -1,9 +1,15 @@
 import { memo, useRef, useState, useCallback } from "react";
 
-import teamLead from "../assets/team-lead.jpg";
-import teamAi from "../assets/team-ai.jpg";
 import teamDesign from "../assets/team-design.jpg";
-import teamDev from "../assets/team-dev.jpg";
+import imgUmais from "../assets/Umais.jpeg";
+import imgAtiq from "../assets/Atiq.jpg";
+import imgFarah from "../assets/farah.jpg";
+import imgIqra from "../assets/iqra.jpg";
+import imgRabia from "../assets/rabia.png";
+import imgAliza from "../assets/aliza.jpg";
+import imgArshad from "../assets/Arshad.jpg";
+import imgEbaad from "../assets/Ebaad.jpg";
+import imgZimran from "../assets/Zimran.jpeg";
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -21,7 +27,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Muhammad Umais Adeel",
     role: "Founder",
-    img: teamLead,
+    img: imgUmais,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
     social: [
       { type: "li", url: "https://linkedin.com/in/umais" },
@@ -32,7 +38,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Atiq Umer",
     role: "Co-Founder",
-    img: teamLead,
+    img: imgAtiq,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
     social: [
       { type: "li", url: "https://linkedin.com/in/atiqumer" },
@@ -41,20 +47,9 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
-    name: "Ahmed Hassan Sheikh",
-    role: "External Industry Expert",
-    img: teamDev, // swap in his real photo when you have it
-    skills: ["Full-Stack Development", "Flutter", "Shopify", "Leadership"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/ahmedhassanshiekh/" },
-      { type: "gh", url: "#" },
-  
-    ],
-  },
-  {
     name: "Iqra Asghar",
     role: "Growth Lead",
-    img: teamAi,
+    img: imgIqra,
     skills: ["Growth", "Marketing", "Community", "Outreach"],
     social: [
       { type: "li", url: "https://linkedin.com/in/iqraasghar" },
@@ -75,7 +70,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Rabia Ramzan",
     role: "Graphics Lead",
-    img: teamDesign,
+    img: imgRabia,
     skills: ["Development", "Community", "Collaboration"],
     social: [
       { type: "li", url: "https://linkedin.com/in/rabiaramzan" },
@@ -83,19 +78,9 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
-    name: "Muhammad Mateen",
-    role: "Graphics associate",
-    img: teamDev,
-    skills: ["Development", "Tech", "Community"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/muhammadmateen" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
     name: "Muhammad Ebaad Khan",
     role: "Content Lead",
-    img: teamLead,
+    img: imgEbaad,
     skills: ["Content", "Storytelling", "Marketing", "Community"],
     social: [
       { type: "li", url: "https://linkedin.com/in/ebaadkhan" },
@@ -103,19 +88,9 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
-    name: "Husnain Ijaz",
-    role: "Video Editor",
-    img: teamDev,
-    skills: ["Video Editing", "Adobe Premiere Pro", "After Effects", "Motion Graphics"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/husnain-ijaz-3a30613b8/" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
     name: "Arshad Ali",
     role: "Marketing Manager",
-    img: teamDev,
+    img: imgArshad,
     skills: ["Development", "Tech", "Community"],
     social: [
       { type: "li", url: "https://linkedin.com/in/arshadali" },
@@ -125,7 +100,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Farah Ejaz",
     role: "Technical Lead",
-    img: teamDev, // swap in her real photo when you have it
+    img: imgFarah,
     skills: ["Cloud Computing", "AWS", "DevOps", "Linux"],
     social: [
       { type: "li", url: "https://www.linkedin.com/in/farah-ejaz/" },
@@ -135,7 +110,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Aliza Afzal",
     role: "Research Lead",
-    img: teamDev,
+    img: imgAliza,
     skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
     social: [
       { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
@@ -145,7 +120,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Zimran Sohail",
     role: "Technical Associate",
-    img: teamDev,
+    img: imgZimran,
     skills: ["Web Development", "LLM Engineering", "Machine Learning"],
     social: [
       { type: "li", url: "https://www.linkedin.com/in/zimransohail/" },
