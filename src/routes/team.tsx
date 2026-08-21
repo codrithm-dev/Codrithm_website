@@ -19,6 +19,7 @@ export const Route = createFileRoute("/team")({
           "Meet the full Codrithm team — junior leaders who stepped up to build a values-driven tech community.",
       },
     ],
+    links: [{ rel: "canonical", href: "https://codrithm.studio/team" }],
   }),
   component: TeamPage,
 });
@@ -36,8 +37,7 @@ function TeamPage() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]"
           >
-            Meet the Minds Behind{" "}
-            <span className="text-gradient">Codrithm</span>
+            Meet the Minds Behind <span className="text-gradient">Codrithm</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}

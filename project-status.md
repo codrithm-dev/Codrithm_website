@@ -1,38 +1,41 @@
 # Project Status Report: Codrithm Website
 
-**Date:** 21 August 2026
-**Status:** Active/In-Development
+**Updated:** 22 August 2026  
+**Status:** Active development
 
-## 1. Overview
-Codrithm is a premium AI, ML, and full-stack engineering studio website. It is built as a high-performance, immersive digital experience utilizing modern React-based technologies. The project emphasizes interactive UI/UX, advanced animations, and type-safe development.
+## Overview
 
-## 2. Tech Stack
-*   **Framework:** React 19, TanStack Start, TanStack Router
-*   **Styling:** Tailwind CSS 4
-*   **Animations:** Framer Motion, GSAP
-*   **3D/Graphics:** Three.js, React Three Fiber, React Three Drei
-*   **Build/Dev:** Vite, Bun
-*   **Quality:** TypeScript, ESLint, Prettier
+Codrithm is a values-driven student technology community rooted in Islamic principles. The website introduces the community, its mission, services, projects, events, and team.
 
-## 3. Project Structure
-- `src/`: Main source code.
-    - `components/`: Reusable UI and functional components (SplashCursor, HeroIllustration).
-    - `lib/`: Error handling utilities.
-    - `routes/`: File-based routing system.
-- `public/`: Static assets (icons, logo).
+## Implemented routes
 
-## 4. Current Status
-- **Health:** The codebase appears robust with full TypeScript coverage.
-- **Functionality:** Implemented interactive 3D elements, advanced animations, and structured content sections.
-- **Routing:** Uses TanStack Router with file-based routing (`src/routeTree.gen.ts`).
-- **Error Handling:** Custom server-side and client-side error handling is implemented.
-- **Linting/Building:** Configured via Vite and ESLint; TypeScript `noEmit` check passed successfully.
+- `/` — landing page with seven featured team members
+- `/team` — full team directory
+- `/sitemap.xml` — XML sitemap for public routes
 
-## 5. Known Issues / Observations
-- **Linting:** Running `npm run lint` triggered a timeout; suggesting a potential performance bottleneck in the linting process, or just a very large dependency/file set.
-- **Tests:** No unit or integration tests (e.g., `*.test.*` or `*.spec.*`) were found in the project directory.
+## Technology
 
-## 6. Recommendations
-1.  **Testing Strategy:** Implement a testing suite (e.g., Vitest + React Testing Library) to verify critical components and routes.
-2.  **Lint Performance:** Investigate linting configuration or split linting tasks if necessary.
-3.  **Documentation:** Keep this status report updated as the project evolves.
+- React 19 and TypeScript
+- TanStack Start, Router, and Query
+- Tailwind CSS 4
+- Framer Motion
+- Vite and Nitro with a Vercel deployment preset
+
+## Current health
+
+- TypeScript validation passes.
+- The production Vercel build passes.
+- Server-side and client-side error boundaries are present.
+- Responsive navigation and accessible skip navigation are implemented.
+- The heavier hero and cursor effects are loaded lazily.
+
+## Known limitations
+
+- Contact, newsletter, and RSVP controls are currently presentation-only and have no delivery backend.
+- There is no automated test suite.
+- Several team photographs should be resized and converted to WebP or AVIF.
+- Team data and landing-page content are stored directly in source files rather than a CMS.
+
+## Team display rule
+
+The landing page intentionally shows the first seven members from the shared team dataset. The `/team` route intentionally shows every member.

@@ -199,6 +199,9 @@ const EVENTS = [
   { d: "Jun 03", t: "Open Source Day", where: "Virtual" },
 ];
 
+// Keep the landing page focused; the dedicated /team route renders the full team.
+const LANDING_TEAM_LIMIT = 7;
+
 /* ── Component ────────────────────────────────────────────────────── */
 
 function Home() {
@@ -285,7 +288,9 @@ function Home() {
               <Reveal key={s.k} delay={0.05}>
                 <div className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
                   <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
-                  <div className="relative text-2xl sm:text-3xl font-display font-bold text-gradient">{s.v}</div>
+                  <div className="relative text-2xl sm:text-3xl font-display font-bold text-gradient">
+                    {s.v}
+                  </div>
                   <div className="relative mt-1 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
                     {s.k}
                   </div>
@@ -326,7 +331,9 @@ function Home() {
                       {v.t}
                     </span>
                   </div>
-                  <p className="text-muted-foreground text-sm sm:text-[15px] leading-relaxed">{v.d}</p>
+                  <p className="text-muted-foreground text-sm sm:text-[15px] leading-relaxed">
+                    {v.d}
+                  </p>
                 </div>
               </div>
             </Reveal>
@@ -337,7 +344,9 @@ function Home() {
       {/* TIMELINE */}
       <Section>
         <Eyebrow>Timeline</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">A brief history.</h2>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+          A brief history.
+        </h2>
         <div className="mt-10 sm:mt-14 relative" role="list">
           {/* Vertical line */}
           <div
@@ -421,7 +430,9 @@ function Home() {
                     <div className="w-12 h-12 rounded-xl bg-[color:var(--neon-green)]/10 border border-[color:var(--neon-green)]/10 flex items-center justify-center mb-5 transition-all duration-500 group-hover:bg-[color:var(--neon-green)]/15 group-hover:border-[color:var(--neon-green)]/20 group-hover:shadow-[0_0_20px_rgba(135,255,188,0.1)]">
                       <span className="text-2xl text-gradient">{s.icon}</span>
                     </div>
-                    <h3 className="font-display text-lg font-bold text-[color:var(--foreground)]">{s.t}</h3>
+                    <h3 className="font-display text-lg font-bold text-[color:var(--foreground)]">
+                      {s.t}
+                    </h3>
                     <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
                     <div className="mt-5 flex flex-wrap gap-2">
                       {s.tags.map((tag) => (
@@ -444,7 +455,9 @@ function Home() {
       {/* ═══════════════ PROJECTS / PORTFOLIO ═══════════════ */}
       <Section id="projects">
         <Eyebrow>Featured Work</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">Selected projects.</h2>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+          Selected projects.
+        </h2>
         <div
           className="mt-8 sm:mt-12 relative overflow-hidden"
           style={{
@@ -543,13 +556,22 @@ function Home() {
                 </div>
               </div>
               <div className="p-4 sm:p-6 md:p-8">
-                <h2 className="font-display text-xl sm:text-2xl md:text-4xl font-bold">{openProject.name}</h2>
-                <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">{openProject.desc}</p>
+                <h2 className="font-display text-xl sm:text-2xl md:text-4xl font-bold">
+                  {openProject.name}
+                </h2>
+                <p className="mt-2 sm:mt-3 text-sm sm:text-base text-muted-foreground">
+                  {openProject.desc}
+                </p>
                 <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3">
                   {openProject.metrics.map((m) => (
-                    <div key={m.k} className="relative rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center overflow-hidden bg-[color:var(--muted)] border border-[color:var(--border)]">
+                    <div
+                      key={m.k}
+                      className="relative rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center overflow-hidden bg-[color:var(--muted)] border border-[color:var(--border)]"
+                    >
                       <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
-                      <div className="relative text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">{m.v}</div>
+                      <div className="relative text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">
+                        {m.v}
+                      </div>
                       <div className="relative text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium mt-1">
                         {m.k}
                       </div>
@@ -562,7 +584,10 @@ function Home() {
                   </div>
                   <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
                     {openProject.stack.map((s) => (
-                      <span key={s} className="rounded-lg px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground">
+                      <span
+                        key={s}
+                        className="rounded-lg px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground"
+                      >
                         {s}
                       </span>
                     ))}
@@ -576,7 +601,10 @@ function Home() {
                   >
                     Start similar
                   </a>
-                  <button onClick={() => setOpenProject(null)} className="btn-ghost-neon justify-center min-h-[48px]">
+                  <button
+                    onClick={() => setOpenProject(null)}
+                    className="btn-ghost-neon justify-center min-h-[48px]"
+                  >
                     Close
                   </button>
                 </div>
@@ -608,19 +636,28 @@ function Home() {
           </h2>
           <ul className="mt-6 sm:mt-8 space-y-3">
             {EVENTS.map((e) => (
-              <li key={e.t} className="group relative rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5 bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_4px_16px_rgba(0,102,255,0.08)]">
+              <li
+                key={e.t}
+                className="group relative rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5 bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_4px_16px_rgba(0,102,255,0.08)]"
+              >
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center bg-[color:var(--muted)] border border-[color:var(--border)] flex-shrink-0">
                   <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium">
                     {e.d.split(" ")[0]}
                   </div>
-                  <div className="font-display text-lg sm:text-xl text-gradient font-bold">{e.d.split(" ")[1]}</div>
+                  <div className="font-display text-lg sm:text-xl text-gradient font-bold">
+                    {e.d.split(" ")[1]}
+                  </div>
                 </div>
                 <div className="relative flex-1 min-w-0">
-                  <div className="font-semibold text-sm sm:text-base text-[color:var(--foreground)] truncate">{e.t}</div>
+                  <div className="font-semibold text-sm sm:text-base text-[color:var(--foreground)] truncate">
+                    {e.t}
+                  </div>
                   <div className="text-xs text-muted-foreground mt-0.5">{e.where}</div>
                 </div>
-                <button className="relative btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">RSVP</button>
+                <button className="relative btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">
+                  RSVP
+                </button>
               </li>
             ))}
           </ul>
@@ -638,7 +675,7 @@ function Home() {
           rise.
         </p>
         <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          {TEAM.slice(0, 7).map((m, i) => (
+          {TEAM.slice(0, LANDING_TEAM_LIMIT).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
               <TeamCard member={m} />
             </Reveal>
@@ -691,8 +728,12 @@ function Home() {
             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]">
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
-                <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">Email</div>
-                <div className="mt-2.5 font-display text-lg break-all sm:break-normal text-[color:var(--foreground)]">codrithm@gmail.com</div>
+                <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
+                  Email
+                </div>
+                <div className="mt-2.5 font-display text-lg break-all sm:break-normal text-[color:var(--foreground)]">
+                  codrithm@gmail.com
+                </div>
               </div>
             </div>
 
@@ -701,13 +742,18 @@ function Home() {
               <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
                 Newsletter
               </div>
-              <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">Get one thoughtful essay per month on AI and craft.</p>
+              <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
+                Get one thoughtful essay per month on AI and craft.
+              </p>
               <div className="mt-4 rounded-full p-1.5 flex flex-wrap items-center gap-2 bg-[color:var(--muted)] border border-[color:var(--border)]">
                 <input
                   placeholder="you@company.com"
                   className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
                 />
-                <button type="button" className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]">
+                <button
+                  type="button"
+                  className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]"
+                >
                   Subscribe
                 </button>
               </div>

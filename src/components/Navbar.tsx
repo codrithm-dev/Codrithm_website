@@ -101,7 +101,8 @@ export function Navbar() {
                       style={{
                         background:
                           "linear-gradient(120deg, color-mix(in oklab, var(--neon-green) 15%, transparent), color-mix(in oklab, var(--neon-blue) 15%, transparent))",
-                        boxShadow: "0 0 16px color-mix(in oklab, var(--neon-green) 20%, transparent)",
+                        boxShadow:
+                          "0 0 16px color-mix(in oklab, var(--neon-green) 20%, transparent)",
                         border: "1px solid color-mix(in oklab, var(--neon-green) 15%, transparent)",
                       }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}

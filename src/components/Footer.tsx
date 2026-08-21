@@ -24,7 +24,10 @@ export function Footer() {
               placeholder="you@company.com"
               className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
             />
-            <button type="button" className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]">
+            <button
+              type="button"
+              className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]"
+            >
               Subscribe
             </button>
           </form>
