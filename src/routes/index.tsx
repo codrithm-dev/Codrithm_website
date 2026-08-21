@@ -638,7 +638,7 @@ function Home() {
           rise.
         </p>
         <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          {TEAM.slice(0, 5).map((m, i) => (
+          {TEAM.slice(0, 7).map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
               <TeamCard member={m} />
             </Reveal>

@@ -68,6 +68,26 @@ export const TEAM: TeamMember[] = [
     ],
   },
   {
+    name: "Zimran Sohail",
+    role: "Technical Associate",
+    img: imgZimran,
+    skills: ["Web Development", "LLM Engineering", "Machine Learning"],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/zimransohail/" },
+      { type: "gh", url: "#" },
+    ],
+  },
+  {
+    name: "Aliza Afzal",
+    role: "Research Lead",
+    img: imgAliza,
+    skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
+      { type: "gh", url: "#" },
+    ],
+  },
+  {
     name: "Rabia Ramzan",
     role: "Graphics Lead",
     img: imgRabia,
@@ -104,26 +124,6 @@ export const TEAM: TeamMember[] = [
     skills: ["Cloud Computing", "AWS", "DevOps", "Linux"],
     social: [
       { type: "li", url: "https://www.linkedin.com/in/farah-ejaz/" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
-    name: "Aliza Afzal",
-    role: "Research Lead",
-    img: imgAliza,
-    skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
-    name: "Zimran Sohail",
-    role: "Technical Associate",
-    img: imgZimran,
-    skills: ["Web Development", "LLM Engineering", "Machine Learning"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/zimransohail/" },
       { type: "gh", url: "#" },
     ],
   },
