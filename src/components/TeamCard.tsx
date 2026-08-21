@@ -1,6 +1,5 @@
 import { memo, useRef, useState, useCallback } from "react";
 
-import teamDesign from "../assets/team-design.jpg";
 import imgUmais from "../assets/Umais.jpeg";
 import imgAtiq from "../assets/Atiq.jpg";
 import imgFarah from "../assets/farah.jpg";
@@ -10,6 +9,7 @@ import imgAliza from "../assets/aliza.jpg";
 import imgArshad from "../assets/Arshad.jpg";
 import imgEbaad from "../assets/Ebaad.jpg";
 import imgZimran from "../assets/Zimran.jpeg";
+import imgWajeeha from "../assets/Wajeeha.jpeg";
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -59,7 +59,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Wajeeha Azeem",
     role: "Operation Lead",
-    img: teamDesign,
+    img: imgWajeeha,
     skills: ["Operations", "Management", "Planning", "Community"],
     social: [
       { type: "li", url: "https://linkedin.com/in/wajeehaazeem" },
@@ -229,14 +229,14 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
       {/* Card inner */}
       <div className="relative bg-[color:var(--card)] rounded-[28px] border border-[color:var(--border)] overflow-hidden transition-all duration-500 max-sm:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] max-sm:translate-y-[-2px] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_12px_40px_rgba(0,102,255,0.12)] group-hover:translate-y-[-6px]">
         {/* Portrait area */}
-        <div className="relative h-[220px] sm:h-[260px] overflow-hidden">
+        <div className="relative h-[260px] sm:h-[300px] overflow-hidden">
           <img
             src={member.img}
             alt={member.name}
             loading="lazy"
             width={512}
             height={680}
-            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 max-sm:brightness-105 group-hover:scale-[1.03] group-hover:brightness-110"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-all duration-500 max-sm:brightness-105 group-hover:scale-[1.03] group-hover:brightness-110"
           />
 
           {/* Gradient overlay */}
