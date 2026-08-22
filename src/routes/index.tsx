@@ -1,18 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
-
-const HeroIllustration = lazy(() =>
-  import("../components/HeroIllustration").then((m) => ({ default: m.HeroIllustration })),
-);
-
-const SplashCursorController = lazy(() =>
-  import("../components/SplashCursorController").then((m) => ({
-    default: m.SplashCursorController,
-  })),
-);
+import { HeroIllustration } from "../components/HeroIllustration";
+import { SplashCursorController } from "../components/SplashCursorController";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -210,9 +202,7 @@ function Home() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <SplashCursorController />
-      </Suspense>
+      <SplashCursorController />
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section id="home" className="relative overflow-hidden">
@@ -256,9 +246,7 @@ function Home() {
             </div>
           </div>
           <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
-            <Suspense fallback={null}>
-              <HeroIllustration />
-            </Suspense>
+            <HeroIllustration />
           </div>
         </div>
       </section>
@@ -480,6 +468,7 @@ function Home() {
                   src={p.img}
                   alt={p.name}
                   loading="lazy"
+                  decoding="async"
                   width={1280}
                   height={720}
                   className="absolute inset-0 w-full h-full object-cover object-top"
@@ -544,6 +533,7 @@ function Home() {
                 <img
                   src={openProject.img}
                   alt={openProject.name}
+                  decoding="async"
                   width={1280}
                   height={640}
                   className="absolute inset-0 w-full h-full object-cover"

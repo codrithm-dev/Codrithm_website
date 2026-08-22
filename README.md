@@ -45,18 +45,17 @@ Most landing-page navigation uses section anchors such as #about, #services, #pr
 
 ## Technology
 
-| Area                     | Technology                               |
-| ------------------------ | ---------------------------------------- |
-| UI                       | React 19, TypeScript                     |
-| Framework                | TanStack Start                           |
-| Routing                  | TanStack Router file-based routing       |
-| Client state and caching | TanStack Query                           |
-| Styling                  | Tailwind CSS 4, custom CSS design tokens |
-| Animation                | Framer Motion, CSS animations            |
-| Interactive graphics     | SVG and WebGL                            |
-| Tooling                  | Vite 8, ESLint 9, Prettier 3             |
-| Server runtime           | Nitro                                    |
-| Deployment target        | Vercel                                   |
+| Area                 | Technology                               |
+| -------------------- | ---------------------------------------- |
+| UI                   | React 19, TypeScript                     |
+| Framework            | TanStack Start                           |
+| Routing              | TanStack Router file-based routing       |
+| Styling              | Tailwind CSS 4, custom CSS design tokens |
+| Animation            | Framer Motion, CSS animations            |
+| Interactive graphics | SVG and WebGL                            |
+| Tooling              | Vite 8, ESLint 9, Prettier 3             |
+| Server runtime       | Nitro                                    |
+| Deployment target    | Vercel                                   |
 
 ## Architecture
 
@@ -78,12 +77,12 @@ Nitro / Vercel server entry
         |           /, /team,
         |           /sitemap.xml
         v
-React Query provider, navigation,
-background effects, page outlet,
-footer, error and not-found states
+Navigation, background effects,
+page outlet, footer, error and
+not-found states
 ```
 
-The heavier hero and cursor components are loaded lazily. The cursor controller waits until the browser is idle before mounting the WebGL effect.
+The hero illustration is included in the initial render to prevent an above-the-fold blank state. The heavier WebGL cursor is split into a separate chunk, loaded after the browser becomes idle, and skipped for reduced-motion or coarse-pointer devices.
 
 ## Project structure
 
@@ -114,7 +113,7 @@ The heavier hero and cursor components are loaded lazily. The cursor controller 
 │   │   ├── index.tsx              Landing page and page content
 │   │   ├── team.tsx               Full team page
 │   │   └── sitemap[.]xml.ts       Sitemap response handler
-│   ├── router.tsx                 Router and Query Client setup
+│   ├── router.tsx                 Router setup
 │   ├── routeTree.gen.ts           Generated TanStack route tree
 │   ├── server.ts                  Custom server entry
 │   ├── start.ts                   Request middleware
@@ -161,15 +160,15 @@ npm run preview
 
 ## Available scripts
 
-| Command           | Description                                            |
-| ----------------- | ------------------------------------------------------ |
-| npm run dev       | Start the Vite development server                      |
-| npm run build     | Create client, SSR, and Vercel/Nitro production output |
-| npm run build:dev | Create a development-mode build                        |
-| npm run preview   | Preview the production build locally                   |
-| npm run lint      | Run ESLint and Prettier checks                         |
-| npm run format    | Format the repository with Prettier                    |
-| npx tsc --noEmit  | Run strict TypeScript validation                       |
+| Command           | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| npm run dev       | Start the Vite development server                        |
+| npm run build     | Create client, SSR, and Vercel/Nitro production output   |
+| npm run build:dev | Create a development-mode build                          |
+| npm run preview   | Preview the production build locally                     |
+| npm run lint      | Run ESLint and Prettier checks on source and Vite config |
+| npm run format    | Format the repository with Prettier                      |
+| npx tsc --noEmit  | Run strict TypeScript validation                         |
 
 ## Content maintenance
 
@@ -209,8 +208,10 @@ https://codrithm-website.vercel.app
 - Accessible labels for team social controls
 - Reduced-motion CSS fallback
 - Responsive mobile navigation
-- Lazy-loaded hero and WebGL effects
-- Idle-time cursor initialization
+- Immediate hero rendering without a lazy fallback
+- Idle-time WebGL cursor download and initialization
+- WebGL cursor disabled for reduced-motion and coarse-pointer devices
+- Below-the-fold sections use content visibility containment
 - Optimized WebP team portraits
 - Manual client chunking for React, TanStack, and Framer Motion
 

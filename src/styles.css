@@ -57,8 +57,8 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.75 0.22 155);
-  --neon-green: #87FFBC;
-  --neon-blue: #0066FF;
+  --neon-green: #87ffbc;
+  --neon-blue: #0066ff;
   --glass: oklch(1 0 0 / 6%);
   --glass-tint: white;
   --glass-tint-strong: 12%;
@@ -66,33 +66,74 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html, body { background: var(--color-background); color: var(--color-foreground); overflow-x: hidden; }
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    overflow-x: hidden;
+  }
   body {
     font-family: var(--font-sans);
     background:
-      radial-gradient(1200px 700px at 85% -10%, color-mix(in oklab, var(--neon-blue) 22%, transparent), transparent 60%),
-      radial-gradient(900px 600px at -10% 20%, color-mix(in oklab, var(--neon-green) 15%, transparent), transparent 60%),
-      radial-gradient(700px 500px at 50% 110%, color-mix(in oklab, var(--neon-blue) 18%, transparent), transparent 60%),
+      radial-gradient(
+        1200px 700px at 85% -10%,
+        color-mix(in oklab, var(--neon-blue) 22%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 600px at -10% 20%,
+        color-mix(in oklab, var(--neon-green) 15%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        700px 500px at 50% 110%,
+        color-mix(in oklab, var(--neon-blue) 18%, transparent),
+        transparent 60%
+      ),
       var(--color-background);
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.02em; }
-  ::selection { background: color-mix(in oklab, var(--neon-green) 40%, transparent); color: #001; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--neon-green) 40%, transparent);
+    color: #001;
+  }
 }
 
 @utility glass {
-  background: linear-gradient(135deg, color-mix(in oklab, var(--glass-tint) var(--glass-tint-soft), transparent), color-mix(in oklab, var(--glass-tint) 2%, transparent));
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--glass-tint) var(--glass-tint-soft), transparent),
+    color-mix(in oklab, var(--glass-tint) 2%, transparent)
+  );
   border: 1px solid color-mix(in oklab, var(--glass-tint) 12%, transparent);
   backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: 0 10px 40px -10px rgba(0, 102, 255, 0.15), inset 0 1px 0 color-mix(in oklab, var(--glass-tint) 8%, transparent);
+  box-shadow:
+    0 10px 40px -10px rgba(0, 102, 255, 0.15),
+    inset 0 1px 0 color-mix(in oklab, var(--glass-tint) 8%, transparent);
 }
 @utility glass-strong {
-  background: linear-gradient(135deg, color-mix(in oklab, var(--glass-tint) var(--glass-tint-strong), transparent), color-mix(in oklab, var(--glass-tint) 4%, transparent));
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--glass-tint) var(--glass-tint-strong), transparent),
+    color-mix(in oklab, var(--glass-tint) 4%, transparent)
+  );
   border: 1px solid color-mix(in oklab, var(--glass-tint) 18%, transparent);
   backdrop-filter: blur(24px) saturate(160%);
-  box-shadow: 0 20px 60px -20px rgba(0, 102, 255, 0.35), inset 0 1px 0 color-mix(in oklab, var(--glass-tint) 12%, transparent);
+  box-shadow:
+    0 20px 60px -20px rgba(0, 102, 255, 0.35),
+    inset 0 1px 0 color-mix(in oklab, var(--glass-tint) 12%, transparent);
 }
 @utility text-gradient {
   background: linear-gradient(120deg, var(--neon-green), var(--neon-blue));
@@ -101,10 +142,14 @@
   color: transparent;
 }
 @utility glow-green {
-  box-shadow: 0 0 24px color-mix(in oklab, var(--neon-green) 55%, transparent), 0 0 60px color-mix(in oklab, var(--neon-green) 25%, transparent);
+  box-shadow:
+    0 0 24px color-mix(in oklab, var(--neon-green) 55%, transparent),
+    0 0 60px color-mix(in oklab, var(--neon-green) 25%, transparent);
 }
 @utility glow-blue {
-  box-shadow: 0 0 24px color-mix(in oklab, var(--neon-blue) 55%, transparent), 0 0 70px color-mix(in oklab, var(--neon-blue) 30%, transparent);
+  box-shadow:
+    0 0 24px color-mix(in oklab, var(--neon-blue) 55%, transparent),
+    0 0 70px color-mix(in oklab, var(--neon-blue) 30%, transparent);
 }
 @utility btn-neon {
   position: relative;
@@ -117,11 +162,22 @@
   font-size: 0.95rem;
   background: linear-gradient(120deg, var(--neon-green), var(--neon-blue));
   color: oklch(0.14 0.02 265);
-  box-shadow: 0 10px 40px -10px color-mix(in oklab, var(--neon-blue) 60%, transparent), 0 0 30px color-mix(in oklab, var(--neon-green) 30%, transparent);
-  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  box-shadow:
+    0 10px 40px -10px color-mix(in oklab, var(--neon-blue) 60%, transparent),
+    0 0 30px color-mix(in oklab, var(--neon-green) 30%, transparent);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
 }
 @utility btn-neon-hover {
-  &:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 18px 50px -10px color-mix(in oklab, var(--neon-blue) 70%, transparent), 0 0 40px color-mix(in oklab, var(--neon-green) 45%, transparent); }
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+      0 18px 50px -10px color-mix(in oklab, var(--neon-blue) 70%, transparent),
+      0 0 40px color-mix(in oklab, var(--neon-green) 45%, transparent);
+  }
 }
 @utility btn-ghost-neon {
   display: inline-flex;
@@ -135,8 +191,12 @@
   border: 1px solid color-mix(in oklab, var(--neon-green) 40%, transparent);
   background: color-mix(in oklab, white 4%, transparent);
   backdrop-filter: blur(10px);
-  transition: all .25s ease;
-  &:hover { border-color: var(--neon-green); box-shadow: 0 0 30px color-mix(in oklab, var(--neon-green) 40%, transparent); transform: translateY(-2px); }
+  transition: all 0.25s ease;
+  &:hover {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 30px color-mix(in oklab, var(--neon-green) 40%, transparent);
+    transform: translateY(-2px);
+  }
 }
 @utility grid-lines {
   background-image:
@@ -147,23 +207,48 @@
 }
 
 @keyframes float-y {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-@utility animate-float { animation: float-y 8s ease-in-out infinite; }
-@utility animate-marquee { animation: 60s linear infinite marquee-scroll; }
+@utility animate-float {
+  animation: float-y 8s ease-in-out infinite;
+}
+@utility animate-marquee {
+  animation: 60s linear infinite marquee-scroll;
+}
+
+/* Skip layout and paint work for sections until they approach the viewport. */
+.content-auto-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
 
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -172,7 +257,8 @@
 
 /* Mobile touch optimizations */
 @media (hover: none) {
-  .btn-neon:hover, .btn-ghost-neon:hover {
+  .btn-neon:hover,
+  .btn-ghost-neon:hover {
     transform: none;
   }
 }
@@ -186,10 +272,16 @@
 
 /* Ensure minimum touch target size on mobile */
 @media (max-width: 640px) {
-  button, a, input, textarea, select {
+  button,
+  a,
+  input,
+  textarea,
+  select {
     min-height: 44px;
   }
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     font-size: 16px;
   }
 }
@@ -226,31 +318,82 @@
 
 /* Hero Illustration CSS animations (replacing Framer Motion infinite loops) */
 @keyframes hero-pulse {
-  0%, 100% { rx: 200; ry: 180; }
-  50% { rx: 220; ry: 200; }
+  0%,
+  100% {
+    rx: 200;
+    ry: 180;
+  }
+  50% {
+    rx: 220;
+    ry: 200;
+  }
 }
 @keyframes node-glow {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.3); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.3);
+  }
 }
 @keyframes node-highlight-kf {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 @keyframes connection-pulse-move {
-  0% { cx: 250; cy: 120; opacity: 0; }
-  5% { opacity: 1; }
-  20% { cx: 380; cy: 250; }
-  40% { cx: 340; cy: 330; }
-  60% { cx: 160; cy: 300; }
-  80% { cx: 130; cy: 180; }
-  95% { opacity: 1; }
-  100% { cx: 250; cy: 120; opacity: 0; }
+  0% {
+    cx: 250;
+    cy: 120;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  20% {
+    cx: 380;
+    cy: 250;
+  }
+  40% {
+    cx: 340;
+    cy: 330;
+  }
+  60% {
+    cx: 160;
+    cy: 300;
+  }
+  80% {
+    cx: 130;
+    cy: 180;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    cx: 250;
+    cy: 120;
+    opacity: 0;
+  }
 }
-.hero-pulse { animation: hero-pulse 8s ease-in-out infinite; }
-.node-glow { animation: node-glow 3s ease-in-out infinite; }
-.node-highlight { animation: node-highlight-kf 2s ease-in-out infinite; }
-.connection-pulse { animation: connection-pulse-move 6s linear infinite; }
+.hero-pulse {
+  animation: hero-pulse 8s ease-in-out infinite;
+}
+.node-glow {
+  animation: node-glow 3s ease-in-out infinite;
+}
+.node-highlight {
+  animation: node-highlight-kf 2s ease-in-out infinite;
+}
+.connection-pulse {
+  animation: connection-pulse-move 6s linear infinite;
+}
 
 /* Contact Card */
 .contact-card {
@@ -270,7 +413,7 @@
 .contact-card .background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 100% 107%, #87FFBC 0%, #0066FF 60%, #0047b3 100%);
+  background: radial-gradient(circle at 100% 107%, #87ffbc 0%, #0066ff 60%, #0047b3 100%);
 }
 .contact-card .logo {
   position: absolute;
@@ -327,7 +470,7 @@
   left: -70%;
 }
 .contact-card .box1::before {
-  background: radial-gradient(circle at 30% 107%, #87FFBC 0%, #0066FF 60%, #0047b3 90%);
+  background: radial-gradient(circle at 30% 107%, #87ffbc 0%, #0066ff 60%, #0047b3 90%);
 }
 .contact-card .box1:hover::before {
   opacity: 1;
@@ -343,7 +486,7 @@
   transition-delay: 0.2s;
 }
 .contact-card .box2::before {
-  background: radial-gradient(circle at 30% 107%, #0066FF 0%, #87FFBC 90%);
+  background: radial-gradient(circle at 30% 107%, #0066ff 0%, #87ffbc 90%);
 }
 .contact-card .box2:hover::before {
   opacity: 1;
@@ -359,7 +502,7 @@
   transition-delay: 0.4s;
 }
 .contact-card .box3::before {
-  background: radial-gradient(circle at 30% 107%, #87FFBC 0%, #00aaff 60%, #0066FF 90%);
+  background: radial-gradient(circle at 30% 107%, #87ffbc 0%, #00aaff 60%, #0066ff 90%);
 }
 .contact-card .box3:hover::before {
   opacity: 1;
@@ -396,7 +539,7 @@
   padding: 14px 16px;
   font-size: 16px;
   outline: none;
-  transition: all .2s;
+  transition: all 0.2s;
   color: inherit;
 }
 @media (min-width: 640px) {

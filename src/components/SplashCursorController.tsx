@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import SplashCursor from "./SplashCursor";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+
+const SplashCursor = lazy(() => import("./SplashCursor"));
 
 /**
  * Mounts the fluid SplashCursor globally, but fades it out whenever a section
@@ -13,6 +14,11 @@ export function SplashCursorController() {
   useEffect(() => {
     let cancelled = false;
     let rafId = 0;
+
+    const shouldAvoidEffect = window.matchMedia(
+      "(prefers-reduced-motion: reduce), (pointer: coarse)",
+    ).matches;
+    if (shouldAvoidEffect) return;
 
     if (typeof window !== "undefined" && "requestIdleCallback" in window) {
       const handle = requestIdleCallback(
@@ -80,7 +86,9 @@ export function SplashCursorController() {
 
   return (
     <div ref={wrapRef}>
-      <SplashCursor />
+      <Suspense fallback={null}>
+        <SplashCursor />
+      </Suspense>
     </div>
   );
 }

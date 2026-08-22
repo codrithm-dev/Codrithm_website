@@ -16,7 +16,7 @@ Codrithm is a values-driven student technology community rooted in Islamic princ
 ## Technology
 
 - React 19 and TypeScript
-- TanStack Start, Router, and Query
+- TanStack Start and Router
 - Tailwind CSS 4
 - Framer Motion
 - Vite and Nitro with a Vercel deployment preset
@@ -27,7 +27,9 @@ Codrithm is a values-driven student technology community rooted in Islamic princ
 - The production Vercel build passes.
 - Server-side and client-side error boundaries are present.
 - Responsive navigation and accessible skip navigation are implemented.
-- The heavier hero and cursor effects are loaded lazily.
+- The hero renders immediately while the heavier WebGL cursor is loaded after browser idle time.
+- The WebGL cursor is skipped on reduced-motion and coarse-pointer devices.
+- Below-the-fold sections defer layout and paint work until they approach the viewport.
 
 ## Known limitations
 

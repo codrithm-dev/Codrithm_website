@@ -193,7 +193,6 @@ function socialIcon(type: string) {
 
 export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -201,11 +200,13 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: y * -6, y: x * 6 });
+    cardRef.current.style.transform = `perspective(800px) rotateX(${y * -6}deg) rotateY(${x * 6}deg)`;
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setTilt({ x: 0, y: 0 });
+    if (cardRef.current) {
+      cardRef.current.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
+    }
     setIsHovered(false);
   }, []);
 
@@ -214,7 +215,7 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
       ref={cardRef}
       className="group relative rounded-[28px] overflow-hidden cursor-pointer"
       style={{
-        transform: `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        transform: "perspective(800px) rotateX(0deg) rotateY(0deg)",
         transition: "transform 0.15s ease-out",
       }}
       onMouseMove={handleMouseMove}
@@ -240,6 +241,7 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
             src={member.img}
             alt={member.name}
             loading="lazy"
+            decoding="async"
             width={512}
             height={680}
             style={{

@@ -79,6 +79,10 @@ export function Navbar() {
             <img
               src="/codrithm-logo.png"
               alt="Codrithm"
+              width={36}
+              height={36}
+              decoding="async"
+              fetchPriority="high"
               className="w-9 h-9 rounded-full object-cover"
             />
             <span className="font-display font-bold tracking-tight text-lg">
