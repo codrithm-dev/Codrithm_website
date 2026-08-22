@@ -357,7 +357,12 @@ function Home() {
             }}
           />
           {MILESTONES.map((m, i) => (
-            <Reveal key={m.y} delay={i * 0.04} role="listitem" className="mb-8 sm:mb-10 last:mb-0">
+            <Reveal
+              key={`${m.y}-${m.t}`}
+              delay={i * 0.04}
+              role="listitem"
+              className="mb-8 sm:mb-10 last:mb-0"
+            >
               <div
                 className={`relative grid md:grid-cols-2 gap-6 sm:gap-10 items-center ${i % 2 ? "" : "md:[direction:rtl]"}`}
               >

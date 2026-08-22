@@ -82,7 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://codrithm.studio" },
+      { property: "og:url", content: "https://codrithm-website.vercel.app" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@codrithm" },
       { name: "twitter:title", content: "Codrithm — Where Coders Make History" },
@@ -94,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: "https://codrithm.studio" },
+      { rel: "canonical", href: "https://codrithm-website.vercel.app" },
       { rel: "icon", href: "/favicon-round.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

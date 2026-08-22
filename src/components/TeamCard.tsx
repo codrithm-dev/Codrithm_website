@@ -1,15 +1,15 @@
 import { memo, useRef, useState, useCallback } from "react";
 
-import imgUmais from "../assets/Umais.jpeg";
-import imgAtiq from "../assets/Atiq.jpg";
-import imgFarah from "../assets/farah.jpg";
-import imgIqra from "../assets/iqra.jpg";
-import imgRabia from "../assets/rabia.png";
-import imgAliza from "../assets/aliza.jpg";
-import imgArshad from "../assets/Arshad.jpg";
-import imgEbaad from "../assets/Ebaad.jpg";
-import imgZimran from "../assets/Zimran.jpeg";
-import imgWajeeha from "../assets/Wajeeha.jpeg";
+import imgUmais from "../assets/Umais.webp";
+import imgAtiq from "../assets/Atiq.webp";
+import imgFarah from "../assets/farah.webp";
+import imgIqra from "../assets/iqra.webp";
+import imgRabia from "../assets/rabia.webp";
+import imgAliza from "../assets/aliza.webp";
+import imgArshad from "../assets/Arshad.webp";
+import imgEbaad from "../assets/Ebaad.webp";
+import imgZimran from "../assets/Zimran.webp";
+import imgWajeeha from "../assets/Wajeeha.webp";
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -17,6 +17,8 @@ export type TeamMember = {
   name: string;
   role: string;
   img: string;
+  imagePosition?: string;
+  imageScale?: number;
   skills: string[];
   social: { type: string; url: string }[];
 };
@@ -60,6 +62,8 @@ export const TEAM: TeamMember[] = [
     name: "Wajeeha Azeem",
     role: "Operation Lead",
     img: imgWajeeha,
+    imagePosition: "58% 18%",
+    imageScale: 1.06,
     skills: ["Operations", "Management", "Planning", "Community"],
     social: [
       { type: "li", url: "https://linkedin.com/in/wajeehaazeem" },
@@ -81,6 +85,8 @@ export const TEAM: TeamMember[] = [
     name: "Aliza Afzal",
     role: "Research Lead",
     img: imgAliza,
+    imagePosition: "50% 18%",
+    imageScale: 1.06,
     skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
     social: [
       { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
@@ -236,7 +242,11 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
             loading="lazy"
             width={512}
             height={680}
-            className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500 max-sm:brightness-105 group-hover:brightness-110"
+            style={{
+              objectPosition: member.imagePosition ?? "50% 0%",
+              transform: `scale(${member.imageScale ?? 1})`,
+            }}
+            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 max-sm:brightness-105 group-hover:brightness-110"
           />
 
           {/* Gradient overlay */}

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/team")({
           "Meet the full Codrithm team — junior leaders who stepped up to build a values-driven tech community.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://codrithm.studio/team" }],
+    links: [{ rel: "canonical", href: "https://codrithm-website.vercel.app/team" }],
   }),
   component: TeamPage,
 });
