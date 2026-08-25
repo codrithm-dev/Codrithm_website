@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Section, Eyebrow, Reveal } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
+import { SITE_URL } from "../lib/site";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/team")({
           "Meet the full Codrithm team — junior leaders who stepped up to build a values-driven tech community.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://codrithm-website.vercel.app/team" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/team` }],
   }),
   component: TeamPage,
 });

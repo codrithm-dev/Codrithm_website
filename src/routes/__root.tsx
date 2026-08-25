@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { BackgroundFX } from "../components/BackgroundFX";
+import { SITE_URL } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -81,7 +82,7 @@ export const Route = createRootRoute({
           "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://codrithm-website.vercel.app" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@codrithm" },
       { name: "twitter:title", content: "Codrithm — Where Coders Make History" },
@@ -93,7 +94,7 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: "https://codrithm-website.vercel.app" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "icon", href: "/favicon-round.png", type: "image/png" },
       { rel: "apple-touch-icon", href: "/favicon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
