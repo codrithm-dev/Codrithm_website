@@ -67,13 +67,6 @@ const SERVICES = [
   },
 ];
 
-import projNeura from "../assets/proj-neura.jpg";
-import projLoom from "../assets/proj-loom.jpg";
-import projOrbit from "../assets/proj-orbit.jpg";
-import projPulse from "../assets/proj-pulse.jpg";
-import projAtlas from "../assets/proj-atlas.jpg";
-import projHelix from "../assets/proj-helix.jpg";
-
 type P = {
   id: string;
   name: string;
@@ -81,86 +74,68 @@ type P = {
   desc: string;
   stack: string[];
   metrics: { k: string; v: string }[];
-  img: string;
+  img?: string;
 };
 const PROJECTS: P[] = [
   {
-    id: "neura",
-    name: "Neura Vision",
+    id: "resume-studio",
+    name: "Resume Studio",
+    tag: "Web App",
+    desc: "A guided resume builder — step-by-step forms for experience, education and skills, multiple templates, and PDF export.",
+    stack: ["PHP", "MySQL", "dompdf"],
+    metrics: [
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Status", v: "Open source" },
+      { k: "Stars", v: "0" },
+    ],
+  },
+  {
+    id: "nexa-web",
+    name: "Nexa Web",
+    tag: "AI Voice Assistant",
+    desc: "A browser-based AI voice assistant built with Streamlit, deployed as a public live demo.",
+    stack: ["Python", "Streamlit"],
+    metrics: [
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Status", v: "Live demo" },
+      { k: "Stars", v: "0" },
+    ],
+  },
+  {
+    id: "ai-virtual-mouse",
+    name: "AI Virtual Mouse",
     tag: "Computer Vision",
-    desc: "Realtime industrial defect detection running on the edge with sub-30ms latency.",
-    stack: ["PyTorch", "ONNX", "Rust", "K8s"],
+    desc: "Controls the system cursor and clicks using real-time hand-gesture tracking from a webcam.",
+    stack: ["Python", "OpenCV", "MediaPipe"],
     metrics: [
-      { k: "Accuracy", v: "99.4%" },
-      { k: "Latency", v: "27ms" },
-      { k: "Devices", v: "8,200" },
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Status", v: "Open source" },
+      { k: "Stars", v: "0" },
     ],
-    img: projNeura,
   },
   {
-    id: "loom",
-    name: "Loom AI Studio",
-    tag: "LLM Platform",
-    desc: "Multi-tenant RAG + agents platform serving 10M+ tokens per day.",
-    stack: ["Next.js", "LangChain", "Postgres", "Redis"],
+    id: "voxasign",
+    name: "VoxaSign",
+    tag: "Accessibility AI",
+    desc: "Real-time ASL sign-language-to-text-to-speech translator that runs entirely in the browser — no server, no data leaves the device.",
+    stack: ["TensorFlow.js", "MediaPipe", "JavaScript"],
     metrics: [
-      { k: "Tokens/day", v: "10M+" },
-      { k: "P95", v: "820ms" },
-      { k: "Tenants", v: "140" },
+      { k: "Built by", v: "Aliza Afzal" },
+      { k: "Status", v: "Live demo" },
+      { k: "Stars", v: "1" },
     ],
-    img: projLoom,
   },
   {
-    id: "orbit",
-    name: "Orbit Cloud",
-    tag: "DevOps",
-    desc: "Zero-downtime deploy platform for regulated industries.",
-    stack: ["Go", "Terraform", "Argo", "AWS"],
+    id: "event-desk",
+    name: "Event Desk",
+    tag: "Event Management",
+    desc: "A Flask event-management platform with registration, Stripe payments, and QR-code check-in.",
+    stack: ["Flask", "SQLAlchemy", "Stripe", "QR Codes"],
     metrics: [
-      { k: "Uptime", v: "99.99%" },
-      { k: "Deploys/wk", v: "1,240" },
-      { k: "MTTR", v: "4m" },
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Status", v: "Open source" },
+      { k: "Stars", v: "0" },
     ],
-    img: projOrbit,
-  },
-  {
-    id: "pulse",
-    name: "PulseChat",
-    tag: "AI Assistant",
-    desc: "Consumer AI companion with memory, voice and multi-modal input.",
-    stack: ["React Native", "Swift", "OpenAI", "Supabase"],
-    metrics: [
-      { k: "Users", v: "250k" },
-      { k: "Retention D30", v: "42%" },
-      { k: "Stars", v: "4.8" },
-    ],
-    img: projPulse,
-  },
-  {
-    id: "atlas",
-    name: "Atlas Analytics",
-    tag: "Data Platform",
-    desc: "Unified analytics for product teams — semantic layer + LLM queries.",
-    stack: ["DuckDB", "TypeScript", "GCP"],
-    metrics: [
-      { k: "Queries/day", v: "8.4M" },
-      { k: "TCO", v: "-38%" },
-      { k: "Sources", v: "62" },
-    ],
-    img: projAtlas,
-  },
-  {
-    id: "helix",
-    name: "Helix Health",
-    tag: "Healthcare AI",
-    desc: "HIPAA-compliant clinical assistant that summarizes patient histories.",
-    stack: ["Python", "FHIR", "Anthropic"],
-    metrics: [
-      { k: "Hours saved/wk", v: "1,800" },
-      { k: "Sites", v: "24" },
-      { k: "Compliance", v: "SOC2" },
-    ],
-    img: projHelix,
   },
 ];
 
@@ -464,15 +439,23 @@ function Home() {
                 className="w-[80vw] sm:w-[340px] lg:w-[420px] h-[180px] sm:h-[240px] lg:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
                 onClick={() => setOpenProject(p)}
               >
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  decoding="async"
-                  width={1280}
-                  height={720}
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
+                {p.img ? (
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    decoding="async"
+                    width={1280}
+                    height={720}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[color:var(--muted)] to-[color:var(--card)]">
+                    <span className="font-display text-4xl sm:text-5xl font-black text-[color:var(--border)]">
+                      {"</>"}
+                    </span>
+                  </div>
+                )}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -530,14 +513,22 @@ function Home() {
               className="rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-auto bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_2px_4px_rgba(0,0,0,0.3),0_8px_32px_rgba(0,0,0,0.25)]"
             >
               <div className="aspect-video lg:aspect-[16/8] rounded-t-3xl relative overflow-hidden bg-[color:var(--card)]">
-                <img
-                  src={openProject.img}
-                  alt={openProject.name}
-                  decoding="async"
-                  width={1280}
-                  height={640}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                {openProject.img ? (
+                  <img
+                    src={openProject.img}
+                    alt={openProject.name}
+                    decoding="async"
+                    width={1280}
+                    height={640}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[color:var(--muted)] to-[color:var(--card)]">
+                    <span className="font-display text-6xl sm:text-7xl font-black text-[color:var(--border)]">
+                      {"</>"}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute inset-0 grid-lines opacity-25" />
                 <button
