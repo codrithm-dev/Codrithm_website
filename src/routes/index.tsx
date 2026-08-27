@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
@@ -666,11 +666,6 @@ function Home() {
               <TeamCard member={m} />
             </Reveal>
           ))}
-        </div>
-        <div className="mt-10 sm:mt-12 flex justify-center">
-          <Link to="/team" className="btn-neon btn-neon-hover">
-            See All Members →
-          </Link>
         </div>
       </Section>
 

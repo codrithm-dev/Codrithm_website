@@ -2,12 +2,9 @@ import { memo, useRef, useState, useCallback } from "react";
 
 import imgUmais from "../assets/Umais.webp";
 import imgAtiq from "../assets/Atiq.webp";
-import imgFarah from "../assets/farah.webp";
 import imgIqra from "../assets/iqra.webp";
 import imgRabia from "../assets/rabia.webp";
 import imgAliza from "../assets/aliza.webp";
-import imgArshad from "../assets/Arshad.webp";
-import imgEbaad from "../assets/Ebaad.webp";
 import imgZimran from "../assets/Zimran.webp";
 import imgWajeeha from "../assets/Wajeeha.webp";
 
@@ -100,36 +97,6 @@ export const TEAM: TeamMember[] = [
     skills: ["Development", "Community", "Collaboration"],
     social: [
       { type: "li", url: "https://linkedin.com/in/rabiaramzan" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
-    name: "Muhammad Ebaad Khan",
-    role: "Content Lead",
-    img: imgEbaad,
-    skills: ["Content", "Storytelling", "Marketing", "Community"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/ebaadkhan" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
-    name: "Arshad Ali",
-    role: "Marketing Manager",
-    img: imgArshad,
-    skills: ["Development", "Tech", "Community"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/arshadali" },
-      { type: "gh", url: "#" },
-    ],
-  },
-  {
-    name: "Farah Ejaz",
-    role: "Technical Lead",
-    img: imgFarah,
-    skills: ["Cloud Computing", "AWS", "DevOps", "Linux"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/farah-ejaz/" },
       { type: "gh", url: "#" },
     ],
   },
