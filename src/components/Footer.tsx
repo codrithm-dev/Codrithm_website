@@ -1,5 +1,4 @@
 import { ContactCard } from "./ContactCard";
-import { SocialIcon } from "./SocialIcon";
 
 function scrollTo(href: string, e?: React.MouseEvent) {
   e?.preventDefault();
@@ -54,7 +53,7 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-sm font-semibold mb-4">Connect</div>
+          <div className="text-sm font-semibold mb-4">Explore</div>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
               <a
@@ -72,72 +71,6 @@ export function Footer() {
                 className="hover:text-foreground"
               >
                 Contact
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linktr.ee/codrithm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="Linktree"
-              >
-                <SocialIcon name="linktree" className="size-4" /> Linktree
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/company/codrithmdev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="LinkedIn"
-              >
-                <SocialIcon name="linkedin" className="size-4" /> LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/@codrithm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="YouTube"
-              >
-                <SocialIcon name="youtube" className="size-4" /> YouTube
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/codrithm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="Instagram"
-              >
-                <SocialIcon name="instagram" className="size-4" /> Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/profile.php?id=61588306509274"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="Facebook"
-              >
-                <SocialIcon name="facebook" className="size-4" /> Facebook
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-foreground"
-                aria-label="WhatsApp"
-              >
-                <SocialIcon name="whatsapp" className="size-4" /> WhatsApp
               </a>
             </li>
           </ul>
