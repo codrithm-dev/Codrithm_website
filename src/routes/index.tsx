@@ -449,7 +449,7 @@ function Home() {
             {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => {
               const content = (
                 <>
-                  <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-[color:var(--border)] bg-transparent p-4 transition-transform duration-200 hover:scale-[1.02]">
+                  <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 p-4 transition-transform duration-200 hover:scale-[1.02]">
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
