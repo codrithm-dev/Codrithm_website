@@ -6,6 +6,10 @@ import { TeamCard, TEAM } from "../components/TeamCard";
 import { HeroIllustration } from "../components/HeroIllustration";
 import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
 import interAiClubLogo from "../assets/inter-ai-club.webp";
+import deepCiphersLogo from "../assets/deepciphers.webp";
+import superiorAiSocietyLogo from "../assets/superior-ai-society.webp";
+import ncbaeLogo from "../assets/ncbae.webp";
+import microsoftStudentAmbassadorsLogo from "../assets/microsoft-student-ambassadors.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -140,7 +144,17 @@ const PROJECTS: P[] = [
   },
 ];
 
-const PARTNERS = [{ name: "Inter AI Club", logo: interAiClubLogo }];
+const PARTNERS: { name: string; logo: string; url?: string }[] = [
+  { name: "Inter AI Club", logo: interAiClubLogo, url: undefined },
+  { name: "DeepCiphers", logo: deepCiphersLogo, url: undefined },
+  { name: "Superior AI Society", logo: superiorAiSocietyLogo, url: undefined },
+  { name: "NCBA&E", logo: ncbaeLogo, url: undefined },
+  {
+    name: "Microsoft Student Ambassadors",
+    logo: microsoftStudentAmbassadorsLogo,
+    url: undefined,
+  },
+];
 
 /* ── Component ────────────────────────────────────────────────────── */
 
@@ -425,23 +439,48 @@ function Home() {
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           Organisations we work with.
         </h2>
-        <div className="mt-8 sm:mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {PARTNERS.map((partner, index) => (
-            <Reveal key={partner.name} delay={index * 0.05}>
-              <div className="flex min-h-44 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-white p-6">
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-28 w-auto max-w-full object-contain"
-                />
-              </div>
-              <p className="mt-3 text-sm font-medium text-[color:var(--foreground)]">
-                {partner.name}
-              </p>
-            </Reveal>
-          ))}
+        <div
+          className="relative mt-8 overflow-hidden sm:mt-10"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max items-center gap-5 py-1 hover:[animation-play-state:paused] animate-marquee">
+            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => {
+              const content = (
+                <>
+                  <div className="flex h-36 w-64 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-white p-6 transition-transform duration-200 hover:scale-[1.02]">
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-24 w-auto max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="mt-3 text-center text-sm font-medium text-[color:var(--foreground)]">
+                    {partner.name}
+                  </p>
+                </>
+              );
+
+              return partner.url ? (
+                <a
+                  key={`${partner.name}-${index}`}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-64"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={`${partner.name}-${index}`} className="w-64">
+                  {content}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </Section>
 
