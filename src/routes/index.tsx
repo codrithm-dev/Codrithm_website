@@ -5,6 +5,7 @@ import { Section, Eyebrow, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
 import { HeroIllustration } from "../components/HeroIllustration";
 import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
+import interAiClubLogo from "../assets/inter-ai-club.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -138,6 +139,8 @@ const PROJECTS: P[] = [
     ],
   },
 ];
+
+const PARTNERS = [{ name: "Inter AI Club", logo: interAiClubLogo }];
 
 /* ── Component ────────────────────────────────────────────────────── */
 
@@ -411,6 +414,32 @@ function Home() {
                   </div>
                 </div>
               </motion.div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* ═══════════════ PARTNERS ═══════════════ */}
+      <Section id="partners">
+        <Eyebrow>Partners & Collaborators</Eyebrow>
+        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+          Organisations we work with.
+        </h2>
+        <div className="mt-8 sm:mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {PARTNERS.map((partner, index) => (
+            <Reveal key={partner.name} delay={index * 0.05}>
+              <div className="flex min-h-44 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-white p-6">
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-28 w-auto max-w-full object-contain"
+                />
+              </div>
+              <p className="mt-3 text-sm font-medium text-[color:var(--foreground)]">
+                {partner.name}
+              </p>
             </Reveal>
           ))}
         </div>
