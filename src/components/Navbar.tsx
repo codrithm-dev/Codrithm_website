@@ -122,13 +122,6 @@ export function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <a
-              href="#contact"
-              onClick={(e) => scrollTo("#contact", e)}
-              className="btn-neon btn-neon-hover hidden sm:inline-flex"
-            >
-              Work with us
-            </a>
             <button
               aria-label="Menu"
               aria-expanded={open}

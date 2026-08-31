@@ -110,12 +110,48 @@ const PROJECTS: P[] = [
     id: "ai-virtual-mouse",
     name: "AI Virtual Mouse",
     tag: "Computer Vision",
-    desc: "Controls the system cursor and clicks using real-time hand-gesture tracking from a webcam.",
+    desc: "A hands-free desktop controller that uses webcam hand tracking. Move the cursor with an index finger and click with a pinch gesture in real time.",
     stack: ["Python", "OpenCV", "MediaPipe"],
     metrics: [
       { k: "Built by", v: "Atiq Umer" },
-      { k: "Status", v: "Open source" },
-      { k: "Stars", v: "0" },
+      { k: "Type", v: "DIP project" },
+      { k: "Completed", v: "2025" },
+    ],
+  },
+  {
+    id: "wide-box-cargo",
+    name: "Wide Box Cargo",
+    tag: "Client Website",
+    desc: "The official website for a UAE movers and packers company, built to explain residential, commercial, and inter-emirate relocation services and support quote requests.",
+    stack: ["WordPress", "Responsive Design", "SEO"],
+    metrics: [
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Type", v: "Client work" },
+      { k: "Completed", v: "2025" },
+    ],
+  },
+  {
+    id: "monal-london",
+    name: "Monal London",
+    tag: "Restaurant Website",
+    desc: "A restaurant website for authentic Pakistani cuisine, with responsive content, a refined service presentation, and an online reservation flow.",
+    stack: ["WordPress", "Content Management", "Responsive Design"],
+    metrics: [
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Type", v: "Client work" },
+      { k: "Completed", v: "2025" },
+    ],
+  },
+  {
+    id: "st-dubai-tech",
+    name: "ST Dubai Tech",
+    tag: "Client Website",
+    desc: "The official site for a Dubai maintenance-services company, designed to present its services and contact information clearly on every device.",
+    stack: ["WordPress", "Responsive Design", "SEO"],
+    metrics: [
+      { k: "Built by", v: "Atiq Umer" },
+      { k: "Type", v: "Client work" },
+      { k: "Completed", v: "2025" },
     ],
   },
   {
@@ -224,7 +260,10 @@ function Home() {
               <a href="#services" className="btn-neon btn-neon-hover">
                 Explore Services →
               </a>
-              <a href="#contact" className="btn-ghost-neon">
+              <a
+                href="#contact"
+                className="inline-flex min-h-[44px] items-center px-2 text-sm font-medium text-muted-foreground transition-colors hover:text-[color:var(--foreground)]"
+              >
                 Get in Touch
               </a>
             </motion.div>
@@ -661,7 +700,7 @@ function Home() {
       <Section id="community">
         <div>
           <Eyebrow>Upcoming events</Eyebrow>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold">
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
             A place to <span className="text-gradient">learn and build</span>.
           </h2>
           <ul className="mt-6 sm:mt-8 space-y-3">
