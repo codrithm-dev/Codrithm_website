@@ -75,6 +75,9 @@
     color: var(--color-foreground);
     overflow-x: hidden;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     font-family: var(--font-sans);
     background:
@@ -108,6 +111,12 @@
   ::selection {
     background: color-mix(in oklab, var(--neon-green) 40%, transparent);
     color: #001;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
