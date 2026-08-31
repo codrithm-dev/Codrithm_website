@@ -89,7 +89,7 @@ const PROJECTS: P[] = [
     desc: "A guided resume builder — step-by-step forms for experience, education and skills, multiple templates, and PDF export.",
     stack: ["PHP", "MySQL", "dompdf"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Status", v: "Open source" },
       { k: "Stars", v: "0" },
     ],
@@ -101,7 +101,7 @@ const PROJECTS: P[] = [
     desc: "A browser-based AI voice assistant built with Streamlit, deployed as a public live demo.",
     stack: ["Python", "Streamlit"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Status", v: "Live demo" },
       { k: "Stars", v: "0" },
     ],
@@ -113,7 +113,7 @@ const PROJECTS: P[] = [
     desc: "A hands-free desktop controller that uses webcam hand tracking. Move the cursor with an index finger and click with a pinch gesture in real time.",
     stack: ["Python", "OpenCV", "MediaPipe"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Type", v: "DIP project" },
       { k: "Completed", v: "2025" },
     ],
@@ -125,7 +125,7 @@ const PROJECTS: P[] = [
     desc: "The official website for a UAE movers and packers company, built to explain residential, commercial, and inter-emirate relocation services and support quote requests.",
     stack: ["WordPress", "Responsive Design", "SEO"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Type", v: "Client work" },
       { k: "Completed", v: "2025" },
     ],
@@ -137,7 +137,7 @@ const PROJECTS: P[] = [
     desc: "A restaurant website for authentic Pakistani cuisine, with responsive content, a refined service presentation, and an online reservation flow.",
     stack: ["WordPress", "Content Management", "Responsive Design"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Type", v: "Client work" },
       { k: "Completed", v: "2025" },
     ],
@@ -149,7 +149,7 @@ const PROJECTS: P[] = [
     desc: "The official site for a Dubai maintenance-services company, designed to present its services and contact information clearly on every device.",
     stack: ["WordPress", "Responsive Design", "SEO"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Type", v: "Client work" },
       { k: "Completed", v: "2025" },
     ],
@@ -161,7 +161,7 @@ const PROJECTS: P[] = [
     desc: "Real-time ASL sign-language-to-text-to-speech translator that runs entirely in the browser — no server, no data leaves the device.",
     stack: ["TensorFlow.js", "MediaPipe", "JavaScript"],
     metrics: [
-      { k: "Built by", v: "Aliza Afzal" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Status", v: "Live demo" },
       { k: "Stars", v: "1" },
     ],
@@ -173,7 +173,7 @@ const PROJECTS: P[] = [
     desc: "A Flask event-management platform with registration, Stripe payments, and QR-code check-in.",
     stack: ["Flask", "SQLAlchemy", "Stripe", "QR Codes"],
     metrics: [
-      { k: "Built by", v: "Atiq Umer" },
+      { k: "A project by", v: "Codrithm" },
       { k: "Status", v: "Open source" },
       { k: "Stars", v: "0" },
     ],
@@ -284,9 +284,9 @@ function Home() {
         <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <Reveal>
             <h2 className="max-w-3xl font-display text-4xl font-bold leading-[1.03] sm:text-5xl md:text-6xl">
-              Code with purpose.
+              Code with <span className="text-gradient">purpose.</span>
               <br />
-              Build with people.
+              Build with <span className="text-gradient">people.</span>
             </h2>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Codrithm is a technology company and developer community guided by Islamic values. We
@@ -518,9 +518,8 @@ function Home() {
 
       {/* ═══════════════ PROJECTS / PORTFOLIO ═══════════════ */}
       <Section id="projects">
-        <Eyebrow>Featured Work</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          Selected projects.
+        <h2 className="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl md:text-6xl">
+          Codrithm <span className="text-gradient">projects.</span>
         </h2>
         <div
           className="mt-8 sm:mt-12 relative overflow-hidden"
@@ -575,10 +574,10 @@ function Home() {
                   </svg>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
-                  <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">
+                  <div className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[color:var(--neon-green)] sm:text-[11px]">
                     {p.tag}
                   </div>
-                  <div className="text-base sm:text-lg font-black text-[color:var(--foreground)] leading-tight">
+                  <div className="font-display text-lg font-semibold leading-tight tracking-[-0.03em] text-[color:var(--foreground)] sm:text-2xl">
                     {p.name}
                   </div>
                 </div>
@@ -633,7 +632,7 @@ function Home() {
                 >
                   ✕
                 </button>
-                <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 rounded-lg px-2.5 sm:px-3 py-1 text-[10px] font-mono tracking-widest bg-black/40 backdrop-blur-md border border-white/10 text-white/80">
+                <div className="absolute bottom-3 left-4 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/80 backdrop-blur-md sm:bottom-4 sm:left-6 sm:px-3">
                   {openProject.tag}
                 </div>
               </div>
@@ -651,7 +650,7 @@ function Home() {
                       className="relative rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center overflow-hidden bg-[color:var(--muted)] border border-[color:var(--border)]"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
-                      <div className="relative text-lg sm:text-xl md:text-2xl font-display font-bold text-gradient">
+                      <div className="relative font-display text-lg font-semibold tracking-[-0.03em] text-[color:var(--foreground)] sm:text-xl md:text-2xl">
                         {m.v}
                       </div>
                       <div className="relative text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium mt-1">
