@@ -10,7 +10,7 @@ function scrollTo(href: string, e?: React.MouseEvent) {
 export function Footer() {
   return (
     <footer className="relative mt-16 sm:mt-24 lg:mt-32 border-t border-white/5">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-10 lg:py-16 grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-10 lg:py-16 grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold">
             Cod<span className="text-gradient">rithm</span>
@@ -19,18 +19,6 @@ export function Footer() {
             A values-driven community rooted in Islamic principles — empowering junior developers to
             learn, build, and lead.
           </p>
-          <form className="mt-6 rounded-full p-1.5 flex flex-wrap items-center gap-2 max-w-md bg-[color:var(--muted)] border border-[color:var(--border)]">
-            <input
-              placeholder="you@company.com"
-              className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
-            />
-            <button
-              type="button"
-              className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
         <div>
           <div className="text-sm font-semibold mb-4">Company</div>

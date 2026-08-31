@@ -34,7 +34,7 @@ Codrithm is a values-driven student technology community rooted in Islamic princ
 
 ## Known limitations
 
-- Contact, newsletter, and RSVP controls are currently presentation-only and have no delivery backend.
+- Contact and RSVP controls are currently presentation-only and have no delivery backend.
 - There is no automated test suite.
 - Team data and landing-page content are stored directly in source files rather than a CMS.
 

@@ -718,26 +718,14 @@ function Home() {
               </div>
             </div>
 
-            <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]">
+            <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
               <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
-                Newsletter
+                Connect with us
               </div>
               <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
-                Get one thoughtful essay per month on AI and craft.
+                Follow Codrithm for announcements, projects, and ways to collaborate.
               </p>
-              <div className="mt-4 rounded-full p-1.5 flex flex-wrap items-center gap-2 bg-[color:var(--muted)] border border-[color:var(--border)]">
-                <input
-                  placeholder="you@company.com"
-                  className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-muted-foreground"
-                />
-                <button
-                  type="button"
-                  className="btn-neon btn-neon-hover !py-2.5 !px-3 sm:!px-4 text-sm flex-shrink-0 min-h-[44px]"
-                >
-                  Subscribe
-                </button>
-              </div>
               <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
                 {[
                   { name: "LinkedIn", url: "https://linkedin.com/company/codrithmdev" },

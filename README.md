@@ -98,7 +98,7 @@ The hero illustration is included in the initial render to prevent an above-the-
 │   ├── components/
 │   │   ├── BackgroundFX.tsx       Global decorative background
 │   │   ├── ContactCard.tsx        Footer contact details
-│   │   ├── Footer.tsx             Footer, links, and newsletter UI
+│   │   ├── Footer.tsx             Footer and navigation/social links
 │   │   ├── HeroIllustration.tsx   Animated SVG hero graphic
 │   │   ├── Navbar.tsx             Responsive section navigation
 │   │   ├── SplashCursor.tsx       WebGL fluid cursor implementation
@@ -230,16 +230,14 @@ There is currently no automated unit, component, or end-to-end test suite.
 ## Known limitations
 
 - The contact form only updates local UI state; it does not send or persist submissions.
-- Newsletter subscribe controls are presentation-only.
 - Event RSVP buttons are presentation-only.
-- Several team social links still use placeholder # URLs.
 - Content is maintained directly in source code rather than through a CMS.
 - No dedicated Open Graph preview image is configured.
 - Automated tests have not yet been added.
 
 ## Recommended next steps
 
-1. Connect contact, newsletter, and RSVP actions to a real delivery service or backend.
+1. Connect contact and RSVP actions to a real delivery service or backend.
 2. Replace placeholder social URLs with verified profiles.
 3. Add a branded Open Graph preview image.
 4. Introduce Vitest and React Testing Library for component coverage.

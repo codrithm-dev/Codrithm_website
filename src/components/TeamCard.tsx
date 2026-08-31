@@ -1,12 +1,12 @@
 import { memo, useRef, useState, useCallback } from "react";
 
 import imgUmais from "../assets/Umais.webp";
-import imgAtiq from "../assets/Atiq.webp";
-import imgIqra from "../assets/iqra.webp";
-import imgRabia from "../assets/rabia.webp";
-import imgAliza from "../assets/aliza.webp";
-import imgZimran from "../assets/Zimran.webp";
-import imgWajeeha from "../assets/Wajeeha.webp";
+import imgAtiq from "../assets/Atiq-studio.webp";
+import imgIqra from "../assets/Iqra-studio.webp";
+import imgRabia from "../assets/Rabia-studio.webp";
+import imgAliza from "../assets/Aliza-studio.webp";
+import imgZimran from "../assets/Zimran-studio.webp";
+import imgWajeeha from "../assets/Wajeeha-studio-v2.webp";
 
 /* ── Types ─────────────────────────────────────────────────────────── */
 
@@ -28,77 +28,49 @@ export const TEAM: TeamMember[] = [
     role: "Founder",
     img: imgUmais,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/umais" },
-      { type: "gh", url: "#" },
-      { type: "mail", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://linkedin.com/in/umais" }],
   },
   {
     name: "Atiq Umer",
     role: "Co-Founder",
     img: imgAtiq,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/atiqumer" },
-      { type: "gh", url: "#" },
-      { type: "mail", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://linkedin.com/in/atiqumer" }],
   },
   {
     name: "Iqra Asghar",
     role: "Growth Lead",
     img: imgIqra,
     skills: ["Growth", "Marketing", "Community", "Outreach"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/iqraasghar" },
-      { type: "gh", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://linkedin.com/in/iqraasghar" }],
   },
   {
     name: "Wajeeha Azeem",
     role: "Operation Lead",
     img: imgWajeeha,
-    imagePosition: "58% 18%",
-    imageScale: 1.06,
     skills: ["Operations", "Management", "Planning", "Community"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/wajeehaazeem" },
-      { type: "gh", url: "#" },
-      { type: "mail", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://linkedin.com/in/wajeehaazeem" }],
   },
   {
     name: "Zimran Sohail",
     role: "Technical Associate",
     img: imgZimran,
     skills: ["Web Development", "LLM Engineering", "Machine Learning"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/zimransohail/" },
-      { type: "gh", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://www.linkedin.com/in/zimransohail/" }],
   },
   {
     name: "Aliza Afzal",
     role: "Research Lead",
     img: imgAliza,
-    imagePosition: "50% 18%",
-    imageScale: 1.06,
     skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
-    social: [
-      { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
-      { type: "gh", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://www.linkedin.com/in/alizaafzal/" }],
   },
   {
     name: "Rabia Ramzan",
     role: "Graphics Lead",
     img: imgRabia,
     skills: ["Development", "Community", "Collaboration"],
-    social: [
-      { type: "li", url: "https://linkedin.com/in/rabiaramzan" },
-      { type: "gh", url: "#" },
-    ],
+    social: [{ type: "li", url: "https://linkedin.com/in/rabiaramzan" }],
   },
 ];
 
