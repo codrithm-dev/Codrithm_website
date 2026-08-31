@@ -242,33 +242,39 @@ function Home() {
 
       {/* ═══════════════ ABOUT ═══════════════ */}
       <Section id="about">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <Reveal>
-            <Eyebrow>About</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-              Built on values. Made for practice.
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--neon-green)]">
+              <span className="h-px w-8 bg-[color:var(--neon-green)]" />
+              About Codrithm
+            </div>
+            <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.03] sm:text-5xl md:text-6xl">
+              Code with purpose.
+              <br />
+              Build with people.
             </h2>
-            <p className="mt-4 sm:mt-5 text-muted-foreground text-base sm:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Codrithm is a technology company and developer community guided by Islamic values. We
-              build software, share what we learn, and create opportunities for students and
-              aspiring developers to work on practical projects.
+              build software, share what we learn, and create practical opportunities for students
+              and aspiring developers.
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="border-t border-[color:var(--border)]">
             {[
-              { k: "Founded", v: "2026" },
-              { k: "Company Size", v: "2-10" },
-              { k: "Followers", v: "500+" },
-              { k: "Type", v: "Private" },
+              { n: "01", t: "Build", d: "Software, tools, and practical digital products." },
+              { n: "02", t: "Learn", d: "Sessions, shared knowledge, and project experience." },
+              {
+                n: "03",
+                t: "Connect",
+                d: "A community built on service, integrity, and collaboration.",
+              },
             ].map((s) => (
-              <Reveal key={s.k} delay={0.05}>
-                <div className="relative rounded-xl sm:rounded-2xl p-4 sm:p-5 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
-                  <div className="relative text-2xl sm:text-3xl font-display font-bold text-gradient">
-                    {s.v}
-                  </div>
-                  <div className="relative mt-1 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
-                    {s.k}
+              <Reveal key={s.n}>
+                <div className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[color:var(--border)] py-5 sm:py-6">
+                  <span className="font-mono text-xs text-[color:var(--neon-green)]">{s.n}</span>
+                  <div>
+                    <h3 className="font-display text-xl font-semibold">{s.t}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
                   </div>
                 </div>
               </Reveal>
@@ -378,15 +384,6 @@ function Home() {
         </div>
       </Section>
 
-      <Section>
-        <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat value="7" label="Team members" />
-          <Stat value="500+" label="LinkedIn followers" />
-          <Stat value="2026" label="Founded" />
-          <Stat value="IT" label="Services & Consulting" />
-        </div>
-      </Section>
-
       {/* ═══════════════ SERVICES ═══════════════ */}
       <Section id="services">
         <Eyebrow>What We Offer</Eyebrow>
@@ -437,7 +434,7 @@ function Home() {
       <Section id="partners">
         <Eyebrow>Partners & Collaborators</Eyebrow>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          Organisations we work with.
+          Organizations we work with.
         </h2>
         <div
           className="relative mt-8 overflow-hidden sm:mt-10"
@@ -670,12 +667,6 @@ function Home() {
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           A place to <span className="text-gradient">learn and build</span>.
         </h2>
-        <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
-          <Stat value="500+" label="Followers" />
-          <Stat value="7" label="Team" />
-          <Stat value="1" label="MoU" />
-          <Stat value="5+" label="Events" />
-        </div>
       </Section>
 
       <Section>
