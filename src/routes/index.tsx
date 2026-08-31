@@ -229,9 +229,9 @@ function Home() {
               </a>
             </motion.div>
             <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
-              <Stat value="500+" label="Followers" />
-              <Stat value="7" label="Team Members" />
-              <Stat value="2026" label="Founded" />
+              <Stat value="600+" label="Followers" countUp />
+              <Stat value="10" label="Team Members" countUp />
+              <Stat value="100+" label="Active Members" countUp />
             </div>
           </div>
           <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">

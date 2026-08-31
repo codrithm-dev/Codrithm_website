@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 
 export function Section({
   children,
@@ -44,11 +44,42 @@ export function Reveal({
   );
 }
 
-export function Stat({ value, label }: { value: string; label: string }) {
+export function Stat({
+  value,
+  label,
+  countUp = false,
+}: {
+  value: string;
+  label: string;
+  countUp?: boolean;
+}) {
+  const target = Number.parseInt(value, 10);
+  const suffix = value.replace(/^\d+/, "");
+  const [displayValue, setDisplayValue] = useState(countUp ? 0 : target);
+
+  useEffect(() => {
+    if (!countUp || Number.isNaN(target)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayValue(target);
+      return;
+    }
+
+    const duration = 900;
+    const start = performance.now();
+    let frame = 0;
+    const update = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      setDisplayValue(Math.round(target * (1 - (1 - progress) ** 3)));
+      if (progress < 1) frame = requestAnimationFrame(update);
+    };
+    frame = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(frame);
+  }, [countUp, target]);
+
   return (
     <div className="rounded-xl sm:rounded-2xl p-5 sm:p-6 text-center bg-[color:var(--card)] border border-[color:var(--border)]">
       <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[color:var(--foreground)]">
-        {value}
+        {countUp ? `${displayValue}${suffix}` : value}
       </div>
       <div className="mt-1.5 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
         {label}
