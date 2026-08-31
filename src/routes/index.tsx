@@ -659,17 +659,10 @@ function Home() {
 
       {/* ═══════════════ COMMUNITY ═══════════════ */}
       <Section id="community">
-        <Eyebrow>Community & Blog</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          A place to <span className="text-gradient">learn and build</span>.
-        </h2>
-      </Section>
-
-      <Section>
         <div>
           <Eyebrow>Upcoming events</Eyebrow>
           <h2 className="mt-4 font-display text-2xl sm:text-3xl md:text-4xl font-bold">
-            Meet the community.
+            A place to <span className="text-gradient">learn and build</span>.
           </h2>
           <ul className="mt-6 sm:mt-8 space-y-3">
             {EVENTS.map((e) => (
