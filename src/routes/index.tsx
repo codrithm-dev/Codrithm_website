@@ -244,9 +244,10 @@ function Home() {
       <Section id="about">
         <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <Reveal>
-            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--neon-green)]">
-              <span className="h-px w-8 bg-[color:var(--neon-green)]" />
-              About Codrithm
+            <div className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <span className="font-mono text-[color:var(--neon-green)]">01</span>
+              <span className="h-px w-10 bg-[color:var(--border)]" />
+              About
             </div>
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.03] sm:text-5xl md:text-6xl">
               Code with purpose.
