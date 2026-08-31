@@ -449,16 +449,16 @@ function Home() {
             {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => {
               const content = (
                 <>
-                  <div className="flex h-36 w-64 items-center justify-center rounded-2xl border border-[color:var(--border)] bg-white p-6 transition-transform duration-200 hover:scale-[1.02]">
+                  <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-[color:var(--border)] bg-transparent p-4 transition-transform duration-200 hover:scale-[1.02]">
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
                       loading="lazy"
                       decoding="async"
-                      className="max-h-24 w-auto max-w-full object-contain"
+                      className="max-h-20 w-auto max-w-full object-contain"
                     />
                   </div>
-                  <p className="mt-3 text-center text-sm font-medium text-[color:var(--foreground)]">
+                  <p className="mt-2 text-center text-xs font-medium text-[color:var(--foreground)]">
                     {partner.name}
                   </p>
                 </>
@@ -470,12 +470,12 @@ function Home() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-64"
+                  className="block w-52"
                 >
                   {content}
                 </a>
               ) : (
-                <div key={`${partner.name}-${index}`} className="w-64">
+                <div key={`${partner.name}-${index}`} className="w-52">
                   {content}
                 </div>
               );
