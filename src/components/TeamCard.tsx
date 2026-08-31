@@ -147,8 +147,8 @@ function socialIcon(type: string) {
 
 export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)]">
-      <div className="h-[260px] sm:h-[300px] overflow-hidden bg-[color:var(--muted)]">
+    <article className="group overflow-hidden rounded-[28px] border border-[color:var(--border)] bg-[color:var(--card)] transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--neon-green)]/40 hover:shadow-[0_12px_32px_rgba(0,102,255,0.12)]">
+      <div className="relative h-[260px] overflow-hidden bg-[color:var(--muted)] sm:h-[300px]">
         <img
           src={member.img}
           alt={member.name}
@@ -160,7 +160,7 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
             objectPosition: member.imagePosition ?? "50% 0%",
             transform: `scale(${member.imageScale ?? 1})`,
           }}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="p-5">
@@ -177,7 +177,7 @@ export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember 
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${member.name} on ${s.type === "li" ? "LinkedIn" : "GitHub"}`}
-                className="flex size-10 items-center justify-center rounded-full border border-[color:var(--border)] text-muted-foreground transition-colors hover:border-[color:var(--neon-green)] hover:text-[color:var(--foreground)]"
+                className="flex size-11 items-center justify-center rounded-full border border-[color:var(--border)] text-muted-foreground transition-colors hover:border-[color:var(--neon-green)] hover:text-[color:var(--foreground)]"
               >
                 {socialIcon(s.type)}
               </a>

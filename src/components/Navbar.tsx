@@ -15,7 +15,12 @@ function scrollTo(href: string, e?: React.MouseEvent) {
   e?.preventDefault();
   const id = href.replace("#", "");
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+  if (!el) return;
+
+  const navOffset = 96;
+  const top = el.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.history.replaceState(null, "", href);
+  window.scrollTo({ top, behavior: "smooth" });
 }
 
 export function Navbar() {
