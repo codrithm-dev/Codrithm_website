@@ -22,8 +22,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-lg bg-[color:var(--neon-green)]/8 border border-[color:var(--neon-green)]/15 px-3 py-1.5 text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--neon-green)]">
-      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[color:var(--neon-green)] shadow-[0_0_6px_var(--neon-green)]" />
+    <div className="text-xs font-semibold tracking-[0.12em] uppercase text-[color:var(--neon-green)]">
       {children}
     </div>
   );
@@ -97,12 +96,11 @@ export function Reveal({
 
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="relative rounded-xl sm:rounded-2xl p-5 sm:p-6 text-center overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
-      <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-green)]/5 via-transparent to-[color:var(--neon-blue)]/5" />
-      <div className="relative text-2xl sm:text-3xl md:text-4xl font-display font-bold text-gradient">
+    <div className="rounded-xl sm:rounded-2xl p-5 sm:p-6 text-center bg-[color:var(--card)] border border-[color:var(--border)]">
+      <div className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[color:var(--foreground)]">
         {value}
       </div>
-      <div className="relative mt-1.5 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
+      <div className="mt-1.5 text-[10px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
         {label}
       </div>
     </div>

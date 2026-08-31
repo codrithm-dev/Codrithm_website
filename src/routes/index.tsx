@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
+import { Section, Eyebrow, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
 import { HeroIllustration } from "../components/HeroIllustration";
-import { SplashCursorController } from "../components/SplashCursorController";
 import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
 
 export const Route = createFileRoute("/")({
@@ -178,13 +177,10 @@ function Home() {
 
   return (
     <>
-      <SplashCursorController />
-
       {/* ═══════════════ HERO ═══════════════ */}
       <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-6 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center min-h-[70vh] sm:min-h-[80vh]">
+        <div className="mx-auto grid min-h-[70vh] max-w-7xl items-center gap-8 px-4 pt-20 pb-16 sm:min-h-[80vh] sm:gap-10 sm:px-6 sm:pt-6 sm:pb-24 lg:grid-cols-2">
           <div>
-            <Eyebrow>Technology company & developer community</Eyebrow>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -426,69 +422,62 @@ function Home() {
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
           Selected projects.
         </h2>
-        <div
-          className="mt-8 sm:mt-12 relative overflow-hidden"
-          style={{
-            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
-          }}
-        >
-          <div className="flex gap-4 sm:gap-7 w-max hover:[animation-play-state:paused] animate-marquee">
-            {[...PROJECTS, ...PROJECTS].map((p, i) => (
-              <button
-                key={`${p.name}-${i}`}
-                className="w-[80vw] sm:w-[340px] lg:w-[420px] h-[180px] sm:h-[240px] lg:h-[290px] flex-shrink-0 rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
-                onClick={() => setOpenProject(p)}
-              >
-                {p.img ? (
-                  <img
-                    src={p.img}
-                    alt={p.name}
-                    loading="lazy"
-                    decoding="async"
-                    width={1280}
-                    height={720}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[color:var(--muted)] to-[color:var(--card)]">
-                    <span className="font-display text-4xl sm:text-5xl font-black text-[color:var(--border)]">
-                      {"</>"}
-                    </span>
-                  </div>
-                )}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, transparent 40%, oklch(0.14 0.02 265 / 0.88) 100%)",
-                  }}
+        <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((p) => (
+            <button
+              key={p.name}
+              className="h-[220px] sm:h-[250px] rounded-xl overflow-hidden relative bg-[color:var(--card)] border border-[color:var(--border)] text-left cursor-pointer transition-colors duration-200 hover:border-[color:var(--neon-green)]/50 group"
+              onClick={() => setOpenProject(p)}
+            >
+              {p.img ? (
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  loading="lazy"
+                  decoding="async"
+                  width={1280}
+                  height={720}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                 />
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[color:var(--background)]/60 border border-[color:var(--border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 17L17 7" />
-                    <path d="M7 7h10v10" />
-                  </svg>
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[color:var(--muted)] to-[color:var(--card)]">
+                  <span className="font-display text-4xl sm:text-5xl font-black text-[color:var(--border)]">
+                    {"</>"}
+                  </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
-                  <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">
-                    {p.tag}
-                  </div>
-                  <div className="text-base sm:text-lg font-black text-[color:var(--foreground)] leading-tight">
-                    {p.name}
-                  </div>
+              )}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 40%, oklch(0.14 0.02 265 / 0.88) 100%)",
+                }}
+              />
+              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[color:var(--background)]/60 border border-[color:var(--border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M7 17L17 7" />
+                  <path d="M7 7h10v10" />
+                </svg>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5">
+                <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.08em] text-[color:var(--neon-green)] mb-1">
+                  {p.tag}
                 </div>
-              </button>
-            ))}
-          </div>
+                <div className="text-base sm:text-lg font-black text-[color:var(--foreground)] leading-tight">
+                  {p.name}
+                </div>
+              </div>
+            </button>
+          ))}
         </div>
       </Section>
 

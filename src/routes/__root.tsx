@@ -11,7 +11,6 @@ import { type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
-import { BackgroundFX } from "../components/BackgroundFX";
 import { SITE_URL } from "../lib/site";
 
 function NotFoundComponent() {
@@ -139,7 +138,6 @@ function RootComponent() {
       >
         Skip to content
       </a>
-      <BackgroundFX />
       <Navbar />
       <main id="main-content" className="pt-24">
         <Outlet />

@@ -1,4 +1,4 @@
-import { memo, useRef, useState, useCallback } from "react";
+import { memo } from "react";
 
 import imgUmais from "../assets/Umais.webp";
 import imgAtiq from "../assets/Atiq-studio.webp";
@@ -146,165 +146,55 @@ function socialIcon(type: string) {
 /* ── TeamCard ──────────────────────────────────────────────────────── */
 
 export const TeamCard = memo(function TeamCard({ member }: { member: TeamMember }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    cardRef.current.style.transform = `perspective(800px) rotateX(${y * -6}deg) rotateY(${x * 6}deg)`;
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    if (cardRef.current) {
-      cardRef.current.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg)";
-    }
-    setIsHovered(false);
-  }, []);
-
   return (
-    <div
-      ref={cardRef}
-      className="group relative rounded-[28px] overflow-hidden cursor-pointer"
-      style={{
-        transform: "perspective(800px) rotateX(0deg) rotateY(0deg)",
-        transition: "transform 0.15s ease-out",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Gradient border on hover */}
-      <div
-        className="absolute -inset-[1px] rounded-[28px] opacity-0 max-sm:opacity-40 group-hover:opacity-100 transition-opacity duration-400"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--neon-green), var(--neon-blue), var(--neon-green))",
-          backgroundSize: "200% 200%",
-          animation: "shimmer 3s linear infinite",
-        }}
-      />
-
-      {/* Card inner */}
-      <div className="relative bg-[color:var(--card)] rounded-[28px] border border-[color:var(--border)] overflow-hidden transition-all duration-500 max-sm:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] max-sm:translate-y-[-2px] group-hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_12px_40px_rgba(0,102,255,0.12)] group-hover:translate-y-[-6px]">
-        {/* Portrait area */}
-        <div className="relative h-[260px] sm:h-[300px] overflow-hidden">
-          <img
-            src={member.img}
-            alt={member.name}
-            loading="lazy"
-            decoding="async"
-            width={512}
-            height={680}
-            style={{
-              objectPosition: member.imagePosition ?? "50% 0%",
-              transform: `scale(${member.imageScale ?? 1})`,
-            }}
-            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 max-sm:brightness-105 group-hover:brightness-110"
-          />
-
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--card)] via-[color:var(--card)]/10 to-transparent opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[color:var(--neon-blue)]/8 via-transparent to-[color:var(--neon-green)]/8" />
-
-          {/* Decorative particles */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-            <div className="absolute top-[20%] left-[15%] w-1 h-1 rounded-full bg-[color:var(--neon-green)]/40 animate-pulse" />
-            <div
-              className="absolute top-[40%] right-[20%] w-1.5 h-1.5 rounded-full bg-[color:var(--neon-blue)]/30 animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            />
-            <div
-              className="absolute bottom-[30%] left-[25%] w-1 h-1 rounded-full bg-[color:var(--neon-green)]/25 animate-pulse"
-              style={{ animationDelay: "1s" }}
-            />
-            <div
-              className="absolute top-[60%] right-[15%] w-0.5 h-0.5 rounded-full bg-white/20 animate-pulse"
-              style={{ animationDelay: "1.5s" }}
-            />
-            {/* Abstract node lines */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 400">
-              <line
-                x1="45"
-                y1="80"
-                x2="120"
-                y2="160"
-                stroke="url(#glow-line)"
-                strokeWidth="0.5"
-                opacity="0.3"
-              />
-              <line
-                x1="240"
-                y1="120"
-                x2="180"
-                y2="200"
-                stroke="url(#glow-line)"
-                strokeWidth="0.5"
-                opacity="0.25"
-              />
-              <line
-                x1="70"
-                y1="280"
-                x2="150"
-                y2="320"
-                stroke="url(#glow-line)"
-                strokeWidth="0.5"
-                opacity="0.2"
-              />
-              <circle cx="45" cy="80" r="2" fill="var(--neon-green)" opacity="0.3" />
-              <circle cx="120" cy="160" r="1.5" fill="var(--neon-blue)" opacity="0.25" />
-              <circle cx="240" cy="120" r="2" fill="var(--neon-green)" opacity="0.2" />
-              <circle cx="180" cy="200" r="1.5" fill="var(--neon-blue)" opacity="0.3" />
-              <defs>
-                <linearGradient id="glow-line" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="var(--neon-green)" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="var(--neon-blue)" stopOpacity="0.6" />
-                </linearGradient>
-              </defs>
-            </svg>
+    <article className="overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)]">
+      <div className="h-[260px] sm:h-[300px] overflow-hidden bg-[color:var(--muted)]">
+        <img
+          src={member.img}
+          alt={member.name}
+          loading="lazy"
+          decoding="async"
+          width={512}
+          height={680}
+          style={{
+            objectPosition: member.imagePosition ?? "50% 0%",
+            transform: `scale(${member.imageScale ?? 1})`,
+          }}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="p-5">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="font-display text-lg font-semibold tracking-tight">{member.name}</h3>
+            <p className="mt-1 text-sm font-medium text-[color:var(--neon-blue)]">{member.role}</p>
           </div>
-
-          {/* Radial light behind portrait */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full bg-[color:var(--neon-blue)]/10 blur-[60px]" />
-          </div>
-
-          {/* Social icons - slide up on hover */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-            {member.social.map((s, idx) => (
+          <div className="flex gap-2">
+            {member.social.map((s) => (
               <a
                 key={s.type}
                 href={s.url}
-                aria-label={s.type}
-                className="w-11 h-11 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white/70 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all duration-300 hover:bg-[color:var(--neon-green)] hover:text-black max-sm:opacity-100 max-sm:translate-y-0"
-                style={{ transitionDelay: isHovered ? `${idx * 60}ms` : "0ms" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${member.name} on ${s.type === "li" ? "LinkedIn" : "GitHub"}`}
+                className="flex size-10 items-center justify-center rounded-full border border-[color:var(--border)] text-muted-foreground transition-colors hover:border-[color:var(--neon-green)] hover:text-[color:var(--foreground)]"
               >
                 {socialIcon(s.type)}
               </a>
             ))}
           </div>
         </div>
-
-        {/* Info area */}
-        <div className="p-4 pb-5">
-          <h3 className="font-display text-lg font-semibold tracking-tight">{member.name}</h3>
-          <p className="mt-1 text-sm text-[color:var(--neon-blue)] font-medium">{member.role}</p>
-
-          {/* Skill chips */}
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {member.skills.map((skill) => (
-              <span
-                key={skill}
-                className="px-2.5 py-1 text-[11px] font-medium rounded-full bg-[color:var(--muted)] text-[color:var(--muted-foreground)] border border-[color:var(--border)] transition-all duration-300 group-hover:border-[color:var(--neon-green)]/30 group-hover:text-[color:var(--foreground)] group-hover:shadow-[0_0_12px_rgba(135,255,188,0.15)]"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {member.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full border border-[color:var(--border)] bg-[color:var(--muted)] px-2.5 py-1 text-[11px] font-medium text-[color:var(--muted-foreground)]"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 });

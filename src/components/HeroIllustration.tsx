@@ -45,10 +45,10 @@ const FLOW_PATHS = [
 
 export const HeroIllustration = memo(function HeroIllustration() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="relative flex h-full w-full items-center justify-center">
       <svg
         viewBox="0 0 500 450"
-        className="w-full h-full max-w-[500px] max-h-[450px]"
+        className="h-full w-full max-h-[450px] max-w-[500px]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
@@ -62,10 +62,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             <stop offset="50%" stopColor="#0066FF" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#87FFBC" stopOpacity="0.4" />
           </linearGradient>
-          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-            <stop offset="100%" stopColor="#87FFBC" stopOpacity="0.6" />
-          </radialGradient>
           <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#87FFBC" stopOpacity="0.15" />
             <stop offset="100%" stopColor="#0066FF" stopOpacity="0.05" />
@@ -85,8 +81,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             </feMerge>
           </filter>
         </defs>
-
-        {/* Ambient background glow - CSS animation */}
         <ellipse
           cx="250"
           cy="225"
@@ -95,8 +89,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
           fill="url(#ambientGlow)"
           className="hero-pulse"
         />
-
-        {/* Orbital paths */}
         {ORBIT_PATHS.map((orbit, i) => (
           <motion.ellipse
             key={`orbit-${i}`}
@@ -114,8 +106,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             transition={{ duration: 2, delay: i * 0.3, ease: "easeOut" }}
           />
         ))}
-
-        {/* Central abstract shape */}
         {CENTRAL_PATHS.map((path, i) => (
           <motion.path
             key={`central-${i}`}
@@ -129,8 +119,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             transition={{ duration: 2.5, delay: 0.5 + i * 0.2, ease: "easeInOut" }}
           />
         ))}
-
-        {/* Data flow paths */}
         {FLOW_PATHS.map((path, i) => (
           <motion.path
             key={`flow-${i}`}
@@ -144,8 +132,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             transition={{ duration: 1.5, delay: i * 0.15, ease: "easeInOut" }}
           />
         ))}
-
-        {/* Intelligence nodes */}
         {NODES.map((node, i) => (
           <g key={`node-${i}`}>
             <circle
@@ -196,8 +182,6 @@ export const HeroIllustration = memo(function HeroIllustration() {
             )}
           </g>
         ))}
-
-        {/* Connection pulses - CSS animation instead of Framer Motion */}
         <circle r="4" fill="#87FFBC" filter="url(#softGlow)" className="connection-pulse" />
       </svg>
     </div>
