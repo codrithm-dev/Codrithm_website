@@ -1,4 +1,5 @@
 import { ContactCard } from "./ContactCard";
+import { SocialIcon } from "./SocialIcon";
 
 function scrollTo(href: string, e?: React.MouseEvent) {
   e?.preventDefault();
@@ -16,8 +17,8 @@ export function Footer() {
             Cod<span className="text-gradient">rithm</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
-            A values-driven community rooted in Islamic principles — empowering junior developers to
-            learn, build, and lead.
+            A technology company and developer community. We build software, run practical sessions,
+            and help aspiring developers gain experience.
           </p>
         </div>
         <div>
@@ -75,13 +76,24 @@ export function Footer() {
             </li>
             <li>
               <a
+                href="https://linktr.ee/codrithm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-foreground"
+                aria-label="Linktree"
+              >
+                <SocialIcon name="linktree" className="size-4" /> Linktree
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://linkedin.com/company/codrithmdev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground"
+                className="inline-flex items-center gap-2 hover:text-foreground"
                 aria-label="LinkedIn"
               >
-                LinkedIn
+                <SocialIcon name="linkedin" className="size-4" /> LinkedIn
               </a>
             </li>
             <li>
@@ -89,10 +101,10 @@ export function Footer() {
                 href="https://www.youtube.com/@codrithm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground"
+                className="inline-flex items-center gap-2 hover:text-foreground"
                 aria-label="YouTube"
               >
-                YouTube
+                <SocialIcon name="youtube" className="size-4" /> YouTube
               </a>
             </li>
             <li>
@@ -100,10 +112,10 @@ export function Footer() {
                 href="https://www.instagram.com/codrithm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground"
+                className="inline-flex items-center gap-2 hover:text-foreground"
                 aria-label="Instagram"
               >
-                Instagram
+                <SocialIcon name="instagram" className="size-4" /> Instagram
               </a>
             </li>
             <li>
@@ -111,10 +123,10 @@ export function Footer() {
                 href="https://www.facebook.com/profile.php?id=61588306509274"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground"
+                className="inline-flex items-center gap-2 hover:text-foreground"
                 aria-label="Facebook"
               >
-                Facebook
+                <SocialIcon name="facebook" className="size-4" /> Facebook
               </a>
             </li>
             <li>
@@ -122,10 +134,10 @@ export function Footer() {
                 href="https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground"
+                className="inline-flex items-center gap-2 hover:text-foreground"
                 aria-label="WhatsApp"
               >
-                WhatsApp
+                <SocialIcon name="whatsapp" className="size-4" /> WhatsApp
               </a>
             </li>
           </ul>

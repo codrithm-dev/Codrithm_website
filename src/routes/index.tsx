@@ -5,6 +5,7 @@ import { Section, Eyebrow, TiltCard, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
 import { HeroIllustration } from "../components/HeroIllustration";
 import { SplashCursorController } from "../components/SplashCursorController";
+import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -13,13 +14,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
       },
       { property: "og:title", content: "Codrithm — Where Coders Make History" },
       {
         property: "og:description",
         content:
-          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
       },
     ],
   }),
@@ -31,25 +32,25 @@ export const Route = createFileRoute("/")({
 const SERVICES = [
   {
     t: "Web Development",
-    d: "Building modern, responsive websites and web applications for students and communities.",
+    d: "Building websites and web applications for people, teams, and communities.",
     icon: "◆",
     tags: ["React", "Next.js", "TypeScript"],
   },
   {
     t: "Mobile Apps",
-    d: "Developing cross-platform mobile applications with modern frameworks.",
+    d: "Developing mobile applications for iOS and Android.",
     icon: "●",
     tags: ["React Native", "Flutter", "Swift"],
   },
   {
     t: "AI & Machine Learning",
-    d: "Workshops and projects exploring AI, ML, and data science fundamentals.",
+    d: "Running sessions and projects in AI, machine learning, and data science.",
     icon: "◈",
     tags: ["Python", "TensorFlow", "LLMs"],
   },
   {
     t: "Community Building",
-    d: "Fostering a vibrant ecosystem of developers, creators, and professionals.",
+    d: "Bringing developers, creators, and professionals together to learn and collaborate.",
     icon: "◊",
     tags: ["Mentorship", "Networking", "Events"],
   },
@@ -61,7 +62,7 @@ const SERVICES = [
   },
   {
     t: "Tech Workshops",
-    d: "Hands-on sessions covering the latest tools, frameworks, and best practices.",
+    d: "Practical sessions on tools, frameworks, and software development practices.",
     icon: "✦",
     tags: ["Workshops", "Seminars", "Hackathons"],
   },
@@ -183,7 +184,7 @@ function Home() {
       <section id="home" className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-6 pb-16 sm:pb-24 grid lg:grid-cols-2 gap-8 sm:gap-10 items-center min-h-[70vh] sm:min-h-[80vh]">
           <div>
-            <Eyebrow>Student Tech Community</Eyebrow>
+            <Eyebrow>Technology company & developer community</Eyebrow>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -198,8 +199,8 @@ function Home() {
               transition={{ duration: 0.9, delay: 0.15 }}
               className="mt-6 text-lg text-muted-foreground max-w-xl"
             >
-              A values-driven community rooted in Islamic principles, empowering junior developers
-              to step up, take the lead, and shape the future of technology.
+              Coding the logic, crafting the flow. We build software, run practical sessions, and
+              help aspiring developers gain experience.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -232,13 +233,12 @@ function Home() {
           <Reveal>
             <Eyebrow>About</Eyebrow>
             <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-              Rooted in values. Built to lead.
+              Built on values. Made for practice.
             </h2>
             <p className="mt-4 sm:mt-5 text-muted-foreground text-base sm:text-lg">
-              Codrithm is more than a tech community — we are a movement guided by Islamic values.
-              We believe in honesty, integrity, service, and the power of knowledge. Our mission is
-              to push every junior forward, giving them the platform, mentorship, and confidence to
-              step up and lead.
+              Codrithm is a technology company and developer community guided by Islamic values. We
+              build software, share what we learn, and create opportunities for students and
+              aspiring developers to work on practical projects.
             </p>
           </Reveal>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -269,12 +269,12 @@ function Home() {
           {[
             {
               t: "Mission",
-              d: "Empower every junior developer to grow, lead, and make a meaningful impact — rooted in Islamic values of knowledge, service, and integrity.",
+              d: "Help junior developers learn, work on practical projects, and grow with knowledge, service, and integrity.",
               icon: "◇",
             },
             {
               t: "Vision",
-              d: "A generation of confident, values-driven tech leaders who lift others as they rise.",
+              d: "Developers who keep learning, share their knowledge, and support others.",
               icon: "○",
             },
             {
@@ -381,8 +381,8 @@ function Home() {
           Learn. Build. <span className="text-gradient">Lead.</span>
         </h2>
         <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg max-w-2xl">
-          Workshops, mentorship, and real-world project experience — designed to push juniors from
-          learners to leaders.
+          Software services, workshops, mentorship, and project experience for individuals and
+          teams.
         </p>
         <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((s, i) => (
@@ -604,7 +604,7 @@ function Home() {
       <Section id="community">
         <Eyebrow>Community & Blog</Eyebrow>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          A community where <span className="text-gradient">juniors lead</span>.
+          A place to <span className="text-gradient">learn and build</span>.
         </h2>
         <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
           <Stat value="500+" label="Followers" />
@@ -657,8 +657,7 @@ function Home() {
           Meet the Minds Behind <span className="text-gradient">Codrithm</span>
         </h2>
         <p className="mt-3 sm:mt-4 text-muted-foreground text-base sm:text-lg max-w-2xl">
-          Junior leaders who stepped up — now building a platform for the next wave of talent to
-          rise.
+          The people who build Codrithm and support its work.
         </p>
         <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TEAM.slice(0, LANDING_TEAM_LIMIT).map((m, i) => (
@@ -696,7 +695,7 @@ function Home() {
                 <textarea
                   rows={4}
                   className="input"
-                  placeholder="Tell us about your project, timeline, and success criteria."
+                  placeholder="Tell us about your project and timeline."
                 />
               </Field>
               <button className="btn-neon btn-neon-hover w-full justify-center min-h-[48px]">
@@ -728,22 +727,37 @@ function Home() {
               </p>
               <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
                 {[
-                  { name: "LinkedIn", url: "https://linkedin.com/company/codrithmdev" },
-                  { name: "YouTube", url: "https://www.youtube.com/@codrithm" },
-                  { name: "Instagram", url: "https://www.instagram.com/codrithm" },
+                  { name: "Linktree", icon: "linktree", url: "https://linktr.ee/codrithm" },
+                  {
+                    name: "LinkedIn",
+                    icon: "linkedin",
+                    url: "https://linkedin.com/company/codrithmdev",
+                  },
+                  { name: "YouTube", icon: "youtube", url: "https://www.youtube.com/@codrithm" },
+                  {
+                    name: "Instagram",
+                    icon: "instagram",
+                    url: "https://www.instagram.com/codrithm",
+                  },
                   {
                     name: "Facebook",
+                    icon: "facebook",
                     url: "https://www.facebook.com/profile.php?id=61588306509274",
                   },
-                  { name: "WhatsApp", url: "https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g" },
+                  {
+                    name: "WhatsApp",
+                    icon: "whatsapp",
+                    url: "https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g",
+                  },
                 ].map((s) => (
                   <a
                     key={s.name}
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg px-3 py-1.5 text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground hover:text-[color:var(--neon-green)] hover:border-[color:var(--neon-green)]/20 min-h-[44px] flex items-center transition-colors duration-200"
+                    className="rounded-lg px-3 py-1.5 text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground hover:text-[color:var(--neon-green)] hover:border-[color:var(--neon-green)]/20 min-h-[44px] inline-flex items-center gap-2 transition-colors duration-200"
                   >
+                    <SocialIcon name={s.icon as SocialIconName} className="size-4" />
                     {s.name}
                   </a>
                 ))}

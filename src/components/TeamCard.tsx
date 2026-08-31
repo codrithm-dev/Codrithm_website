@@ -28,49 +28,64 @@ export const TEAM: TeamMember[] = [
     role: "Founder",
     img: imgUmais,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
-    social: [{ type: "li", url: "https://linkedin.com/in/umais" }],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/muhammad-umais-adeel/" },
+      { type: "gh", url: "https://github.com/umaisadeel" },
+    ],
   },
   {
     name: "Atiq Umer",
     role: "Co-Founder",
     img: imgAtiq,
     skills: ["Leadership", "Strategy", "Community", "Tech"],
-    social: [{ type: "li", url: "https://linkedin.com/in/atiqumer" }],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/atiq-umer/" },
+      { type: "gh", url: "https://github.com/Atiqumer" },
+    ],
   },
   {
     name: "Iqra Asghar",
     role: "Growth Lead",
     img: imgIqra,
     skills: ["Growth", "Marketing", "Community", "Outreach"],
-    social: [{ type: "li", url: "https://linkedin.com/in/iqraasghar" }],
+    social: [{ type: "li", url: "https://www.linkedin.com/in/iqra-asghar/" }],
   },
   {
     name: "Wajeeha Azeem",
     role: "Operation Lead",
     img: imgWajeeha,
     skills: ["Operations", "Management", "Planning", "Community"],
-    social: [{ type: "li", url: "https://linkedin.com/in/wajeehaazeem" }],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/wajeehaazeem/" },
+      { type: "gh", url: "https://github.com/wajihaazeem" },
+    ],
   },
   {
     name: "Zimran Sohail",
     role: "Technical Associate",
     img: imgZimran,
     skills: ["Web Development", "LLM Engineering", "Machine Learning"],
-    social: [{ type: "li", url: "https://www.linkedin.com/in/zimransohail/" }],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/zimransohail/" },
+      { type: "gh", url: "https://github.com/ZimranSohail" },
+    ],
   },
   {
     name: "Aliza Afzal",
     role: "Research Lead",
     img: imgAliza,
     skills: ["Machine Learning", "Computer Vision", "NLP", "PyTorch"],
-    social: [{ type: "li", url: "https://www.linkedin.com/in/alizaafzal/" }],
+    social: [
+      { type: "li", url: "https://www.linkedin.com/in/alizaafzal/" },
+      { type: "gh", url: "https://github.com/alizaafzal582004" },
+    ],
   },
   {
     name: "Rabia Ramzan",
     role: "Graphics Lead",
     img: imgRabia,
     skills: ["Development", "Community", "Collaboration"],
-    social: [{ type: "li", url: "https://linkedin.com/in/rabiaramzan" }],
+    social: [{ type: "li", url: "https://www.linkedin.com/in/rabia-ramzan1/" }],
   },
 ];
 

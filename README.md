@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  A responsive, server-rendered website for a values-driven student technology community that helps junior developers learn, lead, and build together.
+  A responsive, server-rendered website for Codrithm, a technology company and developer community.
 </p>
 
 <p align="center">

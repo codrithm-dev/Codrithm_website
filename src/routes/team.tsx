@@ -11,13 +11,13 @@ export const Route = createFileRoute("/team")({
       {
         name: "description",
         content:
-          "Meet the full Codrithm team — junior leaders who stepped up to build a values-driven tech community.",
+          "Meet the Codrithm team, the people behind our technology work and developer community.",
       },
       { property: "og:title", content: "Our Team — Codrithm" },
       {
         property: "og:description",
         content:
-          "Meet the full Codrithm team — junior leaders who stepped up to build a values-driven tech community.",
+          "Meet the Codrithm team, the people behind our technology work and developer community.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/team` }],
@@ -46,8 +46,7 @@ function TeamPage() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="mt-5 text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Junior leaders who stepped up — now building a platform for the next wave of talent to
-            rise.
+            The people who build Codrithm and support its work.
           </motion.p>
         </div>
       </section>

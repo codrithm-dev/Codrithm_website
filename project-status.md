@@ -5,7 +5,7 @@
 
 ## Overview
 
-Codrithm is a values-driven student technology community rooted in Islamic principles. The website introduces the community, its mission, services, projects, events, and team.
+Codrithm is a technology company and developer community guided by Islamic values. The website introduces its work, services, projects, events, and team.
 
 ## Implemented routes
 

@@ -72,14 +72,14 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
       },
       { name: "author", content: "Codrithm" },
       { property: "og:title", content: "Codrithm — Where Coders Make History" },
       {
         property: "og:description",
         content:
-          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -89,7 +89,7 @@ export const Route = createRootRoute({
       {
         name: "twitter:description",
         content:
-          "A values-driven tech community rooted in Islamic principles, empowering junior developers to step up and lead.",
+          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
       },
     ],
     links: [
