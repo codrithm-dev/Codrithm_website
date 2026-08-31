@@ -82,7 +82,7 @@ export function Navbar() {
             className="flex items-center gap-2 group"
           >
             <img
-              src="/codrithm-logo.png"
+              src="/codrithm-logo-72.webp"
               alt="Codrithm"
               width={36}
               height={36}

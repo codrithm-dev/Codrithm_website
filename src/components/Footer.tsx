@@ -9,7 +9,7 @@ function scrollTo(href: string, e?: React.MouseEvent) {
 
 export function Footer() {
   return (
-    <footer className="relative mt-16 sm:mt-24 lg:mt-32 border-t border-white/5">
+    <footer className="relative mt-10 border-t border-white/5 sm:mt-12 lg:mt-16">
       <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 py-8 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-10 md:grid-cols-3 lg:grid-cols-[minmax(0,2fr)_1fr_1fr_auto] lg:py-16">
         <div>
           <div className="font-display text-2xl font-bold">
