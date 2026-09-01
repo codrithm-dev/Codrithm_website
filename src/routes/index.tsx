@@ -80,6 +80,7 @@ type P = {
   stack: string[];
   metrics: { k: string; v: string }[];
   img?: string;
+  url?: string;
 };
 const PROJECTS: P[] = [
   {
@@ -98,13 +99,26 @@ const PROJECTS: P[] = [
     id: "nexa-web",
     name: "Nexa Web",
     tag: "AI Voice Assistant",
-    desc: "A browser-based AI voice assistant built with Streamlit, deployed as a public live demo.",
+    desc: "A browser-based AI voice assistant built with Streamlit and deployed as a public live demo.",
     stack: ["Python", "Streamlit"],
     metrics: [
       { k: "A project by", v: "Codrithm" },
+      { k: "Type", v: "Web app" },
       { k: "Status", v: "Live demo" },
-      { k: "Stars", v: "0" },
     ],
+  },
+  {
+    id: "neuralflex",
+    name: "NeuralFlex",
+    tag: "AI Solutions",
+    desc: "A public web presence for NeuralFlex, a Finland-based AI startup building intelligent vision and automation solutions for businesses.",
+    stack: ["AI", "Computer Vision", "Web"],
+    metrics: [
+      { k: "A project by", v: "Codrithm" },
+      { k: "Type", v: "Company site" },
+      { k: "Status", v: "Live" },
+    ],
+    url: "https://neuralflex.io/",
   },
   {
     id: "ai-virtual-mouse",
@@ -117,6 +131,7 @@ const PROJECTS: P[] = [
       { k: "Type", v: "DIP project" },
       { k: "Completed", v: "2025" },
     ],
+    url: "https://drive.google.com/file/d/1Vl-a9bdjOwGyrC5hnSi_BOIFtcRxOhym/view?usp=drive_link&usp=embed_facebook",
   },
   {
     id: "wide-box-cargo",
@@ -141,6 +156,7 @@ const PROJECTS: P[] = [
       { k: "Type", v: "Client work" },
       { k: "Completed", v: "2025" },
     ],
+    url: "https://monallondon.com/",
   },
   {
     id: "st-dubai-tech",
@@ -519,7 +535,7 @@ function Home() {
       {/* ═══════════════ PROJECTS / PORTFOLIO ═══════════════ */}
       <Section id="projects">
         <h2 className="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl md:text-6xl">
-          Codrithm <span className="text-gradient">projects.</span>
+          What we’ve been <span className="text-gradient">building.</span>
         </h2>
         <div
           className="mt-8 sm:mt-12 relative overflow-hidden"
@@ -675,10 +691,24 @@ function Home() {
                   </div>
                 </div>
                 <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
+                  {openProject.url && (
+                    <a
+                      href={openProject.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-neon btn-neon-hover justify-center min-h-[48px]"
+                    >
+                      Visit project ↗
+                    </a>
+                  )}
                   <a
                     href="#contact"
                     onClick={() => setOpenProject(null)}
-                    className="btn-neon btn-neon-hover justify-center min-h-[48px]"
+                    className={
+                      openProject.url
+                        ? "btn-ghost-neon justify-center min-h-[48px]"
+                        : "btn-neon btn-neon-hover justify-center min-h-[48px]"
+                    }
                   >
                     Start similar
                   </a>
