@@ -799,33 +799,22 @@ function Home() {
           </Reveal>
 
           <div className="space-y-4 sm:space-y-6">
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)]">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
-                <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
-                  Email
-                </div>
-                <div className="mt-2.5 font-display text-lg break-all sm:break-normal text-[color:var(--foreground)]">
-                  codrithm@gmail.com
-                </div>
+            <div className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] p-5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] sm:rounded-3xl sm:p-7">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-blue)]/30 to-transparent" />
+              <div className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                Book a call
               </div>
-              <div className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] p-5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] sm:rounded-3xl sm:p-7">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-blue)]/30 to-transparent" />
-                <div className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                  Book a call
-                </div>
-                <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-                  Prefer to talk? Choose a time that works for you.
-                </p>
-                <a
-                  href="https://calendly.com/codrithm/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-neon btn-neon-hover mt-4 min-h-[44px] w-full justify-center text-sm"
-                >
-                  Book 30 minutes ↗
-                </a>
-              </div>
+              <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                Prefer to talk? Choose a time that works for you.
+              </p>
+              <a
+                href="https://calendly.com/codrithm/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-neon btn-neon-hover mt-4 min-h-[44px] w-full justify-center text-sm"
+              >
+                Book 30 minutes ↗
+              </a>
             </div>
 
             <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
@@ -834,7 +823,13 @@ function Home() {
                 Connect with us
               </div>
               <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
-                Follow Codrithm for announcements, projects, and ways to collaborate.
+                Follow Codrithm for announcements, projects, and ways to collaborate.{" "}
+                <a
+                  href="mailto:codrithm@gmail.com"
+                  className="font-medium text-[color:var(--foreground)] underline decoration-[color:var(--neon-green)]/50 underline-offset-4 transition-colors hover:text-[color:var(--neon-green)]"
+                >
+                  codrithm@gmail.com
+                </a>
               </p>
               <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
                 {[
