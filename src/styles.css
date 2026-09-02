@@ -284,12 +284,6 @@
   animation: 60s linear infinite marquee-scroll;
 }
 
-/* Skip layout and paint work for sections until they approach the viewport. */
-.content-auto-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
-}
-
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
   *,
