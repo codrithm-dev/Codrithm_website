@@ -378,7 +378,7 @@ function Home() {
       <Section>
         <Eyebrow>Timeline</Eyebrow>
         <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          A brief history.
+          A brief <span className="text-gradient">history.</span>
         </h2>
         <div className="mt-10 sm:mt-14 relative" role="list">
           {/* Vertical line */}
@@ -435,6 +435,39 @@ function Home() {
         </div>
       </Section>
 
+      {/* ═══════════════ PARTNERS ═══════════════ */}
+      <Section id="partners">
+        <Eyebrow>Partners & Collaborators</Eyebrow>
+        <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
+          Organizations we <span className="text-gradient">work with.</span>
+        </h2>
+        <div
+          className="relative mt-8 overflow-hidden sm:mt-10"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max items-center gap-5 py-1 hover:[animation-play-state:paused] animate-marquee">
+            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => (
+              <div key={`${partner.name}-${index}`} className="w-52">
+                <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 p-4 transition-transform duration-200 hover:scale-[1.02]">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-20 w-auto max-w-full object-contain"
+                  />
+                </div>
+                <p className="mt-2 text-center text-xs font-medium text-[color:var(--foreground)]">
+                  {partner.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* ═══════════════ SERVICES ═══════════════ */}
       <Section id="services">
         <Eyebrow>What We Offer</Eyebrow>
@@ -478,57 +511,6 @@ function Home() {
               </motion.div>
             </Reveal>
           ))}
-        </div>
-      </Section>
-
-      {/* ═══════════════ PARTNERS ═══════════════ */}
-      <Section id="partners">
-        <Eyebrow>Partners & Collaborators</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-          Organizations we work with.
-        </h2>
-        <div
-          className="relative mt-8 overflow-hidden sm:mt-10"
-          style={{
-            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
-          }}
-        >
-          <div className="flex w-max items-center gap-5 py-1 hover:[animation-play-state:paused] animate-marquee">
-            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => {
-              const content = (
-                <>
-                  <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 p-4 transition-transform duration-200 hover:scale-[1.02]">
-                    <img
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      loading="lazy"
-                      decoding="async"
-                      className="max-h-20 w-auto max-w-full object-contain"
-                    />
-                  </div>
-                  <p className="mt-2 text-center text-xs font-medium text-[color:var(--foreground)]">
-                    {partner.name}
-                  </p>
-                </>
-              );
-
-              return partner.url ? (
-                <a
-                  key={`${partner.name}-${index}`}
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-52"
-                >
-                  {content}
-                </a>
-              ) : (
-                <div key={`${partner.name}-${index}`} className="w-52">
-                  {content}
-                </div>
-              );
-            })}
-          </div>
         </div>
       </Section>
 
@@ -826,6 +808,23 @@ function Home() {
                 <div className="mt-2.5 font-display text-lg break-all sm:break-normal text-[color:var(--foreground)]">
                   codrithm@gmail.com
                 </div>
+              </div>
+              <div className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] p-5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] sm:rounded-3xl sm:p-7">
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-blue)]/30 to-transparent" />
+                <div className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+                  Book a call
+                </div>
+                <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                  Prefer to talk? Choose a time that works for you.
+                </p>
+                <a
+                  href="https://calendly.com/codrithm/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-neon btn-neon-hover mt-4 min-h-[44px] w-full justify-center text-sm"
+                >
+                  Book 30 minutes ↗
+                </a>
               </div>
             </div>
 
