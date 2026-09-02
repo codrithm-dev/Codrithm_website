@@ -72,17 +72,6 @@ const SERVICES = [
   },
 ];
 
-const TECH_STACK = [
-  "React",
-  "TypeScript",
-  "Django",
-  "Python",
-  "PostgreSQL",
-  "MySQL",
-  "Git & GitHub",
-  "Docker",
-];
-
 type P = {
   id: string;
   name: string;
@@ -460,19 +449,22 @@ function Home() {
             maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
           }}
         >
-          <div className="flex w-max items-center gap-5 py-1 hover:[animation-play-state:paused] animate-marquee">
+          <div className="flex w-max items-center gap-3 py-1 hover:[animation-play-state:paused] animate-marquee">
             {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => (
-              <div key={`${partner.name}-${index}`} className="w-52">
-                <div className="flex h-28 w-52 items-center justify-center rounded-xl border border-slate-200 bg-slate-100 p-4 transition-transform duration-200 hover:scale-[1.02]">
+              <div
+                key={`${partner.name}-${index}`}
+                className="flex h-20 items-center gap-3 rounded-xl border border-slate-200 bg-slate-100 px-4 text-slate-900 shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-transform duration-200 hover:scale-[1.02]"
+              >
+                <div className="flex size-11 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     loading="lazy"
                     decoding="async"
-                    className="max-h-20 w-auto max-w-full object-contain"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
-                <p className="mt-2 text-center text-xs font-medium text-[color:var(--foreground)]">
+                <p className="whitespace-nowrap font-display text-sm font-semibold tracking-[-0.02em]">
                   {partner.name}
                 </p>
               </div>
@@ -524,32 +516,6 @@ function Home() {
               </motion.div>
             </Reveal>
           ))}
-        </div>
-      </Section>
-
-      {/* ═══════════════ TECH STACK ═══════════════ */}
-      <Section id="tech-stack">
-        <Eyebrow>Tech stack</Eyebrow>
-        <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
-          Built with <span className="text-gradient">tools that scale.</span>
-        </h2>
-        <div
-          className="relative mt-8 overflow-hidden sm:mt-10"
-          style={{
-            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
-          }}
-        >
-          <div className="flex w-max items-center gap-3 py-1 hover:[animation-play-state:paused] animate-marquee">
-            {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((technology, index) => (
-              <div
-                key={`${technology}-${index}`}
-                className="flex h-16 items-center rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] px-5 font-display text-base font-semibold tracking-[-0.02em] text-[color:var(--foreground)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-colors duration-200 hover:border-[color:var(--neon-green)]/40"
-              >
-                <span className="mr-3 size-2 rounded-full bg-[color:var(--neon-green)] shadow-[0_0_10px_var(--neon-green)]" />
-                {technology}
-              </div>
-            ))}
-          </div>
         </div>
       </Section>
 
