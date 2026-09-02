@@ -322,7 +322,9 @@ function Home() {
             ].map((s) => (
               <Reveal key={s.n}>
                 <div className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[color:var(--border)] py-5 sm:py-6">
-                  <span className="font-mono text-xs text-[color:var(--neon-green)]">{s.n}</span>
+                  <span className="font-mono text-sm font-semibold text-[color:var(--neon-green)] sm:text-base">
+                    {s.n}
+                  </span>
                   <div>
                     <h3 className="font-display text-xl font-semibold">{s.t}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
