@@ -72,6 +72,17 @@ const SERVICES = [
   },
 ];
 
+const TECH_STACK = [
+  "React",
+  "TypeScript",
+  "Django",
+  "Python",
+  "PostgreSQL",
+  "MySQL",
+  "Git & GitHub",
+  "Docker",
+];
+
 type P = {
   id: string;
   name: string;
@@ -516,6 +527,32 @@ function Home() {
         </div>
       </Section>
 
+      {/* ═══════════════ TECH STACK ═══════════════ */}
+      <Section id="tech-stack">
+        <Eyebrow>Tech stack</Eyebrow>
+        <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
+          Built with <span className="text-gradient">tools that scale.</span>
+        </h2>
+        <div
+          className="relative mt-8 overflow-hidden sm:mt-10"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max items-center gap-3 py-1 hover:[animation-play-state:paused] animate-marquee">
+            {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((technology, index) => (
+              <div
+                key={`${technology}-${index}`}
+                className="flex h-16 items-center rounded-xl border border-[color:var(--border)] bg-[color:var(--card)] px-5 font-display text-base font-semibold tracking-[-0.02em] text-[color:var(--foreground)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-colors duration-200 hover:border-[color:var(--neon-green)]/40"
+              >
+                <span className="mr-3 size-2 rounded-full bg-[color:var(--neon-green)] shadow-[0_0_10px_var(--neon-green)]" />
+                {technology}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* ═══════════════ PROJECTS / PORTFOLIO ═══════════════ */}
       <Section id="projects">
         <h2 className="font-display text-4xl font-semibold tracking-[-0.04em] sm:text-5xl md:text-6xl">
@@ -813,7 +850,7 @@ function Home() {
                 href="https://calendly.com/codrithm/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-neon btn-neon-hover mt-4 min-h-[44px] w-full justify-center text-sm"
+                className="btn-shimmer mt-4 min-h-[44px] w-full justify-center text-sm"
               >
                 Book 30 minutes ↗
               </a>

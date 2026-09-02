@@ -188,6 +188,43 @@
       0 0 40px color-mix(in oklab, var(--neon-green) 45%, transparent);
   }
 }
+
+.btn-shimmer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.85rem 1.4rem;
+  color: oklch(0.14 0.02 265);
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: linear-gradient(
+    110deg,
+    var(--neon-green) 0%,
+    var(--neon-blue) 42%,
+    color-mix(in oklab, white 72%, var(--neon-blue)) 50%,
+    var(--neon-blue) 58%,
+    var(--neon-green) 100%
+  );
+  background-size: 220% 100%;
+  box-shadow:
+    0 10px 32px -10px color-mix(in oklab, var(--neon-blue) 55%, transparent),
+    0 0 24px color-mix(in oklab, var(--neon-green) 20%, transparent);
+  animation: shimmer 5s linear infinite;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-shimmer:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 40px -10px color-mix(in oklab, var(--neon-blue) 70%, transparent),
+    0 0 32px color-mix(in oklab, var(--neon-green) 35%, transparent);
+}
+
 @utility btn-ghost-neon {
   display: inline-flex;
   align-items: center;
@@ -267,7 +304,8 @@
 /* Mobile touch optimizations */
 @media (hover: none) {
   .btn-neon:hover,
-  .btn-ghost-neon:hover {
+  .btn-ghost-neon:hover,
+  .btn-shimmer:hover {
     transform: none;
   }
 }

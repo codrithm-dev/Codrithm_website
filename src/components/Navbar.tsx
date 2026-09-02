@@ -125,7 +125,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={(e) => scrollTo("#contact", e)}
-              className="btn-neon btn-neon-hover hidden sm:inline-flex"
+              className="btn-shimmer hidden sm:inline-flex"
             >
               Work with us
             </a>
