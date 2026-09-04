@@ -3,7 +3,7 @@ import { ContactCard } from "./ContactCard";
 export function Footer() {
   return (
     <footer className="relative mt-10 border-t border-white/5 sm:mt-12 lg:mt-16">
-      <div className="mx-auto hidden max-w-7xl justify-end px-4 py-8 sm:flex sm:px-6 sm:py-10 lg:py-12">
+      <div className="mx-auto flex max-w-7xl justify-center px-4 py-8 sm:px-6 sm:py-10 lg:py-12">
         <div>
           <ContactCard />
         </div>

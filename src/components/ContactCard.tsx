@@ -2,7 +2,7 @@ import { SocialIcon } from "./SocialIcon";
 
 export function ContactCard() {
   return (
-    <div className="contact-card hidden sm:flex">
+    <div className="contact-card flex">
       <div className="card w-[160px] h-[160px] sm:w-[200px] sm:h-[200px]">
         <div className="background" />
         <div className="logo">
