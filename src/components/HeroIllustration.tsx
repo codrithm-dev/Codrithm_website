@@ -48,7 +48,7 @@ export const HeroIllustration = memo(function HeroIllustration() {
     <div className="relative flex h-full w-full items-center justify-center">
       <svg
         viewBox="0 0 500 450"
-        className="h-full w-full max-h-[450px] max-w-[500px]"
+        className="h-full w-full max-h-112.5 max-w-125"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>

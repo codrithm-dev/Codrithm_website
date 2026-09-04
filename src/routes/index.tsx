@@ -285,7 +285,7 @@ function Home() {
             </motion.div>
             <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
               <Stat value="600+" label="Followers" countUp />
-              <Stat value="10" label="Team Members" countUp />
+              <Stat value="7+" label="Team Members" countUp />
               <Stat value="100+" label="Active Members" countUp />
             </div>
           </div>
@@ -333,46 +333,6 @@ function Home() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </Section>
-
-      <Section>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
-          {[
-            {
-              t: "Mission",
-              d: "Help junior developers learn, work on practical projects, and grow with knowledge, service, and integrity.",
-              icon: "◇",
-            },
-            {
-              t: "Vision",
-              d: "Developers who keep learning, share their knowledge, and support others.",
-              icon: "○",
-            },
-            {
-              t: "Values",
-              d: "Ilm (Knowledge). Ihsan (Excellence). Ikhlas (Sincerity). Tawadu (Humility). We push juniors to lead.",
-              icon: "△",
-            },
-          ].map((v, i) => (
-            <Reveal key={v.t} delay={i * 0.06}>
-              <div className="group relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.2),0_4px_16px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_1px_2px_rgba(0,0,0,0.2),0_8px_32px_rgba(0,102,255,0.12)]">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-[color:var(--neon-blue)]/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-2xl text-gradient">{v.icon}</span>
-                    <span className="text-xs uppercase tracking-[0.15em] text-[color:var(--neon-green)] font-semibold">
-                      {v.t}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-sm sm:text-[15px] leading-relaxed">
-                    {v.d}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </Section>
 
