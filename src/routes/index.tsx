@@ -715,37 +715,52 @@ function Home() {
       {/* ═══════════════ COMMUNITY ═══════════════ */}
       <Section id="community">
         <div>
-          <Eyebrow>Upcoming events</Eyebrow>
+          <Eyebrow>Past events</Eyebrow>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold">
             A place to <span className="text-gradient">learn and build</span>.
           </h2>
-          <ul className="mt-6 sm:mt-8 space-y-3">
-            {EVENTS.map((e) => (
-              <li
-                key={e.t}
-                className="group relative rounded-2xl p-4 sm:p-5 flex flex-wrap items-center gap-3 sm:gap-5 bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-all duration-500 hover:border-[color:var(--neon-green)]/20 hover:shadow-[0_4px_16px_rgba(0,102,255,0.08)]"
-              >
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex flex-col items-center justify-center bg-[color:var(--muted)] border border-[color:var(--border)] flex-shrink-0">
-                  <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-muted-foreground font-medium">
-                    {e.d.split(" ")[0]}
-                  </div>
-                  <div className="font-display text-lg sm:text-xl text-gradient font-bold">
-                    {e.d.split(" ")[1]}
-                  </div>
+          <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-0">
+            {EVENTS.map((event, index) => {
+              const placement = ["md:-rotate-2", "md:z-10 md:-translate-y-4", "md:rotate-2"][index];
+
+              return (
+                <div key={event.t} className={placement}>
+                  <motion.article
+                    initial={{ opacity: 0, y: 28 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -8 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    className="group relative min-h-64 overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] p-6 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_12px_32px_rgba(0,0,0,0.14)] sm:min-h-72 sm:p-7"
+                  >
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/35 to-transparent" />
+                    <div className="absolute -right-16 -top-16 size-40 rounded-full bg-[color:var(--neon-blue)]/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="relative flex h-full flex-col">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="rounded-xl border border-[color:var(--neon-green)]/20 bg-[color:var(--neon-green)]/10 px-3 py-2 text-center">
+                          <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                            {event.d.split(" ")[0]}
+                          </div>
+                          <div className="font-display text-xl font-bold text-[color:var(--neon-green)]">
+                            {event.d.split(" ")[1]}
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                          Past event
+                        </span>
+                      </div>
+                      <h3 className="mt-8 max-w-xs font-display text-2xl font-semibold leading-[1.08] tracking-[-0.03em] text-[color:var(--foreground)] sm:text-3xl">
+                        {event.t}
+                      </h3>
+                      <div className="mt-auto border-t border-[color:var(--border)] pt-4 text-sm text-muted-foreground">
+                        {event.where}
+                      </div>
+                    </div>
+                  </motion.article>
                 </div>
-                <div className="relative flex-1 min-w-0">
-                  <div className="font-semibold text-sm sm:text-base text-[color:var(--foreground)] truncate">
-                    {e.t}
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{e.where}</div>
-                </div>
-                <button className="relative btn-ghost-neon !py-2 !px-3 sm:!px-4 text-xs sm:text-sm flex-shrink-0 min-h-[44px]">
-                  RSVP
-                </button>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </div>
         </div>
       </Section>
 
