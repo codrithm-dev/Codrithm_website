@@ -791,9 +791,10 @@ function Home() {
                 href="https://calendly.com/codrithm/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-shimmer mt-4 min-h-[44px] w-full justify-center text-sm"
+                className="interactive-hover-button mt-4 min-h-[44px] w-full text-sm"
               >
-                Book 30 minutes ↗
+                <span className="interactive-hover-button__label">Book 30 minutes</span>
+                <span className="interactive-hover-button__icon" aria-hidden="true">↗</span>
               </a>
             </div>
 

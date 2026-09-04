@@ -225,6 +225,73 @@
     0 0 32px color-mix(in oklab, var(--neon-green) 35%, transparent);
 }
 
+/* Purposeful motion for the booking CTA: label gives way to the arrow on hover. */
+.interactive-hover-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 0.85rem 1.4rem;
+  color: oklch(0.14 0.02 265);
+  font-weight: 650;
+  background: linear-gradient(110deg, var(--neon-green), var(--neon-blue));
+  box-shadow:
+    0 10px 32px -10px color-mix(in oklab, var(--neon-blue) 55%, transparent),
+    0 0 24px color-mix(in oklab, var(--neon-green) 20%, transparent);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.interactive-hover-button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.42) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+}
+
+.interactive-hover-button__label,
+.interactive-hover-button__icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s ease;
+}
+
+.interactive-hover-button__icon {
+  display: grid;
+  width: 1.2rem;
+  height: 1.2rem;
+  place-items: center;
+  border-radius: 9999px;
+  background: rgb(8 16 31 / 0.14);
+}
+
+.interactive-hover-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 16px 40px -10px color-mix(in oklab, var(--neon-blue) 70%, transparent),
+    0 0 32px color-mix(in oklab, var(--neon-green) 35%, transparent);
+}
+
+.interactive-hover-button:hover::after {
+  transform: translateX(120%);
+}
+
+.interactive-hover-button:hover .interactive-hover-button__label {
+  transform: translateX(-0.15rem);
+}
+
+.interactive-hover-button:hover .interactive-hover-button__icon {
+  transform: translate(0.14rem, -0.1rem);
+}
+
 @utility btn-ghost-neon {
   display: inline-flex;
   align-items: center;
@@ -299,7 +366,8 @@
 @media (hover: none) {
   .btn-neon:hover,
   .btn-ghost-neon:hover,
-  .btn-shimmer:hover {
+  .btn-shimmer:hover,
+  .interactive-hover-button:hover {
     transform: none;
   }
 }
