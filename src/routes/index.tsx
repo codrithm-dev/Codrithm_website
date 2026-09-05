@@ -256,10 +256,10 @@ const HERO_PRINCIPLES = [
 ];
 
 const HERO_CARD_PLACEMENT = [
-  { position: "left-[4%] top-[9%]", x: 13, y: 7 },
-  { position: "left-[27%] top-[3%]", x: -10, y: 6 },
-  { position: "right-[27%] top-[10%]", x: 11, y: -7 },
-  { position: "right-[4%] top-[4%]", x: -12, y: -6 },
+  { position: "left-[4%] top-[9%]", x: 13, y: 7, float: 8, duration: 5.4, delay: 0.2 },
+  { position: "left-[27%] top-[3%]", x: -10, y: 6, float: 7, duration: 6.1, delay: 1.1 },
+  { position: "right-[27%] top-[10%]", x: 11, y: -7, float: 9, duration: 5.7, delay: 0.6 },
+  { position: "right-[4%] top-[4%]", x: -12, y: -6, float: 7, duration: 6.4, delay: 1.5 },
 ];
 
 function HeroPrincipleCard({
@@ -298,13 +298,28 @@ function HeroFloatingCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+      initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      style={reduceMotion ? undefined : { x, y }}
       className={`absolute ${placement.position}`}
     >
-      <HeroPrincipleCard principle={principle} />
+      <motion.div
+        animate={
+          reduceMotion
+            ? undefined
+            : { y: [0, -placement.float, 0, placement.float * 0.55, 0], rotate: [0, 0.35, 0, -0.25, 0] }
+        }
+        transition={{
+          duration: placement.duration,
+          delay: placement.delay,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      >
+        <motion.div style={reduceMotion ? undefined : { x, y }}>
+          <HeroPrincipleCard principle={principle} />
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }

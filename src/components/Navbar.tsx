@@ -90,8 +90,8 @@ export function Navbar() {
               fetchPriority="high"
               className="w-9 h-9 rounded-full object-cover"
             />
-            <span className="font-display font-bold tracking-tight text-lg">
-              Cod<span className="text-gradient">rithm</span>
+            <span className="font-display text-xl font-bold tracking-tight text-white">
+              Codrithm
             </span>
           </a>
           <ul className="hidden lg:flex items-center gap-1">
