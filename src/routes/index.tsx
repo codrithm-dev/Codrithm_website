@@ -409,33 +409,28 @@ function Home() {
         <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
           Organizations we <span className="text-gradient">work with.</span>
         </h2>
-        <div
-          className="relative mt-8 overflow-hidden sm:mt-10"
-          style={{
-            maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
-          }}
-        >
-          <div className="flex w-max items-center gap-3 py-1 hover:[animation-play-state:paused] animate-marquee">
-            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, index) => (
-              <div
-                key={`${partner.name}-${index}`}
-                className="flex h-20 items-center gap-3 rounded-xl border border-slate-200 bg-slate-100 px-4 text-slate-900 shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-transform duration-200 hover:scale-[1.02]"
-              >
-                <div className="flex h-12 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    loading="lazy"
-                    decoding="async"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <p className="whitespace-nowrap font-display text-sm font-semibold tracking-[-0.02em]">
-                  {partner.name}
-                </p>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+          {PARTNERS.map((partner) => (
+            <motion.article
+              key={partner.name}
+              whileHover={{ y: -3 }}
+              transition={{ type: "spring", stiffness: 320, damping: 24 }}
+              className="group flex min-h-36 flex-col items-center justify-center rounded-2xl border border-slate-200 bg-slate-100 p-4 text-center sm:min-h-40 sm:p-5"
+            >
+              <div className="flex h-20 w-full items-center justify-center">
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-            ))}
-          </div>
+              <p className="mt-2 text-xs font-semibold tracking-[-0.01em] text-slate-700">
+                {partner.name}
+              </p>
+            </motion.article>
+          ))}
         </div>
       </Section>
 
