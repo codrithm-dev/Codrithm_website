@@ -10,6 +10,9 @@ import deepCiphersLogo from "../assets/deepciphers.webp";
 import superiorAiSocietyLogo from "../assets/superior-ai-society.webp";
 import ncbaeLogo from "../assets/ncbae.webp";
 import microsoftStudentAmbassadorsLogo from "../assets/microsoft-student-ambassadors.webp";
+import voxaSignLogo from "../assets/voxasign.webp";
+import superiorUniversityLogo from "../assets/superior-university.webp";
+import nylpLogo from "../assets/nylp.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -206,6 +209,9 @@ const PARTNERS: { name: string; logo: string; url?: string }[] = [
     logo: microsoftStudentAmbassadorsLogo,
     url: undefined,
   },
+  { name: "VoxaSign", logo: voxaSignLogo, url: undefined },
+  { name: "Superior University", logo: superiorUniversityLogo, url: undefined },
+  { name: "National Youth Leadership Programme", logo: nylpLogo, url: undefined },
 ];
 
 /* ── Component ────────────────────────────────────────────────────── */
@@ -415,7 +421,7 @@ function Home() {
                 key={`${partner.name}-${index}`}
                 className="flex h-20 items-center gap-3 rounded-xl border border-slate-200 bg-slate-100 px-4 text-slate-900 shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-transform duration-200 hover:scale-[1.02]"
               >
-                <div className="flex size-11 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
+                <div className="flex h-12 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
