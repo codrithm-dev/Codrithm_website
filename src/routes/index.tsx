@@ -1,9 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState, type PointerEvent } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { Section, Eyebrow, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
-import { HeroIllustration } from "../components/HeroIllustration";
 import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
 import interAiClubLogo from "../assets/inter-ai-club.webp";
 import deepCiphersLogo from "../assets/deepciphers.webp";
@@ -21,13 +28,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
+          "Codrithm is a student-driven technology community grounded in ethical values, continuous learning, and mutual support.",
       },
       { property: "og:title", content: "Codrithm — Where Coders Make History" },
       {
         property: "og:description",
         content:
-          "Codrithm is a technology company and developer community. We build software, run practical sessions, and help aspiring developers gain experience.",
+          "Codrithm is a student-driven technology community grounded in ethical values, continuous learning, and mutual support.",
       },
     ],
   }),
@@ -244,40 +251,133 @@ const EVENTS = [
 // Keep the landing page focused; the dedicated /team route renders the full team.
 const LANDING_TEAM_LIMIT = 7;
 
+const HERO_PRINCIPLES = [
+  { title: "Ethical values", detail: "Integrity first" },
+  { title: "Learn in practice", detail: "Real projects" },
+  { title: "Peer mentorship", detail: "Grow together" },
+  { title: "Collaborative innovation", detail: "Better together" },
+];
+
+const HERO_CARD_PLACEMENT = [
+  { position: "left-[4%] top-[9%]", x: 13, y: 7 },
+  { position: "left-[27%] top-[3%]", x: -10, y: 6 },
+  { position: "right-[27%] top-[10%]", x: 11, y: -7 },
+  { position: "right-[4%] top-[4%]", x: -12, y: -6 },
+];
+
+function HeroPrincipleCard({
+  principle,
+  className = "",
+}: {
+  principle: (typeof HERO_PRINCIPLES)[number];
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex w-max items-center gap-2.5 rounded-full border border-white/10 bg-[color:var(--card)]/90 px-3 py-2 shadow-[0_10px_28px_rgba(0,0,0,0.22)] backdrop-blur-sm ${className}`}
+    >
+      <span className="size-2 rounded-full bg-[color:var(--neon-green)] shadow-[0_0_10px_var(--neon-green)]" aria-hidden="true" />
+      <p className="font-display text-sm font-semibold text-foreground">{principle.title}</p>
+      <span className="text-xs text-muted-foreground">· {principle.detail}</span>
+    </div>
+  );
+}
+
+function HeroFloatingCard({
+  principle,
+  placement,
+  pointerX,
+  pointerY,
+  reduceMotion,
+}: {
+  principle: (typeof HERO_PRINCIPLES)[number];
+  placement: (typeof HERO_CARD_PLACEMENT)[number];
+  pointerX: MotionValue<number>;
+  pointerY: MotionValue<number>;
+  reduceMotion: boolean | null;
+}) {
+  const x = useTransform(pointerX, [-1, 1], [-placement.x, placement.x]);
+  const y = useTransform(pointerY, [-1, 1], [-placement.y, placement.y]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      style={reduceMotion ? undefined : { x, y }}
+      className={`absolute ${placement.position}`}
+    >
+      <HeroPrincipleCard principle={principle} />
+    </motion.div>
+  );
+}
+
 /* ── Component ────────────────────────────────────────────────────── */
 
 function Home() {
   const [openProject, setOpenProject] = useState<P | null>(null);
   const [contactSent, setContactSent] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const pointerX = useSpring(useMotionValue(0), { stiffness: 90, damping: 22, mass: 0.45 });
+  const pointerY = useSpring(useMotionValue(0), { stiffness: 90, damping: 22, mass: 0.45 });
+
+  const updateHeroPointer = (event: PointerEvent<HTMLElement>) => {
+    if (reduceMotion || event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    pointerX.set(((event.clientX - bounds.left) / bounds.width) * 2 - 1);
+    pointerY.set(((event.clientY - bounds.top) / bounds.height) * 2 - 1);
+  };
+
+  const resetHeroPointer = () => {
+    pointerX.set(0);
+    pointerY.set(0);
+  };
 
   return (
     <>
       {/* ═══════════════ HERO ═══════════════ */}
-      <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto grid min-h-[70vh] max-w-7xl items-center gap-8 px-4 pt-20 pb-16 sm:min-h-[80vh] sm:gap-10 sm:px-6 sm:pt-6 sm:pb-24 lg:grid-cols-2">
-          <div>
+      <section
+        id="home"
+        className="relative isolate overflow-hidden"
+        onPointerMove={updateHeroPointer}
+        onPointerLeave={resetHeroPointer}
+      >
+        <div
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-full max-w-7xl -translate-x-1/2 xl:block"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center">
+            <span className="font-display text-[clamp(7rem,17vw,16rem)] font-bold tracking-[-0.1em] text-white/[0.035]">
+              CODRITHM
+            </span>
+          </div>
+          <div className="absolute left-1/2 top-1/2 size-[38rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[color:var(--neon-blue)]/[0.07] blur-3xl" />
+          {HERO_PRINCIPLES.map((principle, index) => (
+            <HeroFloatingCard
+              key={principle.title}
+              principle={principle}
+              placement={HERO_CARD_PLACEMENT[index]!}
+              pointerX={pointerX}
+              pointerY={pointerY}
+              reduceMotion={reduceMotion}
+            />
+          ))}
+        </div>
+        <div className="relative z-10 mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center px-4 pb-14 pt-20 text-center sm:min-h-[80vh] sm:px-6 sm:pb-20 sm:pt-24 xl:min-h-[680px] xl:justify-center">
+          <div className="w-full">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.02]"
+              className="font-display text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl"
             >
               Where Coders <span className="text-gradient">Make History</span>.
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15 }}
-              className="mt-6 text-lg text-muted-foreground max-w-xl"
-            >
-              Coding the logic, crafting the flow. We build software, run practical sessions, and
-              help aspiring developers gain experience.
-            </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3 }}
-              className="mt-8 flex flex-wrap gap-3"
+              transition={{ duration: 0.9, delay: 0.15 }}
+              className="mt-8 flex flex-wrap justify-center gap-3"
             >
               <a href="#services" className="btn-neon btn-neon-hover">
                 Explore Services →
@@ -289,57 +389,28 @@ function Home() {
                 Get in Touch
               </a>
             </motion.div>
-            <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md">
+            <div className="mx-auto mt-8 grid max-w-md grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-3">
               <Stat value="600+" label="Followers" countUp />
               <Stat value="7+" label="Team Members" countUp />
               <Stat value="100+" label="Active Members" countUp />
             </div>
-          </div>
-          <div className="relative h-[300px] sm:h-[400px] lg:h-[500px]">
-            <HeroIllustration />
           </div>
         </div>
       </section>
 
       {/* ═══════════════ ABOUT ═══════════════ */}
       <Section id="about">
-        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
-          <Reveal>
-            <h2 className="max-w-3xl font-display text-4xl font-bold leading-[1.03] sm:text-5xl md:text-6xl">
-              Code with <span className="text-gradient">purpose.</span>
-              <br />
-              Build with <span className="text-gradient">people.</span>
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Codrithm is a technology company and developer community guided by Islamic values. We
-              build software, share what we learn, and create practical opportunities for students
-              and aspiring developers.
-            </p>
-          </Reveal>
-          <div className="border-t border-[color:var(--border)]">
-            {[
-              { n: "01", t: "Build", d: "Software, tools, and practical digital products." },
-              { n: "02", t: "Learn", d: "Sessions, shared knowledge, and project experience." },
-              {
-                n: "03",
-                t: "Connect",
-                d: "A community built on service, integrity, and collaboration.",
-              },
-            ].map((s) => (
-              <Reveal key={s.n}>
-                <div className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[color:var(--border)] py-5 sm:py-6">
-                  <span className="font-mono text-sm font-semibold text-[color:var(--neon-green)] sm:text-base">
-                    {s.n}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-xl font-semibold">{s.t}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+        <Reveal>
+          <h2 className="max-w-3xl font-display text-4xl font-bold leading-[1.03] sm:text-5xl md:text-6xl">
+            Code with <span className="text-gradient">purpose.</span>
+            <br />
+            Grow with <span className="text-gradient">people.</span>
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Codrithm creates practical opportunities for students and aspiring developers to learn,
+            contribute, and support one another through real work.
+          </p>
+        </Reveal>
       </Section>
 
       {/* TIMELINE */}
