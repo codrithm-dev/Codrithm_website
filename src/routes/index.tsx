@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Section, Eyebrow, Reveal, Stat } from "../components/ui";
@@ -735,10 +735,19 @@ function Home() {
         </p>
         <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {TEAM.slice(0, LANDING_TEAM_LIMIT).map((m, i) => (
-            <Reveal key={m.name} delay={i * 0.08}>
+            <Reveal
+              key={m.name}
+              delay={i * 0.08}
+              className={i >= 3 ? "hidden md:block" : undefined}
+            >
               <TeamCard member={m} />
             </Reveal>
           ))}
+        </div>
+        <div className="mt-8 flex justify-center md:hidden">
+          <Link to="/team" className="btn-ghost-neon min-h-[44px]">
+            See all team members <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </Section>
 
