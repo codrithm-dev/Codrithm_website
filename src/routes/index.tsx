@@ -490,7 +490,7 @@ function Home() {
                 key={`${partner.name}-${index}`}
                 className="flex h-20 items-center gap-3 rounded-xl border border-slate-200 bg-slate-100 px-4 text-slate-900 shadow-[0_1px_2px_rgba(0,0,0,0.15)] transition-transform duration-200 hover:scale-[1.02]"
               >
-                <div className="flex h-12 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
+                <div className="flex h-12 w-20 flex-shrink-0 items-center justify-center">
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
