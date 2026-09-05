@@ -472,7 +472,11 @@
   font-family: var(--font-display, system-ui, sans-serif);
 }
 .contact-card .icon {
-  display: inline-block;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
 }
@@ -484,7 +488,10 @@
 .contact-card .box {
   position: absolute;
   padding: 10px;
-  text-align: right;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
   background: rgba(255, 255, 255, 0.389);
   border-top: 2px solid rgb(255, 255, 255);
   border-right: 1px solid white;
@@ -520,10 +527,10 @@
   filter: drop-shadow(0 0 5px white);
 }
 .contact-card .box2 {
-  width: 50%;
-  height: 50%;
-  bottom: -50%;
-  left: -50%;
+  width: 48%;
+  height: 48%;
+  bottom: -48%;
+  left: -48%;
   transition-delay: 0.2s;
 }
 .contact-card .box2::before {
@@ -536,10 +543,10 @@
   filter: drop-shadow(0 0 5px white);
 }
 .contact-card .box3 {
-  width: 30%;
-  height: 30%;
-  bottom: -30%;
-  left: -30%;
+  width: 26%;
+  height: 26%;
+  bottom: -26%;
+  left: -26%;
   transition-delay: 0.4s;
 }
 .contact-card .box3::before {
@@ -550,13 +557,6 @@
 }
 .contact-card .box3:hover .icon .svg {
   filter: drop-shadow(0 0 5px white);
-}
-.contact-card .box4 {
-  width: 10%;
-  height: 10%;
-  bottom: -10%;
-  left: -10%;
-  transition-delay: 0.6s;
 }
 .contact-card .card:hover {
   transform: scale(1.1);

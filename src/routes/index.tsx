@@ -11,7 +11,6 @@ import {
 } from "framer-motion";
 import { Section, Eyebrow, Reveal, Stat } from "../components/ui";
 import { TeamCard, TEAM } from "../components/TeamCard";
-import { SocialIcon, type SocialIconName } from "../components/SocialIcon";
 import interAiClubLogo from "../assets/inter-ai-club.webp";
 import deepCiphersLogo from "../assets/deepciphers.webp";
 import superiorAiSocietyLogo from "../assets/superior-ai-society.webp";
@@ -881,57 +880,17 @@ function Home() {
               </a>
             </div>
 
-            <div className="relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 overflow-hidden bg-[color:var(--card)] border border-[color:var(--border)] shadow-[0_1px_2px_rgba(0,0,0,0.15)]">
+            <div className="relative overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:var(--card)] p-5 shadow-[0_1px_2px_rgba(0,0,0,0.15)] sm:p-6">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--neon-green)]/20 to-transparent" />
               <div className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">
                 Connect with us
               </div>
-              <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">
-                Follow Codrithm for announcements, projects, and ways to collaborate.{" "}
-                <a
-                  href="mailto:codrithm@gmail.com"
-                  className="font-medium text-[color:var(--foreground)] underline decoration-[color:var(--neon-green)]/50 underline-offset-4 transition-colors hover:text-[color:var(--neon-green)]"
-                >
-                  codrithm@gmail.com
-                </a>
-              </p>
-              <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
-                {[
-                  { name: "Linktree", icon: "linktree", url: "https://linktr.ee/codrithm" },
-                  {
-                    name: "LinkedIn",
-                    icon: "linkedin",
-                    url: "https://linkedin.com/company/codrithmdev",
-                  },
-                  { name: "YouTube", icon: "youtube", url: "https://www.youtube.com/@codrithm" },
-                  {
-                    name: "Instagram",
-                    icon: "instagram",
-                    url: "https://www.instagram.com/codrithm",
-                  },
-                  {
-                    name: "Facebook",
-                    icon: "facebook",
-                    url: "https://www.facebook.com/profile.php?id=61588306509274",
-                  },
-                  {
-                    name: "WhatsApp",
-                    icon: "whatsapp",
-                    url: "https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g",
-                  },
-                ].map((s) => (
-                  <a
-                    key={s.name}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-lg px-3 py-1.5 text-xs font-medium bg-[color:var(--muted)] border border-[color:var(--border)] text-muted-foreground hover:text-[color:var(--neon-green)] hover:border-[color:var(--neon-green)]/20 min-h-[44px] inline-flex items-center gap-2 transition-colors duration-200"
-                  >
-                    <SocialIcon name={s.icon as SocialIconName} className="size-4" />
-                    {s.name}
-                  </a>
-                ))}
-              </div>
+              <a
+                href="mailto:codrithm@gmail.com"
+                className="mt-2 inline-flex text-sm font-medium text-[color:var(--foreground)] underline decoration-[color:var(--neon-green)]/50 underline-offset-4 transition-colors hover:text-[color:var(--neon-green)]"
+              >
+                codrithm@gmail.com
+              </a>
             </div>
           </div>
         </div>

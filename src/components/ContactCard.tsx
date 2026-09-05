@@ -1,5 +1,30 @@
 import { SocialIcon } from "./SocialIcon";
 
+const socialLinks = {
+  linkedin: "https://linkedin.com/company/codrithmdev",
+  instagram: "https://www.instagram.com/codrithm",
+  facebook: "https://www.facebook.com/profile.php?id=61588306509274",
+  youtube: "https://www.youtube.com/@codrithm",
+  whatsapp: "https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g",
+};
+
+function SocialLink({ name }: { name: keyof typeof socialLinks }) {
+  const label = name === "whatsapp" ? "Join Codrithm on WhatsApp" : `Codrithm on ${name}`;
+
+  return (
+    <a
+      href={socialLinks[name]}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      title={label}
+      className="icon"
+    >
+      <SocialIcon name={name} className="svg" />
+    </a>
+  );
+}
+
 export function ContactCard() {
   return (
     <div className="contact-card flex">
@@ -9,43 +34,17 @@ export function ContactCard() {
           <span className="logo-text">socials</span>
         </div>
 
-        <a
-          className="box box1"
-          href="https://linkedin.com/company/codrithmdev"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Codrithm on LinkedIn"
-        >
-          <span className="icon">
-            <SocialIcon name="linkedin" className="svg" />
-          </span>
-        </a>
-
-        <a
-          className="box box2"
-          href="https://www.instagram.com/codrithm"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Codrithm on Instagram"
-        >
-          <span className="icon">
-            <SocialIcon name="instagram" className="svg" />
-          </span>
-        </a>
-
-        <a
-          className="box box3"
-          href="https://chat.whatsapp.com/DiJkqIDK0yi7eQRuaHZ22g"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Join Codrithm on WhatsApp"
-        >
-          <span className="icon">
-            <SocialIcon name="whatsapp" className="svg" />
-          </span>
-        </a>
-
-        <div className="box box4" />
+        <div className="box box1">
+          <SocialLink name="linkedin" />
+          <SocialLink name="instagram" />
+        </div>
+        <div className="box box2">
+          <SocialLink name="facebook" />
+          <SocialLink name="youtube" />
+        </div>
+        <div className="box box3">
+          <SocialLink name="whatsapp" />
+        </div>
       </div>
     </div>
   );
